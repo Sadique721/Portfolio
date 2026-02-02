@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Md Sadique Amin | Full Stack Developer | Java & Python | AI Engineer | Data Scientist</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'zigzag': 'zigzag 20s linear infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                        'shimmer': 'shimmer 2s infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                        'wave': 'wave 2s ease-in-out infinite',
+                        'gradient': 'gradient 3s ease infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        zigzag: {
+                            '0%': { transform: 'translateX(0) translateY(0)' },
+                            '25%': { transform: 'translateX(20px) translateY(-20px)' },
+                            '50%': { transform: 'translateX(40px) translateY(0)' },
+                            '75%': { transform: 'translateX(20px) translateY(20px)' },
+                            '100%': { transform: 'translateX(0) translateY(0)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: 1, boxShadow: '0 0 20px rgba(34, 211, 238, 0.5)' },
+                            '50%': { opacity: 0.8, boxShadow: '0 0 40px rgba(34, 211, 238, 0.8)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200px 0' },
+                            '100%': { backgroundPosition: 'calc(200px + 100%) 0' },
+                        },
+                        wave: {
+                            '0%, 100%': { transform: 'rotate(0deg)' },
+                            '25%': { transform: 'rotate(-5deg)' },
+                            '75%': { transform: 'rotate(5deg)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Particle Background -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a192f;
+            overflow-x: hidden;
+        }
+        
+        .digital-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #22d3ee, #0ea5e9, #3b82f6, #8b5cf6);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient 3s ease infinite;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0a192f 0%, #1e293b 50%, #0f172a 100%);
+        }
+        
+        .ai-gradient {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+            background-size: 300% 300%;
+            animation: gradient 3s ease infinite;
+        }
+        
+        .ds-gradient {
+            background: linear-gradient(45deg, #6a11cb, #2575fc, #43e97b, #38f9d7);
+            background-size: 300% 300%;
+            animation: gradient 3s ease infinite;
+        }
+        
+        /* Existing styles remain unchanged, adding new ones below */
+        
+        .role-badge {
+            background: linear-gradient(45deg, rgba(34, 211, 238, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .project-tag {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .project-tag:hover {
+            background: rgba(34, 211, 238, 0.1);
+            border-color: rgba(34, 211, 238, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .tech-item {
+            padding: 4px 12px;
+            background: rgba(34, 211, 238, 0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #22d3ee;
+            border: 1px solid rgba(34, 211, 238, 0.3);
+        }
+        
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.3),
+                        0 0 40px rgba(34, 211, 238, 0.1),
+                        0 0 60px rgba(34, 211, 238, 0.05);
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 2s infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(1.2); opacity: 0; }
+        }
+        
+        /* Rest of existing styles remain the same */
+        .zigzag-border {
+            position: relative;
+        }
+        
+        .zigzag-border::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(45deg, transparent 33.333%, #22d3ee 33.333%, #22d3ee 66.667%, transparent 66.667%);
+            background-size: 20px 10px;
+            animation: wave 2s linear infinite;
+        }
+        
+        .neon-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .neon-card:hover {
+            border-color: rgba(34, 211, 238, 0.8);
+            box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+            transform: translateY(-10px);
+        }
+        
+        .glow {
+            filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.7));
+        }
+        
+        /* ... (all other existing styles remain exactly as they were) ... */
+    </style>
+</head>
+<body class="text-slate-200 overflow-x-hidden">
+    
+    <!-- Particle Background -->
+    <div id="particles-js" class="fixed inset-0 z-0"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="floating-shapes top-20 left-10"></div>
+    <div class="floating-shapes bottom-20 right-10"></div>
+    <div class="floating-shapes top-1/2 left-1/3"></div>
+    
+    <!-- Binary Background -->
+    <div class="binary-background"></div>
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 w-full px-4 sm:px-8 md:px-16 lg:px-24 py-5 bg-slate-900/80 backdrop-blur-sm z-50 transition-all duration-300 neon-card">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="text-3xl font-bold gradient-text digital-font flex items-center space-x-2">
+                <i class='bx bx-code-alt text-cyan-400'></i>
+                <span>Sadique</span>
+                <span class="typing-cursor"></span>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-lg hover:text-cyan-400 transition duration-300 relative group">
+                    <span class="relative z-10">Home</span>
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#about" class="text-lg hover:text-cyan-400 transition duration-300 relative group">
+                    <span class="relative z-10">About</span>
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#skills" class="text-lg hover:text-cyan-400 transition duration-300 relative group">
+                    <span class="relative z-10">Skills</span>
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#experience" class="text-lg hover:text-cyan-400 transition duration-300 relative group">
+                    <span class="relative z-10">Experience</span>
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#projects" class="text-lg hover:text-cyan-400 transition duration-300 relative group">
+                    <span class="relative z-10">Projects</span>
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#ai-projects" class="text-lg hover:text-cyan-400 transition duration-300 relative group">
+                    <span class="relative z-10">AI Projects</span>
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#contact" class="text-lg hover:text-cyan-400 transition duration-300 relative group">
+                    <span class="relative z-10">Contact</span>
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
+                </a>
+            </nav>
+
+            <button id="menu-toggle" class="md:hidden text-3xl text-cyan-400 glow">
+                <i class='bx bx-menu'></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="fixed top-0 right-[-100%] md:hidden w-3/4 h-full bg-slate-900/95 backdrop-blur-lg z-50 transition-all duration-500 ease-in-out flex flex-col items-center justify-center space-y-8 neon-card">
+        <a href="#home" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Home</a>
+        <a href="#about" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">About</a>
+        <a href="#skills" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Skills</a>
+        <a href="#experience" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Experience</a>
+        <a href="#projects" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Projects</a>
+        <a href="#ai-projects" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">AI Projects</a>
+        <a href="#contact" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Contact</a>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center px-4 sm:px-8 md:px-16 lg:px-24 pt-24 md:pt-0 relative overflow-hidden">
+            <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
+                <div class="home-content md:w-3/5 text-center md:text-left" data-aos="fade-right">
+                    <!-- Updated Role Badges -->
+                    <div class="flex flex-wrap gap-3 mb-6 justify-center md:justify-start">
+                        <div class="px-4 py-2 rounded-full role-badge animate-pulse-glow">
+                            <span class="text-cyan-400 text-sm digital-font">🚀 FULL STACK DEVELOPER</span>
+                        </div>
+                        <div class="px-4 py-2 rounded-full role-badge animate-pulse-glow" style="animation-delay: 0.5s">
+                            <span class="text-purple-400 text-sm digital-font">🤖 AI ENGINEER</span>
+                        </div>
+                        <div class="px-4 py-2 rounded-full role-badge animate-pulse-glow" style="animation-delay: 1s">
+                            <span class="text-green-400 text-sm digital-font">📊 DATA SCIENTIST</span>
+                        </div>
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-4">
+                        <span class="gradient-text">Md Sadique</span>
+                        <br>
+                        <span class="text-slate-300">Amin</span>
+                    </h1>
+                    
+                    <div class="text-2xl lg:text-4xl font-bold mb-6 h-16">
+                        <span id="typed-text" class="gradient-text digital-font"></span>
+                        <span class="typing-cursor"></span>
+                    </div>
+                    
+                    <p class="text-lg mb-8 max-w-xl mx-auto md:mx-0 text-slate-400">
+                        Crafting intelligent solutions with expertise in 
+                        <span class="text-cyan-400 font-bold">Java</span>, 
+                        <span class="text-cyan-400 font-bold">Spring Boot</span>, 
+                        <span class="text-cyan-400 font-bold">Python</span>,
+                        <span class="text-purple-400 font-bold">Machine Learning</span>, and 
+                        <span class="text-green-400 font-bold">Data Science</span>.
+                        Building scalable full-stack applications and AI-driven systems.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8" data-aos="fade-up" data-aos-delay="200">
+                        <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/25">
+                            <i class='bx bx-rocket mr-2'></i>Hire Me
+                        </a>
+                        <a href="#projects" class="px-8 py-3 border-2 border-cyan-400 text-cyan-400 font-semibold rounded-lg hover:bg-cyan-400/10 transition-all duration-300 transform hover:scale-105">
+                            <i class='bx bx-code-alt mr-2'></i>View Projects
+                        </a>
+                    </div>
+                    
+                    <!-- Live Stats - Updated -->
+                    <div class="grid grid-cols-4 gap-4 mb-8" data-aos="fade-up" data-aos-delay="400">
+                        <div class="text-center p-4 rounded-lg bg-slate-800/30 border border-slate-700">
+                            <div class="text-3xl font-bold text-cyan-400 digital-font" id="projectCount">0</div>
+                            <div class="text-sm text-slate-400">Projects</div>
+                        </div>
+                        <div class="text-center p-4 rounded-lg bg-slate-800/30 border border-slate-700">
+                            <div class="text-3xl font-bold text-purple-400 digital-font" id="aiProjectCount">0</div>
+                            <div class="text-sm text-slate-400">AI Projects</div>
+                        </div>
+                        <div class="text-center p-4 rounded-lg bg-slate-800/30 border border-slate-700">
+                            <div class="text-3xl font-bold text-cyan-400 digital-font" id="experienceCount">0</div>
+                            <div class="text-sm text-slate-400">Months Exp</div>
+                        </div>
+                        <div class="text-center p-4 rounded-lg bg-slate-800/30 border border-slate-700">
+                            <div class="text-3xl font-bold text-green-400 digital-font" id="skillCount">0</div>
+                            <div class="text-sm text-slate-400">Skills</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="home-img md:w-2/5 flex justify-center" data-aos="fade-left" data-aos-delay="200">
+                    <div class="relative">
+                        <div class="morphing-shape w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 flex items-center justify-center relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-purple-400/20 to-green-400/20 rounded-full blur-xl"></div>
+                            <div class="absolute inset-8 border-4 border-cyan-400/30 rounded-full animate-spin-slow"></div>
+                            <div class="relative z-10 flex flex-col items-center justify-center">
+                                <i class='bx bx-brain text-slate-900 text-8xl sm:text-9xl'></i>
+                                <div class="mt-4 text-center">
+                                    <div class="text-xl font-bold digital-font">PYTHON & JAVA</div>
+                                    <div class="text-sm text-slate-300">Full Stack | AI Engineer | Data Scientist</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Updated Floating Tech Icons -->
+                        <div class="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-slate-800 border border-cyan-400 flex items-center justify-center animate-float">
+                            <i class='bx bxl-java text-3xl text-cyan-400'></i>
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 w-16 h-16 rounded-full bg-slate-800 border border-purple-400 flex items-center justify-center animate-float" style="animation-delay: 1s">
+                            <i class='bx bxl-python text-3xl text-purple-400'></i>
+                        </div>
+                        <div class="absolute top-1/2 -right-8 w-16 h-16 rounded-full bg-slate-800 border border-green-400 flex items-center justify-center animate-float" style="animation-delay: 2s">
+                            <i class='bx bx-brain text-3xl text-green-400'></i>
+                        </div>
+                        <div class="absolute top-1/2 -left-8 w-16 h-16 rounded-full bg-slate-800 border border-cyan-400 flex items-center justify-center animate-float" style="animation-delay: 1.5s">
+                            <i class='bx bxl-react text-3xl text-cyan-400'></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+                <a href="#about" class="flex flex-col items-center text-cyan-400">
+                    <span class="text-sm mb-2">Scroll</span>
+                    <i class='bx bx-chevron-down text-2xl'></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 px-4 sm:px-8 md:px-16 lg:px-24 relative overflow-hidden">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-16 text-center section-title" data-aos="fade-up">
+                    <span class="gradient-text digital-font">About Me</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <div class="neon-card rounded-2xl p-8 interactive-card">
+                            <h3 class="text-2xl font-bold text-cyan-400 mb-6 flex items-center">
+                                <i class='bx bx-user-circle mr-3'></i> Professional Profile
+                            </h3>
+                            
+                            <div class="space-y-6">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 rounded-lg bg-cyan-900/30 flex items-center justify-center">
+                                            <i class='bx bx-calendar text-cyan-400'></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm text-slate-400">Date of Birth</div>
+                                            <div class="font-semibold">05/03/2002</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 rounded-lg bg-cyan-900/30 flex items-center justify-center">
+                                            <i class='bx bx-map text-cyan-400'></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm text-slate-400">Location</div>
+                                            <div class="font-semibold">Begusarai, Bihar</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 rounded-lg bg-cyan-900/30 flex items-center justify-center">
+                                            <i class='bx bx-envelope text-cyan-400'></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm text-slate-400">Email</div>
+                                            <div class="font-semibold">mdsadiqueamin721786@gmail.com</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 rounded-lg bg-cyan-900/30 flex items-center justify-center">
+                                            <i class='bx bx-phone text-cyan-400'></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm text-slate-400">Phone</div>
+                                            <div class="font-semibold">+91 9318302850</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="pt-6 border-t border-slate-700">
+                                    <h4 class="text-lg font-semibold text-cyan-400 mb-3">Objective</h4>
+                                    <p class="text-slate-300">
+                                        Passionate Software Engineer with expertise in Full Stack Development, 
+                                        Artificial Intelligence, and Data Science. Seeking challenging opportunities 
+                                        to leverage my skills in Java, Spring Boot, Python, Machine Learning, and 
+                                        modern web technologies to build innovative solutions and drive business success.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div data-aos="fade-left" data-aos-delay="200">
+                        <div class="neon-card rounded-2xl p-8">
+                            <h3 class="text-2xl font-bold text-cyan-400 mb-6 flex items-center">
+                                <i class='bx bx-bulb mr-3'></i> Expertise Areas
+                            </h3>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 rounded-full bg-cyan-900/30 flex items-center justify-center flex-shrink-0 animate-pulse">
+                                        <i class='bx bx-code-curly text-cyan-400 text-xl'></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-slate-200">Full Stack Development</h4>
+                                        <p class="text-slate-400">Java Spring Boot, Python Django, React.js, MySQL, REST APIs</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 rounded-full bg-purple-900/30 flex items-center justify-center flex-shrink-0 animate-pulse" style="animation-delay: 0.2s">
+                                        <i class='bx bx-brain text-purple-400 text-xl'></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-slate-200">AI/ML Engineering</h4>
+                                        <p class="text-slate-400">Machine Learning, Deep Learning, NLP, Computer Vision</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 rounded-full bg-green-900/30 flex items-center justify-center flex-shrink-0 animate-pulse" style="animation-delay: 0.4s">
+                                        <i class='bx bx-line-chart text-green-400 text-xl'></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-slate-200">Data Science</h4>
+                                        <p class="text-slate-400">Data Analysis, Visualization, Statistical Modeling, Predictive Analytics</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Updated Coding Animation -->
+                            <div class="mt-8 p-4 bg-slate-900/50 rounded-lg border border-slate-700">
+                                <div class="flex space-x-2 mb-3">
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                </div>
+                                <div class="code-line text-sm font-mono">
+                                    <span class="text-purple-400">class</span> <span class="text-cyan-400">Developer</span>:<br>
+                                    &nbsp;&nbsp;<span class="text-purple-400">def</span> <span class="text-green-400">__init__</span>(<span class="text-blue-400">self</span>):<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">self</span>.roles = [<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-yellow-400">"Full Stack Developer"</span>,<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-yellow-400">"AI Engineer"</span>,<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-yellow-400">"Data Scientist"</span><br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;]<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">self</span>.skills = [<span class="text-yellow-400">"Python"</span>, <span class="text-yellow-400">"Java"</span>, <span class="text-yellow-400">"ML"</span>, <span class="text-yellow-400">"React"</span>]<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">self</span>.projects = <span class="text-orange-400">20</span><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section - ENHANCED -->
+        <section id="skills" class="py-20 px-4 sm:px-8 md:px-16 lg:px-24 bg-gradient-to-b from-slate-900/50 to-transparent relative">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-16 text-center section-title" data-aos="fade-up">
+                    <span class="gradient-text digital-font">Technical Skills</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Full Stack Development -->
+                    <div class="neon-card rounded-2xl p-6 text-center" data-aos="zoom-in">
+                        <div class="skill-ring mx-auto mb-4">
+                            <svg width="120" height="120">
+                                <defs>
+                                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#22d3ee" />
+                                        <stop offset="100%" stop-color="#0ea5e9" />
+                                    </linearGradient>
+                                </defs>
+                                <circle class="bg-ring" cx="60" cy="60" r="50" />
+                                <circle class="progress-ring" cx="60" cy="60" r="50" stroke="url(#gradient1)" 
+                                        stroke-dashoffset="314" data-percentage="92" />
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <i class='bx bx-layer text-4xl text-cyan-400'></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Full Stack Development</h3>
+                        <p class="text-slate-400 text-sm">Java, Spring Boot, Python, Django, React, Node.js</p>
+                        <div class="tech-stack justify-center">
+                            <span class="tech-item">Java</span>
+                            <span class="tech-item">Spring Boot</span>
+                            <span class="tech-item">React</span>
+                            <span class="tech-item">Django</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Python & AI/ML -->
+                    <div class="neon-card rounded-2xl p-6 text-center" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="skill-ring mx-auto mb-4">
+                            <svg width="120" height="120">
+                                <defs>
+                                    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#8b5cf6" />
+                                        <stop offset="100%" stop-color="#a78bfa" />
+                                    </linearGradient>
+                                </defs>
+                                <circle class="bg-ring" cx="60" cy="60" r="50" />
+                                <circle class="progress-ring" cx="60" cy="60" r="50" stroke="url(#gradient2)" 
+                                        stroke-dashoffset="314" data-percentage="88" />
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <i class='bx bx-brain text-4xl text-purple-400'></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">AI/ML Engineering</h3>
+                        <p class="text-slate-400 text-sm">TensorFlow, PyTorch, Scikit-learn, NLP, Computer Vision</p>
+                        <div class="tech-stack justify-center">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">TensorFlow</span>
+                            <span class="tech-item">PyTorch</span>
+                            <span class="tech-item">Scikit-learn</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Data Science -->
+                    <div class="neon-card rounded-2xl p-6 text-center" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="skill-ring mx-auto mb-4">
+                            <svg width="120" height="120">
+                                <defs>
+                                    <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#10b981" />
+                                        <stop offset="100%" stop-color="#34d399" />
+                                    </linearGradient>
+                                </defs>
+                                <circle class="bg-ring" cx="60" cy="60" r="50" />
+                                <circle class="progress-ring" cx="60" cy="60" r="50" stroke="url(#gradient3)" 
+                                        stroke-dashoffset="314" data-percentage="85" />
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <i class='bx bx-line-chart text-4xl text-green-400'></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Data Science</h3>
+                        <p class="text-slate-400 text-sm">Pandas, NumPy, Matplotlib, Seaborn, SQL, Data Analysis</p>
+                        <div class="tech-stack justify-center">
+                            <span class="tech-item">Pandas</span>
+                            <span class="tech-item">NumPy</span>
+                            <span class="tech-item">SQL</span>
+                            <span class="tech-item">Tableau</span>
+                        </div>
+                    </div>
+                    
+                    <!-- DevOps & Tools -->
+                    <div class="neon-card rounded-2xl p-6 text-center" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="skill-ring mx-auto mb-4">
+                            <svg width="120" height="120">
+                                <defs>
+                                    <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#f59e0b" />
+                                        <stop offset="100%" stop-color="#fbbf24" />
+                                    </linearGradient>
+                                </defs>
+                                <circle class="bg-ring" cx="60" cy="60" r="50" />
+                                <circle class="progress-ring" cx="60" cy="60" r="50" stroke="url(#gradient4)" 
+                                        stroke-dashoffset="314" data-percentage="80" />
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <i class='bx bx-cog text-4xl text-yellow-400'></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">DevOps & Tools</h3>
+                        <p class="text-slate-400 text-sm">Docker, Git, CI/CD, AWS, MySQL, MongoDB, REST APIs</p>
+                        <div class="tech-stack justify-center">
+                            <span class="tech-item">Docker</span>
+                            <span class="tech-item">Git</span>
+                            <span class="tech-item">AWS</span>
+                            <span class="tech-item">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Enhanced Skill Tags -->
+                <div class="mt-12" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold text-center mb-8 gradient-text">Technology Stack</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <!-- Programming Languages -->
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            Java
+                        </span>
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-purple-400/30 text-purple-400 hover:bg-purple-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            Python
+                        </span>
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            JavaScript
+                        </span>
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            C/C++
+                        </span>
+                        
+                        <!-- Frameworks -->
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            Spring Boot
+                        </span>
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            Django
+                        </span>
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            React
+                        </span>
+                        
+                        <!-- AI/ML -->
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-purple-400/30 text-purple-400 hover:bg-purple-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            TensorFlow
+                        </span>
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-purple-400/30 text-purple-400 hover:bg-purple-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            PyTorch
+                        </span>
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-purple-400/30 text-purple-400 hover:bg-purple-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            Scikit-learn
+                        </span>
+                        
+                        <!-- Data Science -->
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-green-400/30 text-green-400 hover:bg-green-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            Pandas
+                        </span>
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-green-400/30 text-green-400 hover:bg-green-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            NumPy
+                        </span>
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-green-400/30 text-green-400 hover:bg-green-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            SQL
+                        </span>
+                        
+                        <!-- Databases -->
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            MySQL
+                        </span>
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            MongoDB
+                        </span>
+                        
+                        <!-- Tools -->
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-yellow-400/30 text-yellow-400 hover:bg-yellow-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            Git & GitHub
+                        </span>
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-yellow-400/30 text-yellow-400 hover:bg-yellow-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            Docker
+                        </span>
+                        <span class="px-4 py-2 rounded-full bg-slate-800 border border-yellow-400/30 text-yellow-400 hover:bg-yellow-400/10 transition-all duration-300 cursor-pointer hover:scale-105">
+                            AWS
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section remains exactly the same -->
+        <section id="experience" class="py-20 px-4 sm:px-8 md:px-16 lg:px-24 relative">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-16 text-center section-title" data-aos="fade-up">
+                    <span class="gradient-text digital-font">Experience & Education</span>
+                </h2>
+                
+                <!-- Experience Timeline -->
+                <div class="max-w-4xl mx-auto" data-aos="fade-up">
+                    <div class="relative">
+                        <!-- Timeline Line -->
+                        <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 to-transparent transform md:-translate-x-1/2"></div>
+                        
+                        <!-- Timeline Items -->
+                        <div class="space-y-12">
+                            <!-- TechnoFly -->
+                            <div class="relative flex items-center">
+                                <div class="hidden md:block md:w-1/2"></div>
+                                <div class="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-cyan-400 border-4 border-slate-900 transform -translate-x-1/2"></div>
+                                <div class="ml-10 md:ml-0 md:w-1/2 md:pl-12">
+                                    <div class="neon-card rounded-2xl p-6">
+                                        <div class="flex items-center justify-between mb-4">
+                                            <h3 class="text-xl font-bold text-cyan-400">Web Development Intern</h3>
+                                            <span class="text-sm text-cyan-300 bg-cyan-900/30 px-3 py-1 rounded-full">Sep 2022 - Jan 2023</span>
+                                        </div>
+                                        <h4 class="text-lg text-slate-300 mb-3">TechnoFly Solutions, Bengaluru</h4>
+                                        <ul class="space-y-2 text-slate-400">
+                                            <li class="flex items-start">
+                                                <i class='bx bx-check-circle text-cyan-400 mr-2 mt-1'></i>
+                                                <span>Developed 5+ dynamic client websites using Django and React.js</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class='bx bx-check-circle text-cyan-400 mr-2 mt-1'></i>
+                                                <span>Optimized SQL queries reducing page load times by 40%</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class='bx bx-check-circle text-cyan-400 mr-2 mt-1'></i>
+                                                <span>Collaborated with team members to implement responsive designs</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- BSNL -->
+                            <div class="relative flex items-center">
+                                <div class="md:w-1/2 md:pr-12 text-right">
+                                    <div class="neon-card rounded-2xl p-6">
+                                        <div class="flex items-center justify-between mb-4">
+                                            <span class="text-sm text-cyan-300 bg-cyan-900/30 px-3 py-1 rounded-full">Jun 2022 - Jul 2022</span>
+                                            <h3 class="text-xl font-bold text-cyan-400">Industrial Trainee</h3>
+                                        </div>
+                                        <h4 class="text-lg text-slate-300 mb-3">BSNL, Hyderabad</h4>
+                                        <ul class="space-y-2 text-slate-400">
+                                            <li class="flex items-start">
+                                                <i class='bx bx-check-circle text-cyan-400 mr-2 mt-1'></i>
+                                                <span>Gained exposure to telecom networks and cybersecurity protocols</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class='bx bx-check-circle text-cyan-400 mr-2 mt-1'></i>
+                                                <span>Assisted in network troubleshooting and maintenance tasks</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-cyan-400 border-4 border-slate-900 transform -translate-x-1/2"></div>
+                                <div class="hidden md:block md:w-1/2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+                    <div class="neon-card rounded-2xl p-6 text-center" data-aos="fade-up">
+                        <div class="text-4xl text-cyan-400 mb-4">🎓</div>
+                        <h3 class="text-xl font-bold mb-2">BE (Computer Science)</h3>
+                        <p class="text-slate-400 text-sm mb-3">Government Engineering College, Patan</p>
+                        <div class="text-3xl font-bold text-cyan-400 digital-font">7.9 CGPA</div>
+                        <div class="text-sm text-slate-500 mt-2">2023-2026</div>
+                    </div>
+                    
+                    <div class="neon-card rounded-2xl p-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-4xl text-cyan-400 mb-4">📚</div>
+                        <h3 class="text-xl font-bold mb-2">Diploma (Computer Science)</h3>
+                        <p class="text-slate-400 text-sm mb-3">MANUU Polytechnic Bangalore</p>
+                        <div class="text-3xl font-bold text-cyan-400 digital-font">87.3%</div>
+                        <div class="text-sm text-slate-500 mt-2">2021-2023</div>
+                    </div>
+                    
+                    <div class="neon-card rounded-2xl p-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-4xl text-cyan-400 mb-4">🏫</div>
+                        <h3 class="text-xl font-bold mb-2">HSC</h3>
+                        <p class="text-slate-400 text-sm mb-3">G.D. College, Begusarai</p>
+                        <div class="text-3xl font-bold text-cyan-400 digital-font">66%</div>
+                        <div class="text-sm text-slate-500 mt-2">2020</div>
+                    </div>
+                    
+                    <div class="neon-card rounded-2xl p-6 text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-4xl text-cyan-400 mb-4">📝</div>
+                        <h3 class="text-xl font-bold mb-2">SSC</h3>
+                        <p class="text-slate-400 text-sm mb-3">Nerly Inter College, Begusarai</p>
+                        <div class="text-3xl font-bold text-cyan-400 digital-font">72.8%</div>
+                        <div class="text-sm text-slate-500 mt-2">2018</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section - ENHANCED -->
+        <section id="projects" class="py-20 px-4 sm:px-8 md:px-16 lg:px-24 bg-gradient-to-b from-transparent to-slate-900/50 relative">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-16 text-center section-title" data-aos="fade-up">
+                    <span class="gradient-text digital-font">Featured Projects</span>
+                </h2>
+                
+                <!-- Project Filter -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
+                    <button class="project-filter px-6 py-2 rounded-full bg-cyan-900/30 border border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 active" data-filter="all">
+                        All Projects
+                    </button>
+                    <button class="project-filter px-6 py-2 rounded-full bg-purple-900/30 border border-purple-400 text-purple-400 hover:bg-purple-400/10 transition-all duration-300" data-filter="ai">
+                        AI/ML Projects
+                    </button>
+                    <button class="project-filter px-6 py-2 rounded-full bg-green-900/30 border border-green-400 text-green-400 hover:bg-green-400/10 transition-all duration-300" data-filter="ds">
+                        Data Science
+                    </button>
+                    <button class="project-filter px-6 py-2 rounded-full bg-cyan-900/30 border border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300" data-filter="web">
+                        Web Development
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Agrotech (Python) -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web" data-aos="flip-left">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="Agrotech" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full bg-green-900/80 text-green-400 text-sm font-semibold">
+                                    Python
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Agrotech Platform</h3>
+                            <p class="text-slate-400 mb-4">Agricultural management system with crop monitoring, price prediction, and inventory management using Python</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Python</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Django</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Machine Learning</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Data Analysis</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">
+                                View Details <i class='bx bx-chevron-right ml-1'></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Advanced Scientific Calculator (C) -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web" data-aos="flip-left" data-aos-delay="100">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="Scientific Calculator" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full bg-blue-900/80 text-blue-400 text-sm font-semibold">
+                                    C Programming
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Advanced Scientific Calculator</h3>
+                            <p class="text-slate-400 mb-4">High-performance calculator with complex mathematical operations, graphing, and equation solving in C</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">C Programming</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Data Structures</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Algorithms</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Mathematics</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">
+                                View Details <i class='bx bx-chevron-right ml-1'></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Ethical Hacking Portal (Django) -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web" data-aos="flip-left" data-aos-delay="200">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="Ethical Hacking" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full bg-red-900/80 text-red-400 text-sm font-semibold">
+                                    Django
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Ethical Hacking Portal</h3>
+                            <p class="text-slate-400 mb-4">Comprehensive cybersecurity learning platform with vulnerability testing modules built with Django</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">Django</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">Python</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">Security</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">MySQL</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">
+                                View Details <i class='bx bx-chevron-right ml-1'></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Recipe Finder Pro (React) -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web" data-aos="flip-left" data-aos-delay="300">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="Recipe Finder" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full bg-cyan-900/80 text-cyan-400 text-sm font-semibold">
+                                    React.js
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Recipe Finder Pro</h3>
+                            <p class="text-slate-400 mb-4">Intelligent recipe discovery platform with ingredient-based search and nutritional analysis using React.js</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">React.js</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">API Integration</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">JavaScript</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">CSS3</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">
+                                View Details <i class='bx bx-chevron-right ml-1'></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Modern Analog Clock (JS) -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web" data-aos="flip-left" data-aos-delay="400">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="Analog Clock" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full bg-yellow-900/80 text-yellow-400 text-sm font-semibold">
+                                    JavaScript
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Modern Analog Clock</h3>
+                            <p class="text-slate-400 mb-4">Beautiful analog clock with multiple themes, timezone support, and smooth animations using pure JavaScript</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">JavaScript</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">HTML5 Canvas</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">CSS Animations</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">Responsive Design</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">
+                                View Details <i class='bx bx-chevron-right ml-1'></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Entitykart E-commerce -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web" data-aos="flip-left" data-aos-delay="500">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="E-commerce" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full bg-cyan-900/80 text-cyan-400 text-sm font-semibold">
+                                    Spring Boot
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Entitykart E-commerce</h3>
+                            <p class="text-slate-400 mb-4">Full-featured online shopping platform with Spring Boot backend and React frontend</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Spring Boot</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">React</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">MySQL</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">JWT Auth</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">
+                                View Details <i class='bx bx-chevron-right ml-1'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Projects Section - NEW -->
+        <section id="ai-projects" class="py-20 px-4 sm:px-8 md:px-16 lg:px-24 relative bg-gradient-to-b from-slate-900/30 to-transparent">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-16 text-center" data-aos="fade-up">
+                    <span class="ai-gradient digital-font" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;">AI & Data Science Projects</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    <!-- AI Project 1 -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item ai" data-aos="fade-right">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="AI Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full bg-purple-900/80 text-purple-400 text-sm font-semibold">
+                                    AI Engineer
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-purple-400 mb-3">Intelligent Image Recognition System</h3>
+                            <p class="text-slate-400 mb-4">Deep learning model for real-time object detection and classification using TensorFlow and OpenCV</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-purple-300 text-xs">TensorFlow</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-purple-300 text-xs">OpenCV</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-purple-300 text-xs">CNN</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-purple-300 text-xs">Python</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-purple-400 hover:text-purple-300">
+                                View Details <i class='bx bx-chevron-right ml-1'></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- AI Project 2 -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item ai" data-aos="fade-left" data-aos-delay="100">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="NLP Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full bg-purple-900/80 text-purple-400 text-sm font-semibold">
+                                    NLP Engineer
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-purple-400 mb-3">Sentiment Analysis Chatbot</h3>
+                            <p class="text-slate-400 mb-4">AI-powered chatbot with sentiment analysis using BERT model and real-time conversation capabilities</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-purple-300 text-xs">PyTorch</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-purple-300 text-xs">BERT</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-purple-300 text-xs">NLP</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-purple-300 text-xs">Flask API</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-purple-400 hover:text-purple-300">
+                                View Details <i class='bx bx-chevron-right ml-1'></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Data Science Project 1 -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item ds" data-aos="fade-right" data-aos-delay="200">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="Data Science" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full bg-green-900/80 text-green-400 text-sm font-semibold">
+                                    Data Scientist
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-green-400 mb-3">Predictive Analytics Dashboard</h3>
+                            <p class="text-slate-400 mb-4">Comprehensive data analysis platform with predictive modeling and interactive visualizations</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">Pandas</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">Scikit-learn</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">Tableau</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">SQL</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-green-400 hover:text-green-300">
+                                View Details <i class='bx bx-chevron-right ml-1'></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Data Science Project 2 -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item ds" data-aos="fade-left" data-aos-delay="300">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="Big Data" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full bg-green-900/80 text-green-400 text-sm font-semibold">
+                                    Big Data
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-green-400 mb-3">Real-time Data Streaming Analytics</h3>
+                            <p class="text-slate-400 mb-4">Big data processing pipeline for real-time analytics using Apache Spark and Kafka</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">Apache Spark</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">Kafka</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">Python</span>
+                                <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">AWS</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-green-400 hover:text-green-300">
+                                View Details <i class='bx bx-chevron-right ml-1'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section remains exactly the same -->
+        <section id="contact" class="py-20 px-4 sm:px-8 md:px-16 lg:px-24 relative">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-16 text-center section-title" data-aos="fade-up">
+                    <span class="gradient-text digital-font">Get In Touch</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Contact Info -->
+                    <div data-aos="fade-right">
+                        <div class="neon-card rounded-2xl p-8">
+                            <h3 class="text-2xl font-bold text-cyan-400 mb-8 flex items-center">
+                                <i class='bx bx-conversation mr-3'></i> Let's Connect
+                            </h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-center space-x-4 p-4 rounded-lg bg-slate-800/30 hover:bg-slate-800/50 transition-all duration-300">
+                                    <div class="w-12 h-12 rounded-full bg-cyan-900/30 flex items-center justify-center">
+                                        <i class='bx bx-envelope text-cyan-400 text-xl'></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-slate-400">Email</div>
+                                        <div class="font-semibold">mdsadiqueamin721786@gmail.com</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 rounded-lg bg-slate-800/30 hover:bg-slate-800/50 transition-all duration-300">
+                                    <div class="w-12 h-12 rounded-full bg-cyan-900/30 flex items-center justify-center">
+                                        <i class='bx bx-phone text-cyan-400 text-xl'></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-slate-400">Phone</div>
+                                        <div class="font-semibold">+91 9318302850</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 rounded-lg bg-slate-800/30 hover:bg-slate-800/50 transition-all duration-300">
+                                    <div class="w-12 h-12 rounded-full bg-cyan-900/30 flex items-center justify-center">
+                                        <i class='bx bx-map text-cyan-400 text-xl'></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-slate-400">Location</div>
+                                        <div class="font-semibold">Begusarai, Bihar - 851126</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Social Links -->
+                            <div class="mt-8 pt-8 border-t border-slate-700">
+                                <h4 class="text-lg font-semibold text-cyan-400 mb-4">Find me online</h4>
+                                <div class="flex space-x-4">
+                                    <a href="https://www.linkedin.com/in/md-sadique-amin-b6a948198/" 
+                                       class="w-12 h-12 rounded-full bg-slate-800 border border-cyan-400/30 flex items-center justify-center text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all duration-300">
+                                        <i class='bx bxl-linkedin text-xl'></i>
+                                    </a>
+                                    <a href="https://github.com/Sadique721?tab=repositories" 
+                                       class="w-12 h-12 rounded-full bg-slate-800 border border-cyan-400/30 flex items-center justify-center text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all duration-300">
+                                        <i class='bx bxl-github text-xl'></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/mdsadiqueamin721/" 
+                                       class="w-12 h-12 rounded-full bg-slate-800 border border-cyan-400/30 flex items-center justify-center text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all duration-300">
+                                        <i class='bx bxl-instagram text-xl'></i>
+                                    </a>
+                                    <a href="http://www.youtube.com/@mdsadiqueamin721" 
+                                       class="w-12 h-12 rounded-full bg-slate-800 border border-cyan-400/30 flex items-center justify-center text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all duration-300">
+                                        <i class='bx bxl-youtube text-xl'></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div data-aos="fade-left" data-aos-delay="200">
+                        <div class="neon-card rounded-2xl p-8">
+                            <h3 class="text-2xl font-bold text-cyan-400 mb-8 flex items-center">
+                                <i class='bx bx-send mr-3'></i> Send Message
+                            </h3>
+                            
+                            <form id="contactForm" class="space-y-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <input type="text" placeholder="Your Name" required
+                                               class="w-full p-4 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:border-cyan-400 transition-all duration-300">
+                                    </div>
+                                    <div>
+                                        <input type="email" placeholder="Your Email" required
+                                               class="w-full p-4 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:border-cyan-400 transition-all duration-300">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <input type="text" placeholder="Subject" required
+                                           class="w-full p-4 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:border-cyan-400 transition-all duration-300">
+                                </div>
+                                
+                                <div>
+                                    <textarea rows="5" placeholder="Your Message" required
+                                              class="w-full p-4 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:border-cyan-400 transition-all duration-300 resize-none"></textarea>
+                                </div>
+                                
+                                <button type="submit"
+                                        class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-[1.02]">
+                                    Send Message <i class='bx bx-send ml-2'></i>
+                                </button>
+                            </form>
+                            
+                            <!-- Live Clock -->
+                            <div class="mt-8 p-4 bg-slate-800/30 rounded-lg border border-slate-700">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="text-sm text-slate-400">Current Time</div>
+                                        <div id="liveClock" class="text-xl font-bold text-cyan-400 digital-font"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-slate-400">Status</div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></div>
+                                            <span class="text-cyan-400">Available</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 px-4 sm:px-8 md:px-16 lg:px-24 border-t border-slate-800">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <div class="text-2xl font-bold gradient-text digital-font mb-2">Md Sadique Amin</div>
+                    <p class="text-slate-400">Full Stack Developer | AI Engineer | Data Scientist</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#home" class="text-slate-400 hover:text-cyan-400 transition-colors duration-300">Home</a>
+                    <a href="#about" class="text-slate-400 hover:text-cyan-400 transition-colors duration-300">About</a>
+                    <a href="#projects" class="text-slate-400 hover:text-cyan-400 transition-colors duration-300">Projects</a>
+                    <a href="#ai-projects" class="text-slate-400 hover:text-purple-400 transition-colors duration-300">AI Projects</a>
+                    <a href="#contact" class="text-slate-400 hover:text-cyan-400 transition-colors duration-300">Contact</a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-slate-800 text-center">
+                <p class="text-slate-500">© 2026 Md Sadique Amin. All rights reserved. | Crafted with <i class='bx bx-heart text-red-500'></i> and <i class='bx bx-code text-cyan-400'></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 100,
+            mirror: true
+        });
+
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 100, density: { enable: true, value_area: 800 } },
+                color: { value: ["#22d3ee", "#8b5cf6", "#10b981"] },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#22d3ee",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            }
+        });
+
+        // Updated Typed.js with all roles
+        const typed = new Typed('#typed-text', {
+            strings: [
+                'Full Stack Developer',
+                'Java Developer',
+                'Python Developer',
+                'AI Engineer',
+                'Data Scientist',
+                'Software Engineer',
+                'Spring Boot Expert',
+                'Machine Learning Engineer'
+            ],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            loop: true,
+            showCursor: false
+        });
+
+        // Updated Counter Animation
+        function animateCounter(id, target, duration = 2000) {
+            const element = document.getElementById(id);
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Initialize counters when in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter('projectCount', 20);
+                    animateCounter('aiProjectCount', 6);
+                    animateCounter('experienceCount', 6);
+                    animateCounter('skillCount', 25);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.getElementById('home'));
+
+        // Animate skill rings
+        document.querySelectorAll('.progress-ring').forEach(ring => {
+            const percentage = ring.getAttribute('data-percentage');
+            const circumference = 2 * Math.PI * 50;
+            const offset = circumference - (percentage / 100) * circumference;
+            
+            setTimeout(() => {
+                ring.style.strokeDashoffset = offset;
+            }, 500);
+        });
+
+        // Project Filter Functionality
+        document.querySelectorAll('.project-filter').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.project-filter').forEach(btn => {
+                    btn.classList.remove('bg-cyan-400/30', 'bg-purple-400/30', 'bg-green-400/30');
+                    btn.classList.add('bg-cyan-900/30', 'bg-purple-900/30', 'bg-green-900/30');
+                });
+                
+                // Add active class to clicked button
+                button.classList.remove('bg-cyan-900/30', 'bg-purple-900/30', 'bg-green-900/30');
+                if (button.dataset.filter === 'ai') {
+                    button.classList.add('bg-purple-400/30');
+                } else if (button.dataset.filter === 'ds') {
+                    button.classList.add('bg-green-400/30');
+                } else {
+                    button.classList.add('bg-cyan-400/30');
+                }
+                
+                const filter = button.dataset.filter;
+                const projects = document.querySelectorAll('.project-item');
+                
+                projects.forEach(project => {
+                    if (filter === 'all') {
+                        project.style.display = 'block';
+                    } else if (project.classList.contains(filter)) {
+                        project.style.display = 'block';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = menuToggle.querySelector('i');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('right-[-100%]');
+            mobileMenu.classList.toggle('right-0');
+            
+            if (menuIcon.classList.contains('bx-menu')) {
+                menuIcon.classList.remove('bx-menu');
+                menuIcon.classList.add('bx-x');
+            } else {
+                menuIcon.classList.remove('bx-x');
+                menuIcon.classList.add('bx-menu');
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('right-0');
+                mobileMenu.classList.add('right-[-100%]');
+                menuIcon.classList.remove('bx-x');
+                menuIcon.classList.add('bx-menu');
+            });
+        });
+
+        // Live Clock
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', {
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            document.getElementById('liveClock').textContent = timeString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Sticky Header
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg', 'shadow-cyan-500/10');
+            } else {
+                header.classList.remove('shadow-lg', 'shadow-cyan-500/10');
+            }
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Create WhatsApp message
+            const message = `Name: ${data.name}%0AEmail: ${data.email}%0ASubject: ${data.subject}%0AMessage: ${data.message}`;
+            const whatsappUrl = `https://wa.me/919318302850?text=${message}`;
+            
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            alert('Message sent! You will be redirected to WhatsApp.');
+        });
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const floatingShapes = document.querySelectorAll('.floating-shapes');
+            
+            floatingShapes.forEach((shape, index) => {
+                const speed = 0.5 + (index * 0.1);
+                shape.style.transform = `translateY(${scrolled * speed * 0.1}px)`;
+            });
+        });
+
+        // Interactive Cards Tilt Effect
+        document.querySelectorAll('.interactive-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateY = (x - centerX) / 25;
+                const rotateX = (centerY - y) / 25;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
