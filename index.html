@@ -78,6 +78,43 @@
         .profile-ring-1 { position: absolute; inset: -6px; border-radius: 50%; padding: 3px; background: linear-gradient(45deg, #22d3ee, #8b5cf6, #10b981); animation: spin-slow 6s linear infinite; }
         .profile-ring-2 { position: absolute; inset: -14px; border-radius: 50%; border: 2px dashed rgba(34,211,238,0.4); animation: spin-slow 12s linear infinite reverse; }
         .profile-inner { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; border: 4px solid #0a192f; }
+
+        /* Orbiting animations for profile tech icons */
+        @keyframes orbit-cw {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes orbit-ccw {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+        @keyframes counter-orbit-cw {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(-360deg); }
+        }
+        @keyframes counter-orbit-ccw {
+            from { transform: rotate(-360deg); }
+            to { transform: rotate(0deg); }
+        }
+        @keyframes buzzing {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-6px) scale(1.05); }
+        }
+        .orbit-container-cw {
+            animation: orbit-cw 25s linear infinite;
+        }
+        .orbit-container-ccw {
+            animation: orbit-ccw 30s linear infinite;
+        }
+        .counter-orbit-cw {
+            animation: counter-orbit-cw 25s linear infinite;
+        }
+        .counter-orbit-ccw {
+            animation: counter-orbit-ccw 30s linear infinite;
+        }
+        .buzzing {
+            animation: buzzing 4s ease-in-out infinite;
+        }
         /* code block */
         .code-line { overflow: hidden; white-space: pre; }
     </style>
@@ -96,7 +133,7 @@
         <div class="container mx-auto flex justify-between items-center">
             <a href="#home" class="text-3xl font-bold gradient-text digital-font flex items-center space-x-2">
                 <i class='bx bx-code-alt text-cyan-400'></i>
-                <span>Sadique</span>
+                <span>Md Sadique Amin</span>
                 <span class="typing-cursor"></span>
             </a>
             <div class="flex items-center space-x-4">
