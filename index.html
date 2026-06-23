@@ -99,16 +99,21 @@
                 <span>Sadique</span>
                 <span class="typing-cursor"></span>
             </a>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Home</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                <a href="#about" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">About</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                <a href="#skills" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Skills</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                <a href="#experience" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Experience</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                <a href="#projects" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Projects</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                <a href="#ai-projects" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">AI Projects</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                <a href="#contact" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Contact</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-            </nav>
-            <button id="menu-toggle" class="md:hidden text-3xl text-cyan-400 glow"><i class='bx bx-menu'></i></button>
+            <div class="flex items-center space-x-4">
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Home</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                    <a href="#about" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">About</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                    <a href="#skills" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Skills</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                    <a href="#experience" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Experience</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                    <a href="#projects" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Projects</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                    <a href="#ai-projects" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">AI Projects</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                    <a href="#contact" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Contact</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                </nav>
+                <button id="music-btn" class="text-2xl text-cyan-400 hover:text-cyan-300 glow focus:outline-none transition duration-300 mr-2 flex items-center justify-center w-10 h-10 rounded-full bg-slate-800/80 border border-cyan-400/30" title="Play Background Music">
+                    <i class='bx bx-music'></i>
+                </button>
+                <button id="menu-toggle" class="md:hidden text-3xl text-cyan-400 glow"><i class='bx bx-menu'></i></button>
+            </div>
         </div>
     </header>
 
@@ -191,17 +196,17 @@
                         </div>
                         
                         <!-- Floating tech icons -->
-                        <div class="absolute -top-4 -left-4 w-14 h-14 rounded-full bg-slate-800 border-2 border-cyan-400 flex items-center justify-center" style="animation: float 6s ease-in-out infinite;">
-                            <i class='bx bxl-java text-2xl text-cyan-400'></i>
+                        <div class="absolute -top-8 -left-8 w-14 h-14 rounded-full bg-slate-800 border-2 border-cyan-400 flex items-center justify-center z-20" style="animation: float 6s ease-in-out infinite;">
+                            <i class='bx bxl-java text-2xl text-cyan-400' style="animation: spin-slow 10s linear infinite; display: inline-block;"></i>
                         </div>
-                        <div class="absolute -bottom-4 -right-4 w-14 h-14 rounded-full bg-slate-800 border-2 border-purple-400 flex items-center justify-center" style="animation: float 6s ease-in-out infinite; animation-delay: 1s;">
-                            <i class='bx bxl-python text-2xl text-purple-400'></i>
+                        <div class="absolute -bottom-8 -right-8 w-14 h-14 rounded-full bg-slate-800 border-2 border-purple-400 flex items-center justify-center z-20" style="animation: float 6s ease-in-out infinite; animation-delay: 1s;">
+                            <i class='bx bxl-python text-2xl text-purple-400' style="animation: spin-slow 10s linear infinite; display: inline-block;"></i>
                         </div>
-                        <div class="absolute top-1/2 -right-8 w-14 h-14 rounded-full bg-slate-800 border-2 border-green-400 flex items-center justify-center" style="animation: float 6s ease-in-out infinite; animation-delay: 2s; transform: translateY(-50%);">
-                            <i class='bx bx-brain text-2xl text-green-400'></i>
+                        <div class="absolute top-1/2 -right-16 w-14 h-14 rounded-full bg-slate-800 border-2 border-green-400 flex items-center justify-center z-20" style="animation: float 6s ease-in-out infinite; animation-delay: 2s; transform: translateY(-50%);">
+                            <i class='bx bx-brain text-2xl text-green-400' style="animation: spin-slow 10s linear infinite; display: inline-block;"></i>
                         </div>
-                        <div class="absolute top-1/2 -left-8 w-14 h-14 rounded-full bg-slate-800 border-2 border-cyan-400 flex items-center justify-center" style="animation: float 6s ease-in-out infinite; animation-delay: 1.5s; transform: translateY(-50%);">
-                            <i class='bx bxl-react text-2xl text-cyan-400'></i>
+                        <div class="absolute top-1/2 -left-16 w-14 h-14 rounded-full bg-slate-800 border-2 border-cyan-400 flex items-center justify-center z-20" style="animation: float 6s ease-in-out infinite; animation-delay: 1.5s; transform: translateY(-50%);">
+                            <i class='bx bxl-react text-2xl text-cyan-400' style="animation: spin-slow 10s linear infinite; display: inline-block;"></i>
                         </div>
                         <!-- Name badge below photo -->
                         <div class="absolute -bottom-14 left-1/2 transform -translate-x-1/2 text-center whitespace-nowrap">
@@ -962,7 +967,7 @@
                             <div class="mt-6 p-4 bg-slate-800/30 rounded-lg border border-slate-700">
                                 <div class="flex items-center justify-between">
                                     <div><div class="text-sm text-slate-400">Current Time</div><div id="liveClock" class="text-xl font-bold text-cyan-400 digital-font"></div></div>
-                                    <div><div class="text-sm text-slate-400">Status</div><div class="flex items-center"><div class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></div><span class="text-cyan-400">Unavailable</span></div></div>
+                                    <div><div class="text-sm text-slate-400">Status</div><div class="flex items-center"><div class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></div><span class="text-cyan-400">Available</span></div></div>
                                 </div>
                             </div>
                         </div>
@@ -1175,6 +1180,27 @@
             start: 'top -100', end: 99999,
             toggleClass: { className: 'shadow-lg shadow-cyan-500/10', targets: '#header' }
         });
+
+        // ===== BACKGROUND MUSIC =====
+        const audio = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-btn');
+        const musicIcon = musicBtn.querySelector('i');
+        
+        musicBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    musicIcon.className = 'bx bx-volume-full';
+                    musicBtn.classList.add('animate-pulse');
+                }).catch(err => {
+                    console.log("Audio play blocked by browser:", err);
+                });
+            } else {
+                audio.pause();
+                musicIcon.className = 'bx bx-music';
+                musicBtn.classList.remove('animate-pulse');
+            }
+        });
     </script>
+    <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" loop></audio>
 </body>
 </html>
