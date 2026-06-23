@@ -1,296 +1,122 @@
-# 🌌 Md Sadique Amin – Developer Portfolio
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C853,100:1E90FF&height=200&section=header&text=Md%20Sadique%20Amin&fontSize=40&fontColor=ffffff"/>
+</p>
 
-> 🚀 A futuristic, fully responsive, and visually immersive personal portfolio showcasing expertise in **Full Stack Development, AI/ML Engineering, and Data Science**
+<h1 align="center">🌌 Futuristic Developer Portfolio</h1>
 
----
-
-# 🧠 About the Project
-
-This portfolio is a **modern developer showcase platform** designed with a **dark futuristic UI**, smooth animations, and structured sections to highlight:
-
-* 👨‍💻 Professional identity
-* 🧠 Technical expertise
-* 📊 Projects & achievements
-* 🤖 AI-based work
-* 📬 Contact & hiring availability
-
-It represents not just skills — but **engineering mindset + design thinking + personal branding**.
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?color=00C853&size=25&center=true&vCenter=true&width=700&height=50&lines=Full+Stack+Developer;AI+Engineer;Data+Scientist;Developed+by+Md+Sadique+Amin" />
+</p>
 
 ---
 
-# 🎨 Design Philosophy
+## 🚀 Badges
 
-### 🌑 Theme: Futuristic Dark Space UI
-
-* Starfield animated background ✨
-* Neon-glow accents (Blue, Purple, Green)
-* Glassmorphism + soft shadows
-* Circular progress skill indicators
-
-### ⚡ UX Principles
-
-* Smooth scrolling & transitions
-* Section-based navigation
-* Minimal but powerful content
-* Interactive hover effects
+<p align="center">
+  <img src="https://img.shields.io/github/stars/Sadique721/Portfolio?style=for-the-badge" />
+  <img src="https://img.shields.io/github/forks/Sadique721/Portfolio?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues/Sadique721/Portfolio?style=for-the-badge" />
+  <img src="https://img.shields.io/github/license/Sadique721/Portfolio?style=for-the-badge" />
+</p>
 
 ---
 
-# 🧩 Website Architecture
+## 🧑‍💻 About the Project
 
-```
-Home → About → Skills → Experience → Projects → AI Projects → Contact
-```
+This is a **futuristic, premium, and fully responsive developer portfolio** showcasing expertise in **Full Stack Development, AI/ML Engineering, and Data Science**. 
 
-Each section is modular, reusable, and scalable.
+Built with a dark space-inspired aesthetic, the portfolio represents a perfect blend of **clean engineering, custom CSS design, and interactive motion**.
 
 ---
 
-# 🏠 Home Section (Hero)
+## 🎨 Design Philosophy & UX
 
-### 🔥 Features
-
-* Animated introduction header
-
-* Dynamic role badges:
-
-  * 🚀 Full Stack Developer
-  * 🤖 AI Engineer
-  * 📊 Data Scientist
-
-* CTA Buttons:
-
-  * 💼 Hire Me
-  * 📂 View Projects
-
-* 📊 Stats Cards:
-
-  * Projects Count
-  * AI Projects
-  * Experience
-  * Skills
-
-### 💡 Highlight
-
-Strong **first impression + recruiter-focused design**
+* **🌑 Futuristic Space Theme**: Uses a dark mode palette with vibrant gradient accents (Cyan, Purple, Green) and glassmorphism cards.
+* **✨ Live Interactive Orbit**: Features a static dashed track with 10 technology icons orbiting smoothly, matching the reference design layout.
+* **🪐 Motion & 3D Depth**: Powered by Three.js 3D particles canvas and GSAP scroll-driven animations for an immersive first impression.
+* **📱 Mobile First & Responsive**: Adaptable grid layouts and custom navigation drawers for smartphones, tablets, and desktops.
 
 ---
 
-# 👤 About Section
+## 🏗️ Architecture & Component Flow
 
-### 📌 Includes
-
-* Personal details (DOB, Location, Contact)
-* Professional summary
-* Career objective
-
-### 🧠 Expertise Areas Panel
-
-* Full Stack Development
-* AI/ML Engineering
-* Data Science
-
-### 💻 Code-style UI Block
-
-A creative section displaying developer identity in code format:
-
-```python
-class Developer:
-    def __init__(self):
-        self.name = "Md Sadique Amin"
-        self.roles = ["Full Stack Dev", "AI Engineer", "Data Scientist"]
-        self.current_company = "Keyanna Technology"
-        self.skills = ["Python", "Java", "ML", "React", "Spring Boot"]
-        self.projects = 26
+```mermaid
+graph TD
+    A[Client Browser] --> B[HTML5 & CSS3 Page Wrapper]
+    B --> C[Background 3D Particle Canvas - Three.js]
+    B --> D[Motion & Scroll Orchestration - GSAP / Lenis]
+    B --> E[Dynamic Content Rendering - Typed.js]
+    B --> F[Hero Section & Static Dashed Tech Orbit]
+    B --> G[Interactive Skill SVG Rings]
+    B --> H[Experience Timeline & Portfolio Grid]
+    B --> I[Interactive Contact Form - WhatsApp API Integration]
 ```
 
 ---
 
-# 🧠 Skills Section
+## 🛠️ Technology Stack & Libraries
 
-### 🔹 Core Domains
+### 💻 Technologies
+* **Frontend**: HTML5, Vanilla JavaScript, CSS3
+* **Framework**: Tailwind CSS (Configuration extended with custom animations and keyframes)
 
-#### 🚀 Full Stack Development
-
-* Java, Spring Boot
-* Python, Django
-* React.js
-
-#### 🤖 AI/ML Engineering
-
-* TensorFlow, PyTorch
-* NLP, Computer Vision
-
-#### 📊 Data Science
-
-* Pandas, NumPy
-* SQL, Data Visualization
-
-#### ⚙️ DevOps & Tools
-
-* Docker, Git, AWS
-* MySQL, MongoDB
+### 🎨 Libraries & Libraries Integration
+* **3D Background**: [Three.js](https://threejs.org/) for rendering the interactive particle field.
+* **Animations**: [GSAP](https://gsap.com/) & [ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/) for smooth scroll-driven reveals and counters.
+* **Scroll Engine**: [Lenis](https://lenis.darkroom.engineering/) for high-performance inertial smooth scrolling.
+* **Effects**: [Typed.js](https://github.com/mattboldt/typed.js) for typing role strings, [Boxicons](https://boxicons.com/) for tech badges and social links.
 
 ---
 
-### 🎯 Visual Elements
+## 📂 Project Sections
 
-* Circular progress bars
-* Skill tags (chips UI)
-* Glow hover effects
+### 🏠 Home / Hero
+* Vibrant roles tags: `🚀 FULL STACK DEVELOPER`, `🤖 AI ENGINEER`, `📊 DATA SCIENTIST`.
+* Live statistical counters (Projects, months experience, skills).
+* A single static dashed track containing orbiting tech icons that counter-rotate to stay upright. Clicking an icon shows a persistent tooltip.
 
----
+### 👤 About Profile
+* Professional profile details (DOB, Location, expertise summaries).
+* A terminal-style Python code box showcasing developer traits.
 
-# 🧱 Technology Stack
+### 📊 Technical Skills
+* Dynamic SVG circular rings that fill up based on data attributes.
+* Colored technology tags for quick assessment.
 
-### 💻 Languages
+### 💼 Experience & Timeline
+* A custom interactive vertical timeline mapping key software engineering internships (Keyanna Technology, Grownited, CSRBOX).
 
-* Java, Python, JavaScript, C/C++
+### 📂 Projects & AI Showcase
+* A filtered grid separating full-stack web projects and core machine learning models/agents.
 
-### 🌐 Frameworks
-
-* Spring Boot, Django, React
-
-### 🤖 AI/ML
-
-* TensorFlow, PyTorch, Scikit-learn
-
-### 📊 Data Tools
-
-* Pandas, NumPy, Matplotlib
-
-### 🛢️ Databases
-
-* MySQL, MongoDB
-
-### ⚙️ DevOps
-
-* Docker, AWS, GitHub
+### 📬 Contact
+* Fully interactive message form sending typed info directly to WhatsApp API with custom formatting.
+* A live digital clock showing local time.
 
 ---
 
-# 💼 Projects Section
+## 🏁 How to Run Locally
 
-### 📌 Highlights
-
-* Real-world full stack applications
-* UI/UX focused projects
-* Backend-heavy systems
-
-### 💡 Example Projects
-
-* 🔐 Ethical Hacking Portal
-* 🧮 Advanced Scientific Calculator
-* 🕒 Interactive Digital Clock
-* 🍲 Recipe Finder Pro
-* 📦 Entitykart Microservices
-* 🏏 MSA Cricket Informer
-* 🏢 Shabnam Enterprises
-* 📖 Royaltech Learning
+Since this is a lightweight frontend project, you can host or run it locally in a second:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Sadique721/Portfolio.git
+   ```
+2. Navigate to the project folder:
+   ```bash
+   cd Portfolio
+   ```
+3. Spin up any local server (e.g., using python):
+   ```bash
+   python -m http.server 8000
+   ```
+4. Open your browser and go to `http://localhost:8000`.
 
 ---
 
-# 🤖 AI Projects Section
+## 🙌 Author
 
-### 🔬 Focus Areas
+**Md Sadique Amin**  
+💼 Full Stack Developer | 🤖 AI Engineer | 📊 Data Scientist  
 
-* Machine Learning models
-* NLP systems
-* Data analysis pipelines
-* Autonomous AI Agents & Workflows
-
-### 💡 Example Projects
-
-* 🧠 Intelligent Image Recognition System
-* 💬 Sentiment Analysis Chatbot
-* 📊 Predictive Analytics Dashboard
-* ⚡ Real-time Data Streaming Analytics
-* 🤖 AI Agent MSA System
-
-### 🚀 Purpose
-
-Showcases **advanced technical depth beyond web development**
-
----
-
-# 📞 Contact Section
-
-### 📬 Includes
-
-* Email
-* LinkedIn
-* GitHub
-* YouTube
-
-### 🎯 Goal
-
-Make it easy for:
-
-* Recruiters
-* Clients
-* Collaborators
-
----
-
-# ⚙️ Technical Implementation
-
-### 🖥️ Frontend
-
-* HTML5
-* CSS3 (Custom animations + gradients)
-* JavaScript
-
-### 🎨 Styling Features
-
-* Glassmorphism UI
-* Neon glow effects
-* Responsive grid system
-
-### 📱 Responsiveness
-
-* Fully mobile-friendly
-* Adaptive layouts
-
----
-
-# 🚀 Key Features
-
-* 🌌 Stunning futuristic UI
-* ⚡ Smooth animations & transitions
-* 📊 Data-driven layout
-* 🧠 Multi-domain expertise showcase
-* 📱 Fully responsive
-* 💼 Recruiter-friendly design
-
----
-
-# 📈 Future Enhancements
-
-* 🌍 Multi-language support
-* 📊 Live GitHub stats integration
-* 🤖 AI chatbot assistant
-* 📝 Blog section
-* 📧 Email automation
-
----
-
-# 🏁 Conclusion
-
-This portfolio is more than a website —
-it is a **complete professional identity system** that demonstrates:
-
-* Technical excellence
-* Creative UI design
-* Real-world project experience
-* Future-ready skills
-
----
-
-# 🙌 Author
-
-**Md Sadique Amin**
-💼 Full Stack Developer | 🤖 AI Engineer | 📊 Data Scientist
-
----
-
-⭐ *If you like this portfolio, feel free to star the repository and connect!*
+⭐ *If you find this portfolio inspiring, please star the repository!*
