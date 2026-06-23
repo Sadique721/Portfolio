@@ -98,8 +98,10 @@ A creative section displaying developer identity in code format:
 class Developer:
     def __init__(self):
         self.name = "Md Sadique Amin"
-        self.roles = ["Full Stack", "AI Engineer"]
-        self.skills = ["Python", "Java", "ML"]
+        self.roles = ["Full Stack Dev", "AI Engineer", "Data Scientist"]
+        self.current_company = "Keyanna Technology"
+        self.skills = ["Python", "Java", "ML", "React", "Spring Boot"]
+        self.projects = 26
 ```
 
 ---
@@ -181,6 +183,10 @@ class Developer:
 * 🧮 Advanced Scientific Calculator
 * 🕒 Interactive Digital Clock
 * 🍲 Recipe Finder Pro
+* 📦 Entitykart Microservices
+* 🏏 MSA Cricket Informer
+* 🏢 Shabnam Enterprises
+* 📖 Royaltech Learning
 
 ---
 
@@ -191,6 +197,15 @@ class Developer:
 * Machine Learning models
 * NLP systems
 * Data analysis pipelines
+* Autonomous AI Agents & Workflows
+
+### 💡 Example Projects
+
+* 🧠 Intelligent Image Recognition System
+* 💬 Sentiment Analysis Chatbot
+* 📊 Predictive Analytics Dashboard
+* ⚡ Real-time Data Streaming Analytics
+* 🤖 AI Agent MSA System
 
 ### 🚀 Purpose
 
