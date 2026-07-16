@@ -124,6 +124,15 @@
             transform: translate(-50%, 0) scale(1) !important;
             pointer-events: auto !important;
         }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
     </style>
 </head>
 <body class="text-slate-200 overflow-x-hidden">
@@ -694,207 +703,300 @@
                     <button class="project-filter px-6 py-2 rounded-full bg-green-900/30 border border-green-400 text-green-400 hover:bg-green-400/10 transition-all duration-300" data-filter="ds">Data Science</button>
                     <button class="project-filter px-6 py-2 rounded-full bg-cyan-900/30 border border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300" data-filter="web">Web Dev</button>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="Agrotech" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                            <div class="absolute top-4 right-4"><span class="px-3 py-1 rounded-full bg-green-900/80 text-green-400 text-sm font-semibold">Python</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Agrotech Platform</h3>
-                            <p class="text-slate-400 mb-4">Agricultural management system with crop monitoring, price prediction, and inventory management using Python</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Python</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Django</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">ML</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Data Analysis</span>
+                <div class="grid grid-cols-1 gap-12">
+                    <!-- Project 1: Agrotech Platform -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="Agrotech" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Details <i class='bx bx-chevron-right ml-1'></i></a>
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-cyan-400">Agrotech Platform</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-green-400 text-sm font-semibold border border-slate-700/50">Python</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Agricultural management system with crop monitoring, price prediction, and inventory management using Python</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Python</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Django</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">ML</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Data Analysis</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-slate-700/50">
+                                <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Details <i class='bx bx-chevron-right ml-1'></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal" data-delay="0.1">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=600&q=80" alt="Calculator" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                            <div class="absolute top-4 right-4"><span class="px-3 py-1 rounded-full bg-blue-900/80 text-blue-400 text-sm font-semibold">C Programming</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Advanced Scientific Calculator</h3>
-                            <p class="text-slate-400 mb-4">High-performance calculator with complex mathematical operations, graphing, and equation solving in C</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">C Programming</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Data Structures</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Algorithms</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Mathematics</span>
+
+                    <!-- Project 2: Advanced Scientific Calculator -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.1">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=600&q=80" alt="Calculator" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Details <i class='bx bx-chevron-right ml-1'></i></a>
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-cyan-400">Advanced Scientific Calculator</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-blue-400 text-sm font-semibold border border-slate-700/50">C Programming</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">High-performance calculator with complex mathematical operations, graphing, and equation solving in C</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">C Programming</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Data Structures</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Algorithms</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Mathematics</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-slate-700/50">
+                                <a href="https://github.com/Sadique721/Advanced-Scientific-Calculator" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Source <i class='bx bx-link-external ml-1'></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal" data-delay="0.2">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80" alt="Ethical Hacking" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                            <div class="absolute top-4 right-4"><span class="px-3 py-1 rounded-full bg-red-900/80 text-red-400 text-sm font-semibold">Django</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Ethical Hacking Portal</h3>
-                            <p class="text-slate-400 mb-4">Comprehensive cybersecurity learning platform with vulnerability testing modules built with Django</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">Django</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">Python</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">Security</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">MySQL</span>
+
+                    <!-- Project 3: Ethical Hacking Portal -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.2">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80" alt="Ethical Hacking" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Details <i class='bx bx-chevron-right ml-1'></i></a>
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-cyan-400">Ethical Hacking Portal</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-red-400 text-sm font-semibold border border-slate-700/50">Django</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Comprehensive cybersecurity learning platform with vulnerability testing modules built with Django</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">Django</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">Python</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">Security</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">MySQL</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-slate-700/50">
+                                <a href="https://github.com/Sadique721/ethical-hacking-portal" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Source <i class='bx bx-link-external ml-1'></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal" data-delay="0.3">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Recipe Finder" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                            <div class="absolute top-4 right-4"><span class="px-3 py-1 rounded-full bg-cyan-900/80 text-cyan-400 text-sm font-semibold">React.js</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Recipe Finder Pro</h3>
-                            <p class="text-slate-400 mb-4">Intelligent recipe discovery platform with ingredient-based search and nutritional analysis using React.js</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">React.js</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">API Integration</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">JavaScript</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">CSS3</span>
+
+                    <!-- Project 4: Recipe Finder Pro -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.3">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Recipe Finder" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Details <i class='bx bx-chevron-right ml-1'></i></a>
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-cyan-400">Recipe Finder Pro</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-cyan-400 text-sm font-semibold border border-slate-700/50">React.js</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Intelligent recipe discovery platform with ingredient-based search and nutritional analysis using React.js</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">React.js</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">API Integration</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">JavaScript</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">CSS3</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-slate-700/50">
+                                <a href="https://github.com/Sadique721/recipe-finder-pro-" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Source <i class='bx bx-link-external ml-1'></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal" data-delay="0.4">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80" alt="Analog Clock" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                            <div class="absolute top-4 right-4"><span class="px-3 py-1 rounded-full bg-yellow-900/80 text-yellow-400 text-sm font-semibold">JavaScript</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Modern Analog Clock</h3>
-                            <p class="text-slate-400 mb-4">Beautiful analog clock with multiple themes, timezone support, and smooth animations using pure JavaScript</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">JavaScript</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">HTML5 Canvas</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">CSS Animations</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">Responsive</span>
+
+                    <!-- Project 5: Modern Analog Clock -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.4">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80" alt="Analog Clock" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Details <i class='bx bx-chevron-right ml-1'></i></a>
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-cyan-400">Modern Analog Clock</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-yellow-400 text-sm font-semibold border border-slate-700/50">JavaScript</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Beautiful analog clock with multiple themes, timezone support, and smooth animations using pure JavaScript</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">JavaScript</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">HTML5 Canvas</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">CSS Animations</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">Responsive</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-slate-700/50">
+                                <a href="https://github.com/Sadique721/-Modern-Analog-Clock" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Source <i class='bx bx-link-external ml-1'></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal" data-delay="0.5">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" alt="E-commerce" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                            <div class="absolute top-4 right-4"><span class="px-3 py-1 rounded-full bg-cyan-900/80 text-cyan-400 text-sm font-semibold">Spring Boot</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Entitykart E-commerce</h3>
-                            <p class="text-slate-400 mb-4">Full-featured online shopping platform with Spring Boot backend, React frontend and JWT authentication</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Spring Boot</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">React</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">MySQL</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">JWT Auth</span>
+
+                    <!-- Project 6: Entitykart E-commerce -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.5">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" alt="E-commerce" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Details <i class='bx bx-chevron-right ml-1'></i></a>
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-cyan-400">Entitykart E-commerce</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-cyan-400 text-sm font-semibold border border-slate-700/50">Spring Boot</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Full-featured online shopping platform with Spring Boot backend, React frontend and JWT authentication</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Spring Boot</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">React</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">MySQL</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">JWT Auth</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-slate-700/50">
+                                <a href="https://github.com/Sadique721/Entitykart" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Source <i class='bx bx-link-external ml-1'></i></a>
+                            </div>
                         </div>
                     </div>
-                    <!-- Entitykart Microservices -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal" data-delay="0.1">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Entitykart Microservices" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                            <div class="absolute top-4 right-4"><span class="px-3 py-1 rounded-full bg-cyan-900/80 text-cyan-400 text-sm font-semibold">Microservices</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Entitykart Microservices</h3>
-                            <p class="text-slate-400 mb-4">Enterprise-grade e-commerce microservices platform backend built on highly scalable distributed architecture.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Spring Cloud</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Spring Boot</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Docker</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Microservices</span>
+
+                    <!-- Project 7: Entitykart Microservices -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.1">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Entitykart Microservices" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <a href="https://github.com/Sadique721/entitykart-enterprise-ecommerce-microservices" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Source <i class='bx bx-link-external ml-1'></i></a>
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-cyan-400">Entitykart Microservices</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-cyan-400 text-sm font-semibold border border-slate-700/50">Microservices</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Enterprise-grade e-commerce microservices platform backend built on highly scalable distributed architecture.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Spring Cloud</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Spring Boot</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Docker</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Microservices</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-slate-700/50">
+                                <a href="https://github.com/Sadique721/entitykart-enterprise-ecommerce-microservices" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Source <i class='bx bx-link-external ml-1'></i></a>
+                            </div>
                         </div>
                     </div>
-                    <!-- Interactive Digital Clock -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal" data-delay="0.2">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1508962914676-134849a727f0?w=600&q=80" alt="Interactive Digital Clock" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                            <div class="absolute top-4 right-4"><span class="px-3 py-1 rounded-full bg-yellow-900/80 text-yellow-400 text-sm font-semibold">JavaScript</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Interactive Digital Clock</h3>
-                            <p class="text-slate-400 mb-4">Feature-rich digital clock with auto day/night mode, custom sound effects, and persistent local settings.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">HTML5</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">CSS3</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">JavaScript</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">LocalStorage</span>
+
+                    <!-- Project 8: Interactive Digital Clock -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.2">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="https://images.unsplash.com/photo-1508962914676-134849a727f0?w=600&q=80" alt="Interactive Digital Clock" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <a href="https://github.com/Sadique721/Interactive-Digital-Clock" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Source <i class='bx bx-link-external ml-1'></i></a>
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-cyan-400">Interactive Digital Clock</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-yellow-400 text-sm font-semibold border border-slate-700/50">JavaScript</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Feature-rich digital clock with auto day/night mode, custom sound effects, and persistent local settings.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">HTML5</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">CSS3</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">JavaScript</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">LocalStorage</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-slate-700/50">
+                                <a href="https://github.com/Sadique721/Interactive-Digital-Clock" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Source <i class='bx bx-link-external ml-1'></i></a>
+                            </div>
                         </div>
                     </div>
-                    <!-- MSA Cricket Informer -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal" data-delay="0.3">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="assets/images/cricket_informer.png" alt="MSA Cricket Informer" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                            <div class="absolute top-4 right-4"><span class="px-3 py-1 rounded-full bg-green-900/80 text-green-400 text-sm font-semibold">Web App</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">MSA Cricket Informer</h3>
-                            <p class="text-slate-400 mb-4">Live cricket tracking portal displaying real-time match details, scheduling, and dynamic score notifications.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">HTML5</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">CSS3</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">JavaScript</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">REST APIs</span>
+
+                    <!-- Project 9: MSA Cricket Informer -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.3">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="assets/images/cricket_informer.png" alt="MSA Cricket Informer" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <a href="https://github.com/Sadique721/MSA-Cricket-Informer" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Source <i class='bx bx-link-external ml-1'></i></a>
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-cyan-400">MSA Cricket Informer</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-green-400 text-sm font-semibold border border-slate-700/50">Web App</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Live cricket tracking portal displaying real-time match details, scheduling, and dynamic score notifications.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">HTML5</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">CSS3</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">JavaScript</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">REST APIs</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-slate-700/50">
+                                <a href="https://github.com/Sadique721/MSA-Sport-Informer" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Source <i class='bx bx-link-external ml-1'></i></a>
+                            </div>
                         </div>
                     </div>
-                    <!-- Shabnam Enterprises -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal" data-delay="0.4">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Shabnam Enterprises" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                            <div class="absolute top-4 right-4"><span class="px-3 py-1 rounded-full bg-cyan-900/80 text-cyan-400 text-sm font-semibold">Responsive Web</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Shabnam Enterprises</h3>
-                            <p class="text-slate-400 mb-4">A complete business showcase portal for a commercial company featuring dynamic services catalogs.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">HTML5</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">CSS3</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">JavaScript</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Responsive Design</span>
+
+                    <!-- Project 10: Shabnam Enterprises -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.4">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Shabnam Enterprises" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <a href="https://github.com/Sadique721/Shabnam-Enterprises" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Source <i class='bx bx-link-external ml-1'></i></a>
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-cyan-400">Shabnam Enterprises</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-cyan-400 text-sm font-semibold border border-slate-700/50">Responsive Web</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">A complete business showcase portal for a commercial company featuring dynamic services catalogs.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">HTML5</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">CSS3</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">JavaScript</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Responsive Design</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-slate-700/50">
+                                <a href="https://github.com/Sadique721/Shabnam-Enterprises" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Source <i class='bx bx-link-external ml-1'></i></a>
+                            </div>
                         </div>
                     </div>
-                    <!-- Royaltech Learning -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal" data-delay="0.5">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600&q=80" alt="Royaltech Learning" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                            <div class="absolute top-4 right-4"><span class="px-3 py-1 rounded-full bg-blue-900/80 text-blue-400 text-sm font-semibold">C Programming</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-cyan-400 mb-3">Royaltech Learning</h3>
-                            <p class="text-slate-400 mb-4">Educational software solution focused on basic programming foundations, algorithms, and data structure visualizations in C.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">C Programming</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Algorithms</span>
-                                <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Data Structures</span>
+
+                    <!-- Project 11: Royaltech Learning -->
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.5">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600&q=80" alt="Royaltech Learning" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <a href="https://github.com/Sadique721/RoyaltechLearning" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Source <i class='bx bx-link-external ml-1'></i></a>
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-cyan-400">Royaltech Learning</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-blue-400 text-sm font-semibold border border-slate-700/50">C Programming</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Educational software solution focused on basic programming foundations, algorithms, and data structure visualizations in C.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">C Programming</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Algorithms</span>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Data Structures</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-slate-700/50">
+                                <a href="https://github.com/Sadique721/RoyaltechLearning" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300">View Source <i class='bx bx-link-external ml-1'></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -905,31 +1007,30 @@
         <section id="ai-projects" class="py-20 px-4 sm:px-8 md:px-16 lg:px-24 relative bg-gradient-to-b from-slate-900/30 to-transparent">
             <div class="container mx-auto">
                 <h2 class="text-4xl font-bold mb-16 text-center reveal"><span class="ai-gradient digital-font">AI & Data Science Projects</span></h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 gap-12">
 
                     <!-- AI Project 1: Image Recognition - neural network visualization -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item ai reveal">
-                        <div class="relative h-52 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=700&q=80" 
-                                 alt="Image Recognition AI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
-                            <div class="absolute top-4 left-4 flex items-center space-x-2">
-                                <div class="w-8 h-8 rounded-full bg-purple-500/80 flex items-center justify-center"><i class='bx bx-eye text-white text-sm'></i></div>
-                                <span class="px-3 py-1 rounded-full bg-purple-900/80 text-purple-300 text-sm font-semibold backdrop-blur-sm">Computer Vision</span>
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item ai reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=700&q=80" alt="Image Recognition AI" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <div class="absolute bottom-4 left-4 right-4">
-                                <div class="flex gap-2">
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-purple-400">🧠 Intelligent Image Recognition System</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-purple-300 text-sm font-semibold border border-slate-700/50">Computer Vision</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Deep learning model for real-time object detection and classification using TensorFlow and OpenCV with 95%+ accuracy on benchmark datasets.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">TensorFlow</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">OpenCV</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">CNN</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">Python</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-purple-400 mb-3">🧠 Intelligent Image Recognition System</h3>
-                            <p class="text-slate-400 mb-4">Deep learning model for real-time object detection and classification using TensorFlow and OpenCV with 95%+ accuracy on benchmark datasets.</p>
-                            <div class="flex items-center justify-between">
+                            <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between">
                                 <div class="flex items-center space-x-4 text-sm text-slate-500">
                                     <span><i class='bx bx-star text-yellow-400'></i> 95% Accuracy</span>
                                     <span><i class='bx bx-time text-cyan-400'></i> Real-time</span>
@@ -940,28 +1041,27 @@
                     </div>
 
                     <!-- AI Project 2: Sentiment Chatbot - chat/NLP themed -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item ai reveal" data-delay="0.1">
-                        <div class="relative h-52 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=700&q=80" 
-                                 alt="Sentiment Analysis NLP" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
-                            <div class="absolute top-4 left-4 flex items-center space-x-2">
-                                <div class="w-8 h-8 rounded-full bg-indigo-500/80 flex items-center justify-center"><i class='bx bx-chat text-white text-sm'></i></div>
-                                <span class="px-3 py-1 rounded-full bg-indigo-900/80 text-indigo-300 text-sm font-semibold backdrop-blur-sm">NLP Engineer</span>
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item ai reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.1">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=700&q=80" alt="Sentiment Analysis NLP" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <div class="absolute bottom-4 left-4 right-4">
-                                <div class="flex gap-2">
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-purple-400">💬 Sentiment Analysis Chatbot</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-indigo-300 text-sm font-semibold border border-slate-700/50">NLP Engineer</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">AI-powered chatbot with BERT-based sentiment analysis for real-time conversation, emotion detection, and contextual response generation.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">PyTorch</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">BERT</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">NLP</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">Flask</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-purple-400 mb-3">💬 Sentiment Analysis Chatbot</h3>
-                            <p class="text-slate-400 mb-4">AI-powered chatbot with BERT-based sentiment analysis for real-time conversation, emotion detection, and contextual response generation.</p>
-                            <div class="flex items-center justify-between">
+                            <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between">
                                 <div class="flex items-center space-x-4 text-sm text-slate-500">
                                     <span><i class='bx bx-brain text-purple-400'></i> BERT Model</span>
                                     <span><i class='bx bx-data text-cyan-400'></i> NLP Pipeline</span>
@@ -972,28 +1072,27 @@
                     </div>
 
                     <!-- DS Project 1: Predictive Analytics - data dashboard -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item ds reveal" data-delay="0.2">
-                        <div class="relative h-52 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" 
-                                 alt="Predictive Analytics Dashboard" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
-                            <div class="absolute top-4 left-4 flex items-center space-x-2">
-                                <div class="w-8 h-8 rounded-full bg-green-500/80 flex items-center justify-center"><i class='bx bx-bar-chart text-white text-sm'></i></div>
-                                <span class="px-3 py-1 rounded-full bg-green-900/80 text-green-300 text-sm font-semibold backdrop-blur-sm">Data Scientist</span>
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item ds reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.2">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="Predictive Analytics Dashboard" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <div class="absolute bottom-4 left-4 right-4">
-                                <div class="flex gap-2">
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-green-400">📊 Predictive Analytics Dashboard</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-green-300 text-sm font-semibold border border-slate-700/50">Data Scientist</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Comprehensive data analysis platform with machine learning-based predictive modeling, interactive visualizations, and automated reporting.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Pandas</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Scikit-learn</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Tableau</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">SQL</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-green-400 mb-3">📊 Predictive Analytics Dashboard</h3>
-                            <p class="text-slate-400 mb-4">Comprehensive data analysis platform with machine learning-based predictive modeling, interactive visualizations, and automated reporting.</p>
-                            <div class="flex items-center justify-between">
+                            <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between">
                                 <div class="flex items-center space-x-4 text-sm text-slate-500">
                                     <span><i class='bx bx-trending-up text-green-400'></i> Predictive ML</span>
                                     <span><i class='bx bx-chart text-cyan-400'></i> Interactive UI</span>
@@ -1004,28 +1103,27 @@
                     </div>
 
                     <!-- DS Project 2: Real-time streaming - server/cloud themed -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item ds reveal" data-delay="0.3">
-                        <div class="relative h-52 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=700&q=80" 
-                                 alt="Big Data Streaming" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
-                            <div class="absolute top-4 left-4 flex items-center space-x-2">
-                                <div class="w-8 h-8 rounded-full bg-teal-500/80 flex items-center justify-center"><i class='bx bx-server text-white text-sm'></i></div>
-                                <span class="px-3 py-1 rounded-full bg-teal-900/80 text-teal-300 text-sm font-semibold backdrop-blur-sm">Big Data</span>
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item ds reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.3">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=700&q=80" alt="Big Data Streaming" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <div class="absolute bottom-4 left-4 right-4">
-                                <div class="flex gap-2">
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-green-400">⚡ Real-time Data Streaming Analytics</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-teal-300 text-sm font-semibold border border-slate-700/50">Big Data</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Big data processing pipeline for real-time analytics using Apache Spark and Kafka, deployed on AWS with auto-scaling infrastructure.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Apache Spark</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Kafka</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Python</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">AWS</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-green-400 mb-3">⚡ Real-time Data Streaming Analytics</h3>
-                            <p class="text-slate-400 mb-4">Big data processing pipeline for real-time analytics using Apache Spark and Kafka, deployed on AWS with auto-scaling infrastructure.</p>
-                            <div class="flex items-center justify-between">
+                            <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between">
                                 <div class="flex items-center space-x-4 text-sm text-slate-500">
                                     <span><i class='bx bx-bolt-circle text-yellow-400'></i> Real-time</span>
                                     <span><i class='bx bx-cloud text-cyan-400'></i> AWS Cloud</span>
@@ -1034,29 +1132,29 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- AI Project 3: AI Agent MSA -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item ai reveal" data-delay="0.4">
-                        <div class="relative h-52 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=700&q=80" 
-                                 alt="AI Agent MSA" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
-                            <div class="absolute top-4 left-4 flex items-center space-x-2">
-                                <div class="w-8 h-8 rounded-full bg-purple-500/80 flex items-center justify-center"><i class='bx bx-bot text-white text-sm'></i></div>
-                                <span class="px-3 py-1 rounded-full bg-purple-900/80 text-purple-300 text-sm font-semibold backdrop-blur-sm">AI Agent</span>
+                    <div class="neon-card rounded-2xl overflow-hidden group project-item ai reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.4">
+                        <div class="overflow-hidden relative h-[250px] md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-slate-700/50">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide">
+                                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=700&q=80" alt="AI Agent MSA" class="w-full object-cover origin-top transition-transform duration-300 group-hover:scale-105">
                             </div>
-                            <div class="absolute bottom-4 left-4 right-4">
-                                <div class="flex gap-2">
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-2xl font-bold text-purple-400">🤖 AI Agent MSA System</h3>
+                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-purple-300 text-sm font-semibold border border-slate-700/50">AI Agent</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Autonomous AI agent system designed for intelligent task execution, planning, database interaction, and automated API workflows.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">Python</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">Agentic Workflows</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">API Automation</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">LangChain</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-purple-400 mb-3">🤖 AI Agent MSA System</h3>
-                            <p class="text-slate-400 mb-4">Autonomous AI agent system designed for intelligent task execution, planning, database interaction, and automated API workflows.</p>
-                            <div class="flex items-center justify-between">
+                            <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between">
                                 <div class="flex items-center space-x-4 text-sm text-slate-500">
                                     <span><i class='bx bx-brain text-purple-400'></i> Agentic Logic</span>
                                     <span><i class='bx bx-cog text-cyan-400'></i> Autonomous</span>
