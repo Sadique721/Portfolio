@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-main",
+  "version": "1.0.0",
+  "description": "Futuristic Developer Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./input.css -o ./assets/css/style.min.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sadique721/Portfolio.git"
+  },
+  "keywords": [],
+  "author": "Md Sadique Amin",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://myportfoliositesadique.netlify.app/sitemap.xml
