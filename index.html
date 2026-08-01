@@ -23,6 +23,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; background: #0a192f; overflow-x: hidden; }
@@ -124,6 +125,101 @@
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
         }
+
+        /* Certificate preview card styles */
+        .cert-card {
+            position: relative;
+            background: rgba(15,23,42,0.85);
+            border: 1px solid rgba(34,211,238,0.35);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 0 24px rgba(34,211,238,0.15), inset 0 0 30px rgba(34,211,238,0.04);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+        .cert-card:hover {
+            border-color: rgba(34,211,238,0.8);
+            box-shadow: 0 0 40px rgba(34,211,238,0.35), inset 0 0 30px rgba(34,211,238,0.08);
+            transform: scale(1.02);
+        }
+        .cert-card-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px 8px;
+            border-bottom: 1px solid rgba(34,211,238,0.2);
+            background: rgba(34,211,238,0.06);
+        }
+        .cert-card-header .cert-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: linear-gradient(45deg, #22d3ee, #8b5cf6);
+            box-shadow: 0 0 8px rgba(34,211,238,0.7);
+            animation: pulse-cert 2s ease-in-out infinite;
+        }
+        @keyframes pulse-cert {
+            0%,100% { box-shadow: 0 0 6px rgba(34,211,238,0.7); }
+            50% { box-shadow: 0 0 14px rgba(34,211,238,1); }
+        }
+        .cert-card-header span {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #22d3ee;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .cert-iframe-wrap {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: #0f172a;
+        }
+        .cert-iframe-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .cert-card:hover .cert-iframe-wrap img {
+            transform: scale(1.05);
+        }
+        .cert-footer {
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .cert-footer p {
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+        .cert-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #22d3ee;
+            border: 1px solid rgba(34,211,238,0.5);
+            border-radius: 20px;
+            padding: 4px 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: rgba(34,211,238,0.08);
+            letter-spacing: 0.03em;
+        }
+        .cert-btn:hover {
+            background: rgba(34,211,238,0.2);
+            border-color: #22d3ee;
+            box-shadow: 0 0 12px rgba(34,211,238,0.4);
+        }
+        /* Cert card on left-aligned entries (padding right) */
+        .cert-wrap-left { padding-right: 3rem; }
+        /* Cert card on right-aligned entries (padding left) */
+        .cert-wrap-right { padding-left: 3rem; }
     </style>
 </head>
 <body class="text-slate-200 overflow-x-hidden">
@@ -559,7 +655,21 @@
                         <div class="space-y-12">
                             <!-- Keyanna Technology -->
                             <div class="relative flex items-center">
-                                <div class="hidden md:block md:w-1/2"></div>
+                                <div class="hidden md:flex md:w-1/2 cert-wrap-left items-center justify-end">
+                                    <div class="cert-card w-full max-w-xs">
+                                        <div class="cert-card-header">
+                                            <div class="cert-dot"></div>
+                                            <span>Internship Certificate</span>
+                                        </div>
+                                        <div class="cert-iframe-wrap">
+                                            <img src="certificate images/Internship letter - MDSadique Amin.png" alt="Keyanna Technology Certificate" class="w-full h-full object-cover object-top">
+                                        </div>
+                                        <div class="cert-footer">
+                                            <p>Keyanna Technology Pvt Ltd</p>
+                                            <a href="certificate images/Internship letter - MDSadique Amin.png" target="_blank" class="cert-btn"><i class='bx bx-link-external'></i> View</a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-cyan-400 border-4 border-slate-900 transform -translate-x-1/2 z-10"></div>
                                 <div class="ml-10 md:ml-0 md:w-1/2 md:pl-12">
                                     <div class="neon-card rounded-2xl p-6">
@@ -591,11 +701,39 @@
                                     </div>
                                 </div>
                                 <div class="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-cyan-400 border-4 border-slate-900 transform -translate-x-1/2 z-10"></div>
-                                <div class="hidden md:block md:w-1/2"></div>
+                                <div class="hidden md:flex md:w-1/2 cert-wrap-right items-center justify-start">
+                                    <div class="cert-card w-full max-w-xs">
+                                        <div class="cert-card-header">
+                                            <div class="cert-dot"></div>
+                                            <span>Offer Letter</span>
+                                        </div>
+                                        <div class="cert-iframe-wrap">
+                                            <img src="certificate images/Md Sadique Amin offer latter.png" alt="Grownited Offer Letter" class="w-full h-full object-cover object-top">
+                                        </div>
+                                        <div class="cert-footer">
+                                            <p>Grownited Private Limited</p>
+                                            <a href="certificate images/Md Sadique Amin offer latter.png" target="_blank" class="cert-btn"><i class='bx bx-link-external'></i> View</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- CSRBOX -->
                             <div class="relative flex items-center">
-                                <div class="hidden md:block md:w-1/2"></div>
+                                <div class="hidden md:flex md:w-1/2 cert-wrap-left items-center justify-end">
+                                    <div class="cert-card w-full max-w-xs">
+                                        <div class="cert-card-header">
+                                            <div class="cert-dot"></div>
+                                            <span>Completion Certificate</span>
+                                        </div>
+                                        <div class="cert-iframe-wrap">
+                                            <img src="certificate images/Md Sadique Amin.png" alt="CSRBOX Certificate" class="w-full h-full object-cover object-top">
+                                        </div>
+                                        <div class="cert-footer">
+                                            <p>CSRBOX Foundation &mdash; AI Internship</p>
+                                            <a href="certificate images/Md Sadique Amin.png" target="_blank" class="cert-btn"><i class='bx bx-link-external'></i> View</a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-cyan-400 border-4 border-slate-900 transform -translate-x-1/2 z-10"></div>
                                 <div class="ml-10 md:ml-0 md:w-1/2 md:pl-12">
                                     <div class="neon-card rounded-2xl p-6">
@@ -628,11 +766,39 @@
                                     </div>
                                 </div>
                                 <div class="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-cyan-400 border-4 border-slate-900 transform -translate-x-1/2 z-10"></div>
-                                <div class="hidden md:block md:w-1/2"></div>
+                                <div class="hidden md:flex md:w-1/2 cert-wrap-right items-center justify-start">
+                                    <div class="cert-card w-full max-w-xs">
+                                        <div class="cert-card-header">
+                                            <div class="cert-dot"></div>
+                                            <span>Internship Certificate</span>
+                                        </div>
+                                        <div class="cert-iframe-wrap">
+                                            <img src="certificate images/internship certificate.png" alt="TechnoFly Certificate" class="w-full h-full object-cover object-top">
+                                        </div>
+                                        <div class="cert-footer">
+                                            <p>TechnoFly Solutions, Bengaluru</p>
+                                            <a href="certificate images/internship certificate.png" target="_blank" class="cert-btn"><i class='bx bx-link-external'></i> View</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- BSNL -->
                             <div class="relative flex items-center">
-                                <div class="hidden md:block md:w-1/2"></div>
+                                <div class="hidden md:flex md:w-1/2 cert-wrap-left items-center justify-end">
+                                    <div class="cert-card w-full max-w-xs">
+                                        <div class="cert-card-header">
+                                            <div class="cert-dot"></div>
+                                            <span>Training Certificate</span>
+                                        </div>
+                                        <div class="cert-iframe-wrap">
+                                            <img src="certificate images/SADIQUE AMIN.pdf Certificate  new intanship.png" alt="BSNL Training Certificate" class="w-full h-full object-cover object-top">
+                                        </div>
+                                        <div class="cert-footer">
+                                            <p>BSNL, Hyderabad</p>
+                                            <a href="certificate images/SADIQUE AMIN.pdf Certificate  new intanship.png" target="_blank" class="cert-btn"><i class='bx bx-link-external'></i> View</a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-cyan-400 border-4 border-slate-900 transform -translate-x-1/2 z-10"></div>
                                 <div class="ml-10 md:ml-0 md:w-1/2 md:pl-12">
                                     <div class="neon-card rounded-2xl p-6">
@@ -708,12 +874,17 @@
                                     <h3 class="text-2xl font-bold text-cyan-400">Agrotech Platform</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-green-400 text-sm font-semibold border border-slate-700/50">Python</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Agricultural management system with crop monitoring, price prediction, and inventory management using Python</p>
+                                <p class="text-slate-400 mb-4 text-base">Agricultural management system with crop monitoring, price prediction, and inventory management using Python</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Python</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Django</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">ML</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Data Analysis</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>ML-based real-time crop price prediction engine</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Smart inventory tracking with low-stock alerts</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Weather-integrated farming recommendations</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50">
@@ -735,12 +906,17 @@
                                     <h3 class="text-2xl font-bold text-cyan-400">Advanced Scientific Calculator</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-blue-400 text-sm font-semibold border border-slate-700/50">C Programming</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">High-performance calculator with complex mathematical operations, graphing, and equation solving in C</p>
+                                <p class="text-slate-400 mb-4 text-base">High-performance calculator with complex mathematical operations, graphing, and equation solving in C</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">C Programming</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Data Structures</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Algorithms</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Mathematics</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400'></i><span>50+ built-in mathematical & trigonometric functions</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400'></i><span>Real-time graphing & equation visualizer</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400'></i><span>Memory stack with calculation history</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-4">
@@ -764,12 +940,17 @@
                                     <h3 class="text-2xl font-bold text-cyan-400">Ethical Hacking Portal</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-red-400 text-sm font-semibold border border-slate-700/50">Django</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Comprehensive cybersecurity learning platform with vulnerability testing modules built with Django</p>
+                                <p class="text-slate-400 mb-4 text-base">Comprehensive cybersecurity learning platform with vulnerability testing modules built with Django</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">Django</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">Python</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">Security</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">MySQL</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-red-400'></i><span>CTF challenges & live vulnerability testing sandbox</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-red-400'></i><span>User progress tracking with leaderboard system</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-red-400'></i><span>Secure sandboxed environment with role-based access</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-4">
@@ -796,12 +977,17 @@
                                     <h3 class="text-2xl font-bold text-cyan-400">Recipe Finder Pro</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-cyan-400 text-sm font-semibold border border-slate-700/50">React.js</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Intelligent recipe discovery platform with ingredient-based search and nutritional analysis using React.js</p>
+                                <p class="text-slate-400 mb-4 text-base">Intelligent recipe discovery platform with ingredient-based search and nutritional analysis using React.js</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">React.js</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">API Integration</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">JavaScript</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">CSS3</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Smart ingredient-based recipe search & filtering</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Nutritional analysis with calorie breakdown</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Save favorites & weekly meal planning feature</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-4">
@@ -828,12 +1014,17 @@
                                     <h3 class="text-2xl font-bold text-cyan-400">Modern Analog Clock</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-yellow-400 text-sm font-semibold border border-slate-700/50">JavaScript</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Beautiful analog clock with multiple themes, timezone support, and smooth animations using pure JavaScript</p>
+                                <p class="text-slate-400 mb-4 text-base">Beautiful analog clock with multiple themes, timezone support, and smooth animations using pure JavaScript</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">JavaScript</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">HTML5 Canvas</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">CSS Animations</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">Responsive</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400'></i><span>Multiple clock themes (dark, light, neon, minimal)</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400'></i><span>Multi-timezone support with real-time sync</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400'></i><span>Silky smooth 60fps canvas-rendered animations</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-4">
@@ -857,12 +1048,17 @@
                                     <h3 class="text-2xl font-bold text-cyan-400">Entitykart E-commerce</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-cyan-400 text-sm font-semibold border border-slate-700/50">Spring Boot</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Full-featured online shopping platform with Spring Boot backend, React frontend and JWT authentication</p>
+                                <p class="text-slate-400 mb-4 text-base">Full-featured online shopping platform with Spring Boot backend, React frontend and JWT authentication</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Spring Boot</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">React</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">MySQL</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">JWT Auth</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Complete cart, checkout & order management system</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Admin dashboard with sales analytics & reports</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>JWT-secured REST API with role-based auth</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-4">
@@ -889,12 +1085,17 @@
                                     <h3 class="text-2xl font-bold text-cyan-400">Entitykart Microservices</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-cyan-400 text-sm font-semibold border border-slate-700/50">Microservices</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Enterprise-grade e-commerce microservices platform backend built on highly scalable distributed architecture.</p>
+                                <p class="text-slate-400 mb-4 text-base">Enterprise-grade e-commerce microservices platform backend built on highly scalable distributed architecture.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Spring Cloud</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Spring Boot</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Docker</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Microservices</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>8 independent microservices with API Gateway</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Eureka service discovery & load balancing</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Docker containerized with auto-scaling support</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-4">
@@ -921,12 +1122,17 @@
                                     <h3 class="text-2xl font-bold text-cyan-400">Interactive Digital Clock</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-yellow-400 text-sm font-semibold border border-slate-700/50">JavaScript</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Feature-rich digital clock with auto day/night mode, custom sound effects, and persistent local settings.</p>
+                                <p class="text-slate-400 mb-4 text-base">Feature-rich digital clock with auto day/night mode, custom sound effects, and persistent local settings.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">HTML5</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">CSS3</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">JavaScript</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">LocalStorage</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400'></i><span>Auto day/night theme switching by system time</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400'></i><span>Custom alarm & hourly chime sound effects</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400'></i><span>Persistent user preferences via LocalStorage</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-4">
@@ -953,12 +1159,17 @@
                                     <h3 class="text-2xl font-bold text-cyan-400">MSA Cricket Informer</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-green-400 text-sm font-semibold border border-slate-700/50">Web App</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Live cricket tracking portal displaying real-time match details, scheduling, and dynamic score notifications.</p>
+                                <p class="text-slate-400 mb-4 text-base">Live cricket tracking portal displaying real-time match details, scheduling, and dynamic score notifications.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">HTML5</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">CSS3</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">JavaScript</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">REST APIs</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Live ball-by-ball score updates via REST API</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Match schedule, team stats & player profiles</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Dynamic browser push notifications for wickets/sixes</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-4">
@@ -985,12 +1196,17 @@
                                     <h3 class="text-2xl font-bold text-cyan-400">Shabnam Enterprises</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-cyan-400 text-sm font-semibold border border-slate-700/50">Responsive Web</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">A complete business showcase portal for a commercial company featuring dynamic services catalogs.</p>
+                                <p class="text-slate-400 mb-4 text-base">A complete business showcase portal for a commercial company featuring dynamic services catalogs.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">HTML5</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">CSS3</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">JavaScript</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Responsive Design</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Dynamic services catalog with animated showcase</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Fully responsive across all device breakpoints</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Interactive contact form & Google Maps integration</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-4">
@@ -1017,11 +1233,16 @@
                                     <h3 class="text-2xl font-bold text-cyan-400">Royaltech Learning</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-blue-400 text-sm font-semibold border border-slate-700/50">C Programming</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Educational software solution focused on basic programming foundations, algorithms, and data structure visualizations in C.</p>
+                                <p class="text-slate-400 mb-4 text-base">Educational software solution focused on basic programming foundations, algorithms, and data structure visualizations in C.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">C Programming</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Algorithms</span>
                                     <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Data Structures</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400'></i><span>Step-by-step algorithm visualization & tracing</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400'></i><span>Interactive data structure diagrams (trees, graphs)</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400'></i><span>Beginner-friendly concept quizzes & code challenges</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50">
@@ -1052,12 +1273,17 @@
                                     <h3 class="text-2xl font-bold text-purple-400">🧠 Intelligent Image Recognition System</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-purple-300 text-sm font-semibold border border-slate-700/50">Computer Vision</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Deep learning model for real-time object detection and classification using TensorFlow and OpenCV with 95%+ accuracy on benchmark datasets.</p>
+                                <p class="text-slate-400 mb-4 text-base">Deep learning model for real-time object detection and classification using TensorFlow and OpenCV with 95%+ accuracy on benchmark datasets.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">TensorFlow</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">OpenCV</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">CNN</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">Python</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>95%+ accuracy on COCO benchmark datasets</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Real-time detection at 30fps via webcam/video</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Transfer learning with custom dataset fine-tuning</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between">
@@ -1083,12 +1309,17 @@
                                     <h3 class="text-2xl font-bold text-purple-400">💬 Sentiment Analysis Chatbot</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-indigo-300 text-sm font-semibold border border-slate-700/50">NLP Engineer</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">AI-powered chatbot with BERT-based sentiment analysis for real-time conversation, emotion detection, and contextual response generation.</p>
+                                <p class="text-slate-400 mb-4 text-base">AI-powered chatbot with BERT-based sentiment analysis for real-time conversation, emotion detection, and contextual response generation.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">PyTorch</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">BERT</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">NLP</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">Flask</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>BERT transformer for context-aware emotion detection</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Multi-turn conversation memory & context tracking</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Flask REST API with real-time WebSocket support</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between">
@@ -1114,12 +1345,17 @@
                                     <h3 class="text-2xl font-bold text-green-400">📊 Predictive Analytics Dashboard</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-green-300 text-sm font-semibold border border-slate-700/50">Data Scientist</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Comprehensive data analysis platform with machine learning-based predictive modeling, interactive visualizations, and automated reporting.</p>
+                                <p class="text-slate-400 mb-4 text-base">Comprehensive data analysis platform with machine learning-based predictive modeling, interactive visualizations, and automated reporting.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Pandas</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Scikit-learn</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Tableau</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">SQL</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>ML regression & classification predictive models</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Interactive Tableau dashboards with drill-down filters</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Automated PDF/Excel reporting with scheduled runs</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between">
@@ -1145,12 +1381,17 @@
                                     <h3 class="text-2xl font-bold text-green-400">⚡ Real-time Data Streaming Analytics</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-teal-300 text-sm font-semibold border border-slate-700/50">Big Data</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Big data processing pipeline for real-time analytics using Apache Spark and Kafka, deployed on AWS with auto-scaling infrastructure.</p>
+                                <p class="text-slate-400 mb-4 text-base">Big data processing pipeline for real-time analytics using Apache Spark and Kafka, deployed on AWS with auto-scaling infrastructure.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Apache Spark</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Kafka</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Python</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">AWS</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Processes 1M+ events/sec with Kafka streaming</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Spark distributed computing with fault tolerance</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>AWS EC2/S3 deployed with auto-scaling policies</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between">
@@ -1176,12 +1417,17 @@
                                     <h3 class="text-2xl font-bold text-purple-400">🤖 AI Agent MSA System</h3>
                                     <span class="px-3 py-1 rounded-full bg-slate-800/80 text-purple-300 text-sm font-semibold border border-slate-700/50">AI Agent</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Autonomous AI agent system designed for intelligent task execution, planning, database interaction, and automated API workflows.</p>
+                                <p class="text-slate-400 mb-4 text-base">Autonomous AI agent system designed for intelligent task execution, planning, database interaction, and automated API workflows.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">Python</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">Agentic Workflows</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">API Automation</span>
                                     <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">LangChain</span>
+                                </div>
+                                <div class="space-y-2 mt-3">
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>LangChain-powered autonomous planning & reasoning</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Multi-tool integration (DB, APIs, file system)</span></div>
+                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Self-correcting agent loop with memory persistence</span></div>
                                 </div>
                             </div>
                             <div class="pt-4 border-t border-slate-700/50 flex flex-wrap items-center justify-between gap-4">
@@ -1506,7 +1752,6 @@
                 }
             });
         });
-
         // Close tooltips when clicking outside
         document.addEventListener('click', () => {
             document.querySelectorAll('.tech-tooltip').forEach(t => {
@@ -1515,5 +1760,101 @@
         });
     </script>
     <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" loop></audio>
+
+    <script>
+    // ===== PDF.js Certificate Preview Renderer =====
+    (function() {
+        // Set PDF.js worker
+        if (typeof pdfjsLib !== 'undefined') {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        }
+
+        const certCanvases = [
+            { id: 'cert-canvas-1', pdf: 'certificate images/Internship letter - MDSadique Amin.pdf' },
+            { id: 'cert-canvas-2', pdf: 'certificate images/Md Sadique Amin offer latter.pdf' },
+            { id: 'cert-canvas-3', pdf: 'certificate images/Md Sadique Amin.pdf' },
+            { id: 'cert-canvas-4', pdf: 'certificate images/internship certificate.pdf' },
+            { id: 'cert-canvas-5', pdf: 'certificate images/SADIQUE AMIN.pdf Certificate  new intanship.pdf' },
+        ];
+
+        function renderPDF(canvasId, pdfPath) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas || typeof pdfjsLib === 'undefined') return;
+
+            pdfjsLib.getDocument(pdfPath).promise.then(function(pdf) {
+                return pdf.getPage(1);
+            }).then(function(page) {
+                const container = canvas.parentElement;
+                const containerWidth = container.offsetWidth || 280;
+
+                // Get original page dimensions at scale=1
+                const viewport1 = page.getViewport({ scale: 1 });
+
+                // Calculate scale so the full page width fits the container
+                const scale = containerWidth / viewport1.width;
+                const viewport = page.getViewport({ scale: scale });
+
+                canvas.width  = viewport.width;
+                canvas.height = viewport.height;
+
+                // Apply CSS to constrain height to card area and show top of cert
+                canvas.style.width  = containerWidth + 'px';
+                canvas.style.height = 'auto';
+
+                const ctx = canvas.getContext('2d');
+                page.render({ canvasContext: ctx, viewport: viewport }).promise.then(function() {
+                    console.log(canvasId + ' rendered successfully');
+                });
+            }).catch(function(err) {
+                console.warn('PDF.js error for ' + pdfPath + ':', err);
+                // Fallback: show a placeholder
+                const container = canvas.parentElement;
+                container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#22d3ee;font-size:0.8rem;padding:12px;text-align:center;"><i class="bx bx-file" style="font-size:2rem;margin-bottom:6px;display:block;"></i>Certificate Preview</div>';
+            });
+        }
+
+        // Use IntersectionObserver to lazy-render only when visible
+        function initCertRenderers() {
+            if (typeof pdfjsLib === 'undefined') {
+                console.warn('PDF.js not loaded');
+                return;
+            }
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const canvas = entry.target;
+                            const pdfPath = canvas.getAttribute('data-pdf');
+                            if (pdfPath) {
+                                renderPDF(canvas.id, pdfPath);
+                                observer.unobserve(canvas);
+                            }
+                        }
+                    });
+                }, { rootMargin: '100px' });
+
+                certCanvases.forEach(function(cert) {
+                    const canvas = document.getElementById(cert.id);
+                    if (canvas) {
+                        canvas.setAttribute('data-pdf', cert.pdf);
+                        observer.observe(canvas);
+                    }
+                });
+            } else {
+                // Fallback: render all immediately
+                certCanvases.forEach(function(cert) {
+                    renderPDF(cert.id, cert.pdf);
+                });
+            }
+        }
+
+        // Wait for PDF.js to be ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCertRenderers);
+        } else {
+            initCertRenderers();
+        }
+    })();
+    </script>
 </body>
 </html>
