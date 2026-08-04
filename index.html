@@ -630,16 +630,23 @@
         /* ===== HERO PROFILE ORBIT MOBILE FIT ===== */
         @media (max-width: 639px) {
             .profile-frame {
-                width: 210px !important;
-                height: 210px !important;
+                width: 165px !important;
+                height: 165px !important;
                 margin: 0 auto !important;
             }
             .profile-inner {
-                border-width: 3px !important;
+                border-width: 2.5px !important;
             }
             .orbit-container-cw, .orbit-container-ccw {
-                transform: scale(0.65) !important;
+                transform: scale(0.46) !important;
                 transform-origin: center center !important;
+            }
+        }
+        /* Mobile Header Logo No-Wrap Rule */
+        @media (max-width: 480px) {
+            header a.gradient-text span {
+                font-size: 0.95rem !important;
+                white-space: nowrap !important;
             }
         }
 
@@ -729,14 +736,14 @@
     <div class="floating-shapes" style="top:50%;left:33%;animation-delay:4s;"></div>
 
     <!-- HEADER -->
-    <header id="header" class="fixed top-0 left-0 w-full px-4 sm:px-6 lg:px-12 py-4 bg-slate-900/90 backdrop-blur-md z-50 transition-all duration-300 neon-card">
+    <header id="header" class="fixed top-0 left-0 w-full px-3 sm:px-6 lg:px-12 py-3.5 bg-slate-900/95 backdrop-blur-md z-50 transition-all duration-300 neon-card">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="#home" class="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text digital-font flex items-center space-x-2 whitespace-nowrap shrink-0">
-                <i class='bx bx-code-alt text-cyan-400'></i>
-                <span class="whitespace-nowrap">Md Sadique Amin</span>
+            <a href="#home" class="text-sm sm:text-2xl lg:text-3xl font-bold gradient-text digital-font flex items-center space-x-1.5 whitespace-nowrap shrink-0 max-w-[65%] sm:max-w-none overflow-hidden">
+                <i class='bx bx-code-alt text-cyan-400 text-base sm:text-2xl'></i>
+                <span class="whitespace-nowrap tracking-tight">Md Sadique Amin</span>
                 <span class="typing-cursor"></span>
             </a>
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-2 sm:space-x-4 shrink-0">
                 <div id="desktop-nav-container" class="hidden lg:flex items-center space-x-6">
                     <a href="#home" class="text-sm font-medium hover:text-cyan-400 transition duration-300 relative group whitespace-nowrap"><span class="relative z-10">Home</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
                     <a href="#about" class="text-sm font-medium hover:text-cyan-400 transition duration-300 relative group whitespace-nowrap"><span class="relative z-10">About</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
