@@ -604,6 +604,123 @@
             flex-direction: column;
             justify-content: space-between;
         }
+
+        /* ===== STRICT RESPONSIVE HEADER & LOGO ===== */
+        header a.gradient-text {
+            white-space: nowrap !important;
+            flex-shrink: 0 !important;
+        }
+        header a.gradient-text span {
+            white-space: nowrap !important;
+        }
+        @media (max-width: 1023px) {
+            #desktop-nav-container { display: none !important; }
+            #menu-toggle { display: flex !important; }
+        }
+        @media (min-width: 1024px) {
+            #desktop-nav-container { display: flex !important; }
+            #menu-toggle { display: none !important; }
+        }
+
+        /* ===== MOBILE NAV DRAWER ===== */
+        #mobile-menu {
+            right: -100%;
+            transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #mobile-menu.open {
+            right: 0 !important;
+        }
+
+        /* ===== HERO PROFILE ORBIT MOBILE FIT ===== */
+        @media (max-width: 639px) {
+            .profile-frame {
+                width: 210px !important;
+                height: 210px !important;
+                margin: 0 auto !important;
+            }
+            .profile-inner {
+                border-width: 3px !important;
+            }
+            .orbit-container-cw, .orbit-container-ccw {
+                transform: scale(0.65) !important;
+                transform-origin: center center !important;
+            }
+        }
+
+        /* ===== STRICT PROJECT CARD HEIGHT & FLEX ARCHITECTURE ===== */
+        .mh-card {
+            display: flex;
+            flex-direction: column;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(30, 41, 59, 0.85);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .mh-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(34, 211, 238, 0.5);
+            box-shadow: 0 15px 35px -10px rgba(34, 211, 238, 0.2);
+        }
+        @media (min-width: 768px) {
+            .mh-card {
+                flex-direction: row !important;
+                align-items: stretch !important;
+                height: 420px !important;
+                max-height: 420px !important;
+            }
+            .mh-preview-box {
+                width: 50% !important;
+                height: 420px !important;
+                max-height: 420px !important;
+                flex-shrink: 0 !important;
+                border-bottom: none !important;
+                border-right: 1px solid rgba(30, 41, 59, 0.85) !important;
+                overflow: hidden !important;
+            }
+            .mh-info-box {
+                width: 50% !important;
+                height: 420px !important;
+                max-height: 420px !important;
+                flex-shrink: 0 !important;
+                overflow-y: auto !important;
+            }
+        }
+        .mh-preview-box {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            background: #060d1a;
+            border-bottom: 1px solid rgba(30, 41, 59, 0.85);
+            overflow: hidden;
+        }
+        .mh-preview-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+        }
+        .mh-preview-box iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            background: #0b1329;
+            pointer-events: auto;
+        }
+        .mh-info-box {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        @media (max-width: 767px) {
+            .mh-info-box {
+                padding: 1.25rem 1rem;
+            }
+        }
 </style>
 </head>
 <body class="text-slate-200 overflow-x-hidden">
@@ -616,33 +733,33 @@
     <div class="floating-shapes" style="top:50%;left:33%;animation-delay:4s;"></div>
 
     <!-- HEADER -->
-    <header id="header" class="fixed top-0 left-0 w-full px-4 sm:px-8 md:px-16 lg:px-24 py-5 bg-slate-900/80 backdrop-blur-sm z-50 transition-all duration-300 neon-card">
+    <header id="header" class="fixed top-0 left-0 w-full px-4 sm:px-6 lg:px-12 py-4 bg-slate-900/90 backdrop-blur-md z-50 transition-all duration-300 neon-card">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="#home" class="text-3xl font-bold gradient-text digital-font flex items-center space-x-2">
+            <a href="#home" class="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text digital-font flex items-center space-x-2 whitespace-nowrap shrink-0">
                 <i class='bx bx-code-alt text-cyan-400'></i>
-                <span>Md Sadique Amin</span>
+                <span class="whitespace-nowrap">Md Sadique Amin</span>
                 <span class="typing-cursor"></span>
             </a>
             <div class="flex items-center space-x-4">
-                <nav class="desktop-nav hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Home</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                    <a href="#about" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">About</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                    <a href="#skills" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Skills</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                    <a href="#experience" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Experience</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                    <a href="#projects" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Projects</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                    <a href="#ai-projects" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">AI Projects</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                    <a href="#contact" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Contact</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                </nav>
-                <button id="music-btn" class="text-2xl text-cyan-400 hover:text-cyan-300 glow focus:outline-none transition duration-300 mr-2 flex items-center justify-center w-10 h-10 rounded-full bg-slate-800/80 border border-cyan-400/30" title="Play Background Music">
+                <div id="desktop-nav-container" class="hidden lg:flex items-center space-x-6">
+                    <a href="#home" class="text-sm font-medium hover:text-cyan-400 transition duration-300 relative group whitespace-nowrap"><span class="relative z-10">Home</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                    <a href="#about" class="text-sm font-medium hover:text-cyan-400 transition duration-300 relative group whitespace-nowrap"><span class="relative z-10">About</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                    <a href="#skills" class="text-sm font-medium hover:text-cyan-400 transition duration-300 relative group whitespace-nowrap"><span class="relative z-10">Skills</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                    <a href="#experience" class="text-sm font-medium hover:text-cyan-400 transition duration-300 relative group whitespace-nowrap"><span class="relative z-10">Experience</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                    <a href="#projects" class="text-sm font-medium hover:text-cyan-400 transition duration-300 relative group whitespace-nowrap"><span class="relative z-10">Projects</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                    <a href="#ai-projects" class="text-sm font-medium hover:text-cyan-400 transition duration-300 relative group whitespace-nowrap"><span class="relative z-10">AI Projects</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                    <a href="#contact" class="text-sm font-medium hover:text-cyan-400 transition duration-300 relative group whitespace-nowrap"><span class="relative z-10">Contact</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                </div>
+                <button id="music-btn" class="text-xl text-cyan-400 hover:text-cyan-300 glow focus:outline-none transition duration-300 mr-1 flex items-center justify-center w-9 h-9 rounded-full bg-slate-800/80 border border-cyan-400/30" title="Play Background Music">
                     <i class='bx bx-music'></i>
                 </button>
-                <button id="menu-toggle" class="md:hidden text-3xl text-cyan-400 glow"><i class='bx bx-menu'></i></button>
+                <button id="menu-toggle" class="lg:hidden text-2xl text-cyan-400 glow focus:outline-none p-2 rounded-lg bg-slate-800/80 border border-cyan-500/30 flex items-center justify-center"><i class='bx bx-menu'></i></button>
             </div>
         </div>
     </header>
 
     <!-- MOBILE MENU -->
-    <nav id="mobile-menu" class="fixed top-0 right-[-100%] md:hidden w-3/4 max-w-xs h-full bg-slate-900/98 backdrop-blur-xl z-50 flex flex-col items-center justify-center space-y-6 neon-card p-6 shadow-2xl transition-all duration-300">
+    <div id="mobile-menu" class="fixed top-0 right-[-100%] lg:hidden w-3/4 max-w-xs h-full bg-slate-900/98 backdrop-blur-xl z-50 flex flex-col items-center justify-center space-y-6 neon-card p-6 shadow-2xl transition-all duration-300">
         <button id="mobile-close-btn" class="absolute top-6 right-6 text-3xl text-cyan-400 hover:text-white"><i class='bx bx-x'></i></button>
         <a href="#home" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Home</a>
         <a href="#about" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">About</a>
