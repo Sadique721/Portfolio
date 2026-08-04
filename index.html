@@ -785,6 +785,34 @@
                 transform-origin: center center !important;
             }
         }
+
+        /* ===== STRICT SECTION SCROLL MARGIN & TITLE OFFSET ===== */
+        section {
+            scroll-margin-top: 90px !important;
+        }
+        @media (max-width: 767px) {
+            section {
+                padding-top: 95px !important;
+                scroll-margin-top: 85px !important;
+            }
+            h2.section-title {
+                margin-top: 0.5rem !important;
+                margin-bottom: 2.25rem !important;
+                position: relative !important;
+                z-index: 10 !important;
+            }
+        }
+
+        /* ===== SKILL RINGS CLEAN ALIGNMENT ===== */
+        .skill-ring {
+            position: relative !important;
+            width: 120px !important;
+            height: 120px !important;
+            margin: 0 auto 1rem auto !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
 </style>
 </head>
 <body class="text-slate-200 overflow-x-hidden">
