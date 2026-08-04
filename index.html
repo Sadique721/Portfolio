@@ -365,6 +365,28 @@
         .proj-card:hover .proj-preview-panel img {
             transform: scale(1.05);
         }
+        /* Merajul Haque Scrollable Preview Image Container Concept */
+        .mh-scroll-view {
+            position: absolute;
+            inset: 0;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .mh-scroll-view::-webkit-scrollbar {
+            display: none;
+        }
+        .mh-scroll-view img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.5s ease;
+        }
+        .proj-card:hover .mh-scroll-view img {
+            transform: scale(1.03);
+        }
         .proj-info-col {
             padding: 24px;
             display: flex;
