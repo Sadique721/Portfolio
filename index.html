@@ -30,790 +30,164 @@
         .digital-font { font-family: 'Orbitron', sans-serif; }
         .gradient-text { background: linear-gradient(45deg, #22d3ee, #0ea5e9, #3b82f6, #8b5cf6); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradient 3s ease infinite; }
         .ai-gradient { background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7); background-size: 300% 300%; animation: gradient 3s ease infinite; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        /* ===== KEYFRAMES ===== */
         @keyframes gradient { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        @keyframes morph { 0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; } 50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; } }
+        @keyframes spin-slow { to { transform: rotate(360deg); } }
+        @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+        @keyframes pulse-cert { 0%,100% { box-shadow: 0 0 6px rgba(34,211,238,0.7); } 50% { box-shadow: 0 0 14px rgba(34,211,238,1); } }
+        @keyframes cardGlow { 0%,100% { box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 0 rgba(34,211,238,0); } 50% { box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 30px rgba(34,211,238,0.18); } }
+        @keyframes orbit-cw { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes orbit-ccw { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+        @keyframes counter-orbit-cw { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+        @keyframes counter-orbit-ccw { from { transform: rotate(-360deg); } to { transform: rotate(0deg); } }
+        @keyframes buzzing { 0%, 100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-6px) scale(1.05); } }
+
+        /* ===== GLOBAL UTILITIES ===== */
         .role-badge { background: linear-gradient(45deg, rgba(34,211,238,0.1), rgba(139,92,246,0.1)); border: 1px solid rgba(34,211,238,0.3); backdrop-filter: blur(10px); }
         .tech-item { padding: 4px 12px; background: rgba(34,211,238,0.1); border-radius: 20px; font-size: 0.8rem; color: #22d3ee; border: 1px solid rgba(34,211,238,0.3); }
-        .neon-card { background: rgba(15,23,42,0.7); backdrop-filter: blur(10px); border: 1px solid rgba(34,211,238,0.2); box-shadow: 0 8px 32px rgba(0,0,0,0.3); transition: all 0.3s ease; }
-        .neon-card:hover { border-color: rgba(34,211,238,0.8); box-shadow: 0 0 30px rgba(34,211,238,0.4); transform: translateY(-8px); }
+        .neon-card { background: rgba(15,23,42,0.7); backdrop-filter: blur(10px); border: 1px solid rgba(34,211,238,0.2); box-shadow: 0 8px 32px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+        .neon-card:hover { border-color: rgba(34,211,238,0.8); animation: cardGlow 2s ease-in-out infinite; transform: translateY(-8px); }
         .glow { filter: drop-shadow(0 0 10px rgba(34,211,238,0.7)); }
-        #three-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-        .scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, #22d3ee, #8b5cf6); z-index: 9999; }
-        .magnetic-btn { transition: transform 0.3s cubic-bezier(0.23, 1, 0.320, 1); }
-        .custom-cursor { width: 20px; height: 20px; border: 2px solid #22d3ee; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
-        .custom-cursor-dot { width: 4px; height: 4px; background: #22d3ee; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; }
         .floating-shapes { position: absolute; width: 100px; height: 100px; border-radius: 50%; background: radial-gradient(circle, rgba(34,211,238,0.1), transparent); animation: float 6s ease-in-out infinite; pointer-events: none; }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-        .morphing-shape { background: linear-gradient(45deg, rgba(34,211,238,0.1), rgba(139,92,246,0.1)); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation: morph 8s ease-in-out infinite; position: relative; overflow: hidden; }
-        @keyframes morph { 0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; } 50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; } }
         .section-title { position: relative; display: inline-block; }
         .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: linear-gradient(90deg, transparent, #22d3ee, transparent); }
         .typing-cursor { display: inline-block; width: 3px; height: 1em; background: #22d3ee; margin-left: 5px; animation: blink 1s infinite; }
-        @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
-        /* REVEAL ELEMENTS GUARANTEED VISIBILITY */
-        .reveal {
-            opacity: 1 !important;
-            transform: none !important;
-            visibility: visible !important;
-        }
-        #home .reveal, #home .home-content, #home .home-img {
-            opacity: 1 !important;
-            transform: none !important;
-            visibility: visible !important;
-        }
         .parallax-layer { transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1); }
-        .skill-ring { position: relative; width: 120px; height: 120px; }
-        .bg-ring { fill: none; stroke: rgba(15,23,42,0.5); stroke-width: 10; }
-        .progress-ring { fill: none; stroke-width: 10; stroke-linecap: round; stroke-dasharray: 314; stroke-dashoffset: 314; transform: rotate(-90deg); transform-origin: 50% 50%; }
-        .profile-img-container { position: relative; }
-        .profile-img-container::before { content: ''; position: absolute; inset: -4px; border-radius: 50%; background: linear-gradient(45deg, #22d3ee, #8b5cf6, #10b981, #22d3ee); background-size: 400% 400%; animation: gradient 3s ease infinite; z-index: -1; }
-        .profile-img-container::after { content: ''; position: absolute; inset: -8px; border-radius: 50%; border: 2px solid rgba(34,211,238,0.3); animation: spin-slow 8s linear infinite; }
-        @keyframes spin-slow { to { transform: rotate(360deg); } }
-        .hex-border { clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%); }
+        .magnetic-btn { transition: transform 0.3s cubic-bezier(0.23, 1, 0.320, 1); }
+        .code-line { overflow: hidden; white-space: pre; }
+        .tech-tooltip.show-tooltip { opacity: 1 !important; transform: translate(-50%, 0) scale(1) !important; pointer-events: auto !important; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
         .project-filter.active { background: rgba(34,211,238,0.3) !important; border-color: rgba(34,211,238,0.8) !important; }
         .lenis.lenis-smooth { scroll-behavior: auto; }
         .lenis.lenis-stopped { overflow: hidden; }
-        /* Profile pic styles */
+
+        /* ===== FIXED ELEMENTS ===== */
+        #three-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+        .scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, #22d3ee, #8b5cf6); z-index: 9999; }
+        .custom-cursor { width: 20px; height: 20px; border: 2px solid #22d3ee; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
+        .custom-cursor-dot { width: 4px; height: 4px; background: #22d3ee; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; }
+
+        /* ===== REVEAL / VISIBILITY GUARANTEE ===== */
+        .reveal { opacity: 1 !important; transform: none !important; visibility: visible !important; }
+        #home .reveal, #home .home-content, #home .home-img { opacity: 1 !important; transform: none !important; visibility: visible !important; }
+
+        /* ===== PROFILE PHOTO / HERO IMAGE ===== */
         .profile-photo { width: 100%; height: 100%; object-fit: cover; object-position: top center; border-radius: 50%; }
-        .profile-frame { position: relative; width: 280px; height: 280px; }
-        @media (min-width: 640px) { .profile-frame { width: 340px; height: 340px; } }
+        .profile-frame { position: relative; width: 200px; height: 200px; }
+        @media (min-width: 430px) { .profile-frame { width: 240px; height: 240px; } }
+        @media (min-width: 640px) { .profile-frame { width: 320px; height: 320px; } }
         @media (min-width: 1024px) { .profile-frame { width: 380px; height: 380px; } }
         .profile-ring-1 { position: absolute; inset: -6px; border-radius: 50%; padding: 3px; background: linear-gradient(45deg, #22d3ee, #8b5cf6, #10b981); animation: spin-slow 6s linear infinite; }
         .profile-ring-2 { position: absolute; inset: -14px; border-radius: 50%; border: 2px dashed rgba(34,211,238,0.4); animation: spin-slow 12s linear infinite reverse; }
         .profile-inner { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; border: 4px solid #0a192f; }
+        .profile-img-container { position: relative; }
+        .profile-img-container::before { content: ''; position: absolute; inset: -4px; border-radius: 50%; background: linear-gradient(45deg, #22d3ee, #8b5cf6, #10b981, #22d3ee); background-size: 400% 400%; animation: gradient 3s ease infinite; z-index: -1; }
+        .profile-img-container::after { content: ''; position: absolute; inset: -8px; border-radius: 50%; border: 2px solid rgba(34,211,238,0.3); animation: spin-slow 8s linear infinite; }
+        .hex-border { clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%); }
 
-        /* Orbiting animations for profile tech icons */
-        @keyframes orbit-cw {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        @keyframes orbit-ccw {
-            from { transform: rotate(360deg); }
-            to { transform: rotate(0deg); }
-        }
-        @keyframes counter-orbit-cw {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(-360deg); }
-        }
-        @keyframes counter-orbit-ccw {
-            from { transform: rotate(-360deg); }
-            to { transform: rotate(0deg); }
-        }
-        @keyframes buzzing {
-            0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-6px) scale(1.05); }
-        }
-        .orbit-container-cw {
-            animation: orbit-cw 25s linear infinite;
-        }
-        .orbit-container-ccw {
-            animation: orbit-ccw 30s linear infinite;
-        }
-        .counter-orbit-cw {
-            animation: counter-orbit-cw 25s linear infinite;
-        }
-        .counter-orbit-ccw {
-            animation: counter-orbit-ccw 30s linear infinite;
-        }
-        .buzzing {
-            animation: buzzing 4s ease-in-out infinite;
-        }
-        /* code block */
-        .code-line { overflow: hidden; white-space: pre; }
+        /* ===== ORBITING TECH ICONS ===== */
+        .orbit-container-cw { animation: orbit-cw 25s linear infinite; }
+        .orbit-container-ccw { animation: orbit-ccw 30s linear infinite; }
+        .counter-orbit-cw { animation: counter-orbit-cw 25s linear infinite; }
+        .counter-orbit-ccw { animation: counter-orbit-ccw 30s linear infinite; }
+        .buzzing { animation: buzzing 4s ease-in-out infinite; }
 
-        /* tech tooltip styling for active click state */
-        .tech-tooltip.show-tooltip {
-            opacity: 1 !important;
-            transform: translate(-50%, 0) scale(1) !important;
-            pointer-events: auto !important;
-        }
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .scrollbar-hide {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
-
-        /* Certificate preview card styles */
-        .cert-card {
-            position: relative;
-            background: rgba(15,23,42,0.85);
-            border: 1px solid rgba(34,211,238,0.35);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 0 24px rgba(34,211,238,0.15), inset 0 0 30px rgba(34,211,238,0.04);
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-        }
-        .cert-card:hover {
-            border-color: rgba(34,211,238,0.8);
-            box-shadow: 0 0 40px rgba(34,211,238,0.35), inset 0 0 30px rgba(34,211,238,0.08);
-            transform: scale(1.02);
-        }
-        .cert-card-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 14px 8px;
-            border-bottom: 1px solid rgba(34,211,238,0.2);
-            background: rgba(34,211,238,0.06);
-        }
-        .cert-card-header .cert-dot {
-            width: 10px; height: 10px; border-radius: 50%;
-            background: linear-gradient(45deg, #22d3ee, #8b5cf6);
-            box-shadow: 0 0 8px rgba(34,211,238,0.7);
-            animation: pulse-cert 2s ease-in-out infinite;
-        }
-        @keyframes pulse-cert {
-            0%,100% { box-shadow: 0 0 6px rgba(34,211,238,0.7); }
-            50% { box-shadow: 0 0 14px rgba(34,211,238,1); }
-        }
-        .cert-card-header span {
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: #22d3ee;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            font-family: 'Orbitron', sans-serif;
-        }
-        .cert-iframe-wrap {
-            position: relative;
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-            background: #0f172a;
-        }
-        .cert-iframe-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-        .cert-card:hover .cert-iframe-wrap img {
-            transform: scale(1.05);
-        }
-        .cert-footer {
-            padding: 10px 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .cert-footer p {
-            font-size: 0.75rem;
-            color: #94a3b8;
-        }
-        .cert-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: #22d3ee;
-            border: 1px solid rgba(34,211,238,0.5);
-            border-radius: 20px;
-            padding: 4px 12px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            background: rgba(34,211,238,0.08);
-            letter-spacing: 0.03em;
-        }
-        .cert-btn:hover {
-            background: rgba(34,211,238,0.2);
-            border-color: #22d3ee;
-            box-shadow: 0 0 12px rgba(34,211,238,0.4);
-        }
-        /* Cert card responsive padding */
-        @media (min-width: 768px) {
-            .cert-wrap-left { padding-right: 3rem; }
-            .cert-wrap-right { padding-left: 3rem; }
-        }
-        @media (max-width: 767px) {
-            .cert-wrap-left, .cert-wrap-right {
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                margin-top: 1.25rem;
-            }
-        }
-        /* ===== NAV HEADER CLEAN BREAKPOINTS ===== */
-        header a.gradient-text {
-            white-space: nowrap !important;
-            flex-shrink: 0 !important;
-        }
-
-        /* ===== PROJECT CARD INLINE PREVIEW ===== */
-        /* ===== PROJECT CARD INLINE PREVIEW ===== */
-        .proj-card {
-            display: flex;
-            flex-direction: column;
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(34, 211, 238, 0.25);
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
-        }
-        .proj-card:hover {
-            border-color: rgba(34, 211, 238, 0.55);
-            box-shadow: 0 20px 40px -15px rgba(34, 211, 238, 0.2);
-        }
-        @media (min-width: 768px) {
-            .proj-card {
-                flex-direction: row;
-                align-items: stretch;
-                height: 440px;
-                max-height: 440px;
-            }
-            .proj-preview-col {
-                width: 50%;
-                height: 100%;
-                max-height: 440px;
-                flex-shrink: 0;
-                display: flex;
-                flex-direction: column;
-                border-right: 1px solid rgba(34, 211, 238, 0.2);
-                border-bottom: none;
-                overflow: hidden;
-            }
-            .proj-info-col {
-                width: 50%;
-                height: 100%;
-                max-height: 440px;
-                flex-shrink: 0;
-                overflow-y: auto;
-            }
-        }
-        .proj-preview-col {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            background: #060d1a;
-            border-bottom: 1px solid rgba(34, 211, 238, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        .proj-browser-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            padding: 10px 14px;
-            background: rgba(9, 14, 27, 0.98);
-            border-bottom: 1px solid rgba(30, 41, 59, 0.85);
-            z-index: 5;
-            flex-shrink: 0;
-        }
-        .proj-dots { display: flex; gap: 6px; align-items: center; }
-        .proj-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-        .proj-url-bar {
-            flex: 1;
-            min-width: 0;
-            background: rgba(2, 6, 23, 0.9);
-            border: 1px solid rgba(51, 65, 85, 0.7);
-            border-radius: 6px;
-            padding: 4px 10px;
-            font-size: 11px;
-            color: #94a3b8;
-            font-family: monospace;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            overflow: hidden;
-        }
-        .proj-url-bar span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .proj-open-link {
-            flex-shrink: 0;
-            font-size: 11px;
-            font-weight: 600;
-            color: #22d3ee;
-            text-decoration: none;
-            padding: 4px 10px;
-            border: 1px solid rgba(34, 211, 238, 0.4);
-            border-radius: 6px;
-            white-space: nowrap;
-            transition: all 0.2s;
-            background: rgba(34, 211, 238, 0.08);
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .proj-open-link:hover {
-            background: #22d3ee;
-            color: #0a192f;
-            box-shadow: 0 0 10px rgba(34, 211, 238, 0.4);
-        }
-        .proj-preview-panel {
-            position: relative;
-            width: 100%;
-            height: 260px;
-            background: #040914;
-            overflow: hidden;
-            flex: 1;
-        }
-        @media (min-width: 768px) {
-            .proj-preview-panel {
-                height: calc(100% - 41px);
-                max-height: 400px;
-            }
-        }
-        .proj-preview-panel iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-            background: #0b1329;
-            pointer-events: auto;
-        }
-        .proj-preview-panel img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-            display: block;
-            transition: transform 0.6s ease;
-        }
-        .proj-card:hover .proj-preview-panel img {
-            transform: scale(1.04);
-        }
-        /* Merajul Haque Scrollable Preview Image Container Concept */
-        .mh-scroll-view {
-            position: absolute;
-            inset: 0;
-            overflow-y: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        .mh-scroll-view::-webkit-scrollbar {
-            display: none;
-        }
-        .mh-scroll-view img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-            object-position: top center;
-            transition: transform 0.5s ease;
-        }
-        .proj-card:hover .mh-scroll-view img {
-            transform: scale(1.03);
-        }
-        .proj-info-col {
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        @media (max-width: 767px) {
-            .proj-info-col { padding: 18px 14px; }
-        }
-
-        /* ===== MOBILE RESPONSIVE OVERHAUL ===== */
-        /* Hero */
+        /* ===== SKILL RINGS ===== */
+        .skill-ring { position: relative; width: 120px; height: 120px; margin: 0 auto 1rem auto; display: flex; align-items: center; justify-content: center; }
+        .bg-ring { fill: none; stroke: rgba(15,23,42,0.5); stroke-width: 10; }
+        .progress-ring { fill: none; stroke-width: 10; stroke-linecap: round; stroke-dasharray: 314; stroke-dashoffset: 314; transform: rotate(-90deg); transform-origin: 50% 50%; }
         @media (max-width: 639px) {
-            #home h1 { font-size: 2.2rem !important; line-height: 1.15; }
-            #home .typed-wrapper { font-size: 1.15rem !important; height: auto !important; min-height: 2rem; }
-            #home .role-badges { gap: 6px !important; }
-            #home .role-badges > div { padding: 4px 10px; font-size: 0.7rem !important; }
-            #home .stat-grid { grid-template-columns: repeat(2,1fr); gap: 8px; }
-            #home .stat-grid > div { padding: 10px 8px; }
-            #home .stat-grid .text-3xl { font-size: 1.4rem !important; }
-            #home .stat-grid .text-sm { font-size: 0.65rem !important; }
-            #home p.text-lg { font-size: 0.9rem !important; }
-            .profile-frame { width: 200px !important; height: 200px !important; }
+            .skill-ring { width: 90px; height: 90px; }
+            .skill-ring svg { width: 90px; height: 90px; }
+            .skill-ring .bg-ring, .skill-ring .progress-ring { stroke-width: 8; }
         }
-        @media (max-width: 767px) {
-            #home { padding-top: 4.5rem !important; }
-            .home-content { text-align: center; }
-            .home-img { margin-top: 1.5rem; }
-        }
-        /* Stat grid responsive */
+
+        /* ===== STAT GRID ===== */
         .stat-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
         @media (max-width: 639px) { .stat-grid { grid-template-columns: repeat(2,1fr); } }
-        /* Skills section */
-        @media (max-width: 639px) {
-            .skill-ring { width: 90px !important; height: 90px !important; }
-            .skill-ring svg { width: 90px; height: 90px; }
-            .skill-ring .bg-ring, .skill-ring .progress-ring { stroke-width: 8 !important; }
+
+        /* ===== HERO SECTION MOBILE ===== */
+        @media (max-width: 767px) {
+            section#home { min-height: auto; height: auto; display: block; padding-top: 80px; padding-bottom: 40px; }
+            section#home > .container { display: flex; flex-direction: column; gap: 1.5rem; align-items: center; }
+            .home-img { order: -1; width: 100%; display: flex; align-items: center; justify-content: center; position: relative; overflow: visible; }
+            .home-content { order: 2; width: 100%; text-align: center; }
+            .parallax-layer { transform: none !important; }
         }
-        /* Projects section filter buttons */
+        @media (max-width: 639px) {
+            #home h1 { font-size: clamp(1.8rem, 8vw, 2.5rem) !important; line-height: 1.15; }
+            #home p.text-lg { font-size: 0.9rem !important; }
+        }
+
+        /* ===== ORBIT SCALE — single set of breakpoints ===== */
+        @media (max-width: 767px) { .orbit-container-cw, .orbit-container-ccw { transform: scale(0.5); transform-origin: center center; } }
+        @media (max-width: 430px) { .orbit-container-cw, .orbit-container-ccw { transform: scale(0.42); transform-origin: center center; } }
+
+        /* ===== HEADER / NAV ===== */
+        header a.gradient-text { white-space: nowrap; flex-shrink: 0; }
+        @media (max-width: 1023px) { #desktop-nav-container { display: none !important; } #menu-toggle { display: flex !important; } }
+        @media (min-width: 1024px) { #desktop-nav-container { display: flex !important; } #menu-toggle { display: none !important; } }
+        @media (max-width: 374px) { header a.gradient-text { font-size: 0.8rem !important; } }
+
+        /* ===== MOBILE MENU DRAWER ===== */
+        #mobile-menu { right: -100%; transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+        #mobile-menu.open { right: 0 !important; }
+
+        /* ===== SECTION SCROLL MARGIN ===== */
+        section { scroll-margin-top: 80px; }
+        @media (max-width: 767px) { section { scroll-margin-top: 74px; } }
+
+        /* ===== SECTION HEADINGS MOBILE ===== */
+        @media (max-width: 639px) { h2.text-4xl, h2.text-5xl { font-size: 1.75rem !important; } }
+
+        /* ===== CERTIFICATE CARDS ===== */
+        .cert-card { position: relative; background: rgba(15,23,42,0.85); border: 1px solid rgba(34,211,238,0.35); border-radius: 16px; overflow: hidden; box-shadow: 0 0 24px rgba(34,211,238,0.15), inset 0 0 30px rgba(34,211,238,0.04); transition: all 0.4s ease; backdrop-filter: blur(10px); }
+        .cert-card:hover { border-color: rgba(34,211,238,0.8); box-shadow: 0 0 40px rgba(34,211,238,0.35), inset 0 0 30px rgba(34,211,238,0.08); transform: scale(1.02); }
+        .cert-card-header { display: flex; align-items: center; gap: 8px; padding: 10px 14px 8px; border-bottom: 1px solid rgba(34,211,238,0.2); background: rgba(34,211,238,0.06); }
+        .cert-card-header .cert-dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(45deg, #22d3ee, #8b5cf6); box-shadow: 0 0 8px rgba(34,211,238,0.7); animation: pulse-cert 2s ease-in-out infinite; }
+        .cert-card-header span { font-size: 0.72rem; font-weight: 600; color: #22d3ee; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Orbitron', sans-serif; }
+        .cert-iframe-wrap { position: relative; width: 100%; height: 220px; overflow: hidden; background: #0f172a; }
+        .cert-iframe-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform 0.4s ease; }
+        .cert-card:hover .cert-iframe-wrap img { transform: scale(1.05); }
+        .cert-footer { padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; }
+        .cert-footer p { font-size: 0.75rem; color: #94a3b8; }
+        .cert-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 0.72rem; font-weight: 600; color: #22d3ee; border: 1px solid rgba(34,211,238,0.5); border-radius: 20px; padding: 4px 12px; text-decoration: none; transition: all 0.3s ease; background: rgba(34,211,238,0.08); letter-spacing: 0.03em; }
+        .cert-btn:hover { background: rgba(34,211,238,0.2); border-color: #22d3ee; box-shadow: 0 0 12px rgba(34,211,238,0.4); }
+        @media (min-width: 768px) { .cert-wrap-left { padding-right: 3rem; } .cert-wrap-right { padding-left: 3rem; } }
+        @media (max-width: 767px) { .cert-card { max-width: 100% !important; } .cert-iframe-wrap { height: 180px; } .cert-wrap-left, .cert-wrap-right { padding: 0 !important; margin-top: 1rem; width: 100% !important; } }
+
+        /* ===== PROJECT CARDS — single-column, image-top layout ===== */
+        .project-card { display: flex; flex-direction: column; background: rgba(15,23,42,0.9); border: 1px solid rgba(30,41,59,0.85); border-radius: 1rem; overflow: hidden; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+        .project-card:hover { transform: translateY(-4px); border-color: rgba(34,211,238,0.55); box-shadow: 0 20px 40px -15px rgba(34,211,238,0.25); }
+        .project-card__image-wrap { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #060d1a; border-bottom: 1px solid rgba(30,41,59,0.85); flex-shrink: 0; }
+        .project-card__image { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform 0.5s ease; }
+        .project-card:hover .project-card__image { transform: scale(1.04); }
+        .project-card__placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg,#0a192f 0%,#0d2044 40%,#0f1a3a 100%); color: #22d3ee; gap: 0.5rem; padding: 1.5rem; text-align: center; }
+        .project-card__placeholder i { font-size: 2.5rem; opacity: 0.7; }
+        .project-card__placeholder span { font-size: 0.75rem; opacity: 0.6; font-family: monospace; word-break: break-all; }
+        .project-card__body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+        .project-card__body > .space-y-3 { flex: 1; }
+        .project-card__footer { margin-top: auto; padding-top: 0.75rem; border-top: 1px solid rgba(30,41,59,0.8); }
+        @media (max-width: 767px) { .project-card__body { padding: 1rem; } }
+
+        /* ===== PROJECT FILTER BUTTONS ===== */
         @media (max-width: 639px) {
             #projects .flex.flex-wrap.justify-center.gap-4 button,
-            #ai-projects .flex.flex-wrap.justify-center.gap-4 button {
-                padding: 6px 14px;
-                font-size: 0.78rem;
-            }
+            #ai-projects .flex.flex-wrap.justify-center.gap-4 button { padding: 6px 14px; font-size: 0.78rem; }
         }
-        /* Experience timeline mobile */
-        @media (max-width: 767px) {
-            .cert-card { max-width: 100% !important; }
-            .cert-iframe-wrap { height: 180px; }
-            .cert-wrap-left, .cert-wrap-right {
-                padding: 0 !important;
-                margin-top: 1rem;
-                width: 100% !important;
-            }
-        }
-        /* Contact section */
+
+        /* ===== ABOUT / CONTACT / FOOTER ===== */
         @media (max-width: 639px) {
-            #contact input, #contact textarea, #contact select {
-                font-size: 0.9rem;
-            }
-            #contact .grid-cols-2 { grid-template-columns: 1fr !important; }
-        }
-        /* Footer */
-        @media (max-width: 639px) {
+            #about .grid-cols-4 { grid-template-columns: repeat(2,1fr) !important; }
+            #contact input, #contact textarea, #contact select { font-size: 0.9rem; }
             footer .flex.space-x-6 { flex-wrap: wrap; gap: 12px; justify-content: center; }
             footer .flex.space-x-6 a { font-size: 0.85rem; }
         }
-        /* Nav header logo */
-        @media (max-width: 400px) {
-            header a.text-3xl { font-size: 1.1rem !important; }
-            header a.text-3xl span { display: none; }
-        }
-        /* About section stats */
-        @media (max-width: 639px) {
-            #about .grid-cols-4 { grid-template-columns: repeat(2,1fr) !important; }
-        }
-        /* Section headings */
-        @media (max-width: 639px) {
-            h2.text-4xl, h2.text-5xl { font-size: 1.75rem !important; }
-        }
-        /* Premium card hover glow */
-        .neon-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-        @keyframes cardGlow {
-            0%,100% { box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 0 rgba(34,211,238,0); }
-            50% { box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 30px rgba(34,211,238,0.18); }
-        }
-        .neon-card:hover {
-            animation: cardGlow 2s ease-in-out infinite;
-        }
-    
-        /* ===== DESKTOP VS MOBILE NAV FIX ===== */
-        @media (max-width: 767px) {
-            .desktop-nav { display: none !important; }
-        }
-
-        /* ===== MOBILE MENU SLIDE-IN DRAWER ===== */
-        #mobile-menu {
-            right: -100%;
-            transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        #mobile-menu.open {
-            right: 0 !important;
-        }
-
-        /* ===== HERO PROFILE ORBIT MOBILE FIT ===== */
-        @media (max-width: 639px) {
-            .profile-frame {
-                width: 220px !important;
-                height: 220px !important;
-                margin: 0 auto !important;
-            }
-            .profile-inner {
-                border-width: 3px !important;
-            }
-            .orbit-container-cw, .orbit-container-ccw {
-                transform: scale(0.68) !important;
-                transform-origin: center center !important;
-            }
-        }
-
-        /* ===== HEADER & LOGO RESPONSIVENESS ===== */
-        header a.gradient-text {
-            white-space: nowrap !important;
-            flex-shrink: 0 !important;
-        }
-        header a.gradient-text span {
-            white-space: nowrap !important;
-        }
-        @media (max-width: 991px) {
-            .desktop-nav { display: none !important; }
-            #menu-toggle { display: block !important; }
-        }
-        @media (min-width: 992px) {
-            .desktop-nav { display: flex !important; gap: 1rem !important; }
-            .desktop-nav a { font-size: 0.9rem !important; white-space: nowrap !important; }
-            #menu-toggle { display: none !important; }
-        }
-        @media (min-width: 1200px) {
-            .desktop-nav { gap: 1.75rem !important; }
-            .desktop-nav a { font-size: 1rem !important; }
-        }
-
-        /* ===== MERAJUL HAQUE EXACT PROJECT CARD ARCHITECTURE ===== */
-        .mh-card {
-            display: grid;
-            grid-template-columns: 1fr;
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(30, 41, 59, 0.8);
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .mh-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(34, 211, 238, 0.4);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
-        }
-        @media (min-width: 768px) {
-            .mh-card {
-                grid-template-columns: 1fr 1fr;
-                min-height: 380px;
-            }
-        }
-        .mh-preview-box {
-            position: relative;
-            width: 100%;
-            height: 280px;
-            overflow: hidden;
-            background: #060d1a;
-            border-bottom: 1px solid rgba(30, 41, 59, 0.8);
-        }
-        @media (min-width: 768px) {
-            .mh-preview-box {
-                height: 100%;
-                min-height: 380px;
-                border-bottom: none;
-                border-right: 1px solid rgba(30, 41, 59, 0.8);
-            }
-        }
-        .mh-scroll-wrap {
-            position: absolute;
-            inset: 0;
-            overflow-y: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        .mh-scroll-wrap::-webkit-scrollbar {
-            display: none;
-        }
-        .mh-scroll-wrap img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-            object-position: top center;
-            transition: transform 0.5s ease;
-        }
-        .mh-card:hover .mh-scroll-wrap img {
-            transform: scale(1.04);
-        }
-        .mh-info-box {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        /* ===== STRICT RESPONSIVE HEADER & LOGO ===== */
-        header a.gradient-text {
-            white-space: nowrap !important;
-            flex-shrink: 0 !important;
-        }
-        header a.gradient-text span {
-            white-space: nowrap !important;
-        }
-        @media (max-width: 1023px) {
-            #desktop-nav-container { display: none !important; }
-            #menu-toggle { display: flex !important; }
-        }
-        @media (min-width: 1024px) {
-            #desktop-nav-container { display: flex !important; }
-            #menu-toggle { display: none !important; }
-        }
-
-        /* ===== MOBILE NAV DRAWER ===== */
-        #mobile-menu {
-            right: -100%;
-            transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        #mobile-menu.open {
-            right: 0 !important;
-        }
-
-        /* ===== HERO PROFILE ORBIT MOBILE FIT ===== */
-        @media (max-width: 639px) {
-            .profile-frame {
-                width: 165px !important;
-                height: 165px !important;
-                margin: 0 auto !important;
-            }
-            .profile-inner {
-                border-width: 2.5px !important;
-            }
-            .orbit-container-cw, .orbit-container-ccw {
-                transform: scale(0.46) !important;
-                transform-origin: center center !important;
-            }
-        }
-        /* Mobile Header Logo No-Wrap Rule */
-        @media (max-width: 480px) {
-            header a.gradient-text span {
-                font-size: 0.95rem !important;
-                white-space: nowrap !important;
-            }
-        }
-
-        /* ===== STRICT PROJECT CARD HEIGHT & FLEX ARCHITECTURE ===== */
-        .mh-card {
-            display: flex;
-            flex-direction: column;
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid rgba(30, 41, 59, 0.85);
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .mh-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(34, 211, 238, 0.5);
-            box-shadow: 0 15px 35px -10px rgba(34, 211, 238, 0.2);
-        }
-        @media (min-width: 768px) {
-            .mh-card {
-                flex-direction: row !important;
-                align-items: stretch !important;
-                height: 420px !important;
-                max-height: 420px !important;
-            }
-            .mh-preview-box {
-                width: 50% !important;
-                height: 420px !important;
-                max-height: 420px !important;
-                flex-shrink: 0 !important;
-                border-bottom: none !important;
-                border-right: 1px solid rgba(30, 41, 59, 0.85) !important;
-                overflow: hidden !important;
-            }
-            .mh-info-box {
-                width: 50% !important;
-                height: 420px !important;
-                max-height: 420px !important;
-                flex-shrink: 0 !important;
-                overflow-y: auto !important;
-            }
-        }
-        .mh-preview-box {
-            position: relative;
-            width: 100%;
-            height: 240px;
-            background: #060d1a;
-            border-bottom: 1px solid rgba(30, 41, 59, 0.85);
-            overflow: hidden;
-        }
-        .mh-preview-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-            display: block;
-        }
-        .mh-preview-box iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-            background: #0b1329;
-            pointer-events: auto;
-        }
-        .mh-info-box {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        @media (max-width: 767px) {
-            .mh-info-box {
-                padding: 1.25rem 1rem;
-            }
-        }
-
-        /* ===== BULLETPROOF MOBILE HERO LAYOUT ===== */
-        @media (max-width: 767px) {
-            section#home {
-                min-height: auto !important;
-                height: auto !important;
-                display: block !important;
-                padding-top: 95px !important;
-                padding-bottom: 50px !important;
-                overflow: visible !important;
-            }
-            section#home > .container {
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 1.5rem !important;
-                align-items: center !important;
-            }
-            .home-img {
-                order: -1 !important;
-                width: 100% !important;
-                min-height: 270px !important;
-                height: 270px !important;
-                margin-top: 0.5rem !important;
-                margin-bottom: 1rem !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                position: relative !important;
-                overflow: visible !important;
-            }
-            .home-content {
-                order: 2 !important;
-                width: 100% !important;
-                text-align: center !important;
-            }
-            .parallax-layer {
-                transform: none !important;
-            }
-            .profile-frame {
-                width: 135px !important;
-                height: 135px !important;
-                margin: 0 auto !important;
-            }
-            .profile-inner {
-                border-width: 2px !important;
-            }
-            .orbit-container-cw, .orbit-container-ccw {
-                transform: scale(0.38) !important;
-                transform-origin: center center !important;
-            }
-        }
-
-        /* ===== STRICT SECTION SCROLL MARGIN & TITLE OFFSET ===== */
-        section {
-            scroll-margin-top: 90px !important;
-        }
-        @media (max-width: 767px) {
-            section {
-                padding-top: 95px !important;
-                scroll-margin-top: 85px !important;
-            }
-            h2.section-title {
-                margin-top: 0.5rem !important;
-                margin-bottom: 2.25rem !important;
-                position: relative !important;
-                z-index: 10 !important;
-            }
-        }
-
-        /* ===== SKILL RINGS CLEAN ALIGNMENT ===== */
-        .skill-ring {
-            position: relative !important;
-            width: 120px !important;
-            height: 120px !important;
-            margin: 0 auto 1rem auto !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-        }
-</style>
+    </style>
 </head>
 <body class="text-slate-200 overflow-x-hidden">
     <div class="scroll-progress"></div>
@@ -1454,48 +828,46 @@
                     <button class="project-filter px-6 py-2 rounded-full bg-green-900/30 border border-green-400 text-green-400 hover:bg-green-400/10 transition-all duration-300" data-filter="ds">Data Science</button>
                     <button class="project-filter px-6 py-2 rounded-full bg-cyan-900/30 border border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300" data-filter="web">Web Dev</button>
                 </div>
-                <div class="grid grid-cols-1 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                    <div class="mh-card project-item web reveal proj-card" data-delay="0.1">
-                        <div class="mh-preview-box">
-                            <iframe src="https://recipe-finder-pro.vercel.app" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
+                    <!-- Recipe Finder Pro -->
+                    <div class="project-card project-item web reveal" data-delay="0.1">
+                        <div class="project-card__image-wrap">
+                            <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=800&q=80" alt="Recipe Finder Pro" loading="lazy" class="project-card__image">
                         </div>
-                        <div class="mh-info-box">
+                        <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Recipe Finder Pro</h3>
                                     <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">React / Web App</span>
                                 </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Search & discover thousands of delicious recipes with instant ingredient filtering, detailed nutritional information, and step-by-step instructions.</p>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Search &amp; discover thousands of delicious recipes with instant ingredient filtering, detailed nutritional information, and step-by-step instructions.</p>
                                 <div class="flex flex-wrap gap-2">
                                     <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">React.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Tailwind CSS</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Spoonacular API</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vercel</span>
                                 </div>
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Instant ingredient filtering & search engine</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Nutritional facts and calorie breakdown</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Save favorite recipes with local storage</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Instant ingredient filtering &amp; search engine</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Nutritional facts and calorie breakdown</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Save favorite recipes with local storage</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
-                                <a href="https://recipe-finder-pro.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
-            <i class="bx bx-navigation"></i> Live
-        </a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
-            <i class="bx bxl-github"></i> Code
-        </a>
+                            <div class="project-card__footer flex gap-3 flex-wrap">
+                                <a href="https://recipe-finder-pro.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mh-card project-item web reveal proj-card" data-delay="0.2">
-                        <div class="mh-preview-box">
-                            <iframe src="https://ethical-hacking-portalethical-hacking.onrender.com" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
+                    <!-- Ethical Hacking Portal -->
+                    <div class="project-card project-item web reveal" data-delay="0.2">
+                        <div class="project-card__image-wrap">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80" alt="Ethical Hacking Portal" loading="lazy" class="project-card__image">
                         </div>
-                        <div class="mh-info-box">
+                        <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Ethical Hacking Portal</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Python / Security</span>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Python / Flask</span>
                                 </div>
                                 <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Cybersecurity platform for ethical hacking, penetration testing tutorials, vulnerability assessments, and security labs.</p>
                                 <div class="flex flex-wrap gap-2">
@@ -1504,25 +876,22 @@
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive vulnerability assessment modules</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Penetration testing cheat sheets & labs</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Secure authentication & user tracking</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive vulnerability assessment modules</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Penetration testing cheat sheets &amp; labs</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Secure authentication &amp; user tracking</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
-                                <a href="https://ethical-hacking-portalethical-hacking.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
-            <i class="bx bx-navigation"></i> Live
-        </a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
-            <i class="bx bxl-github"></i> Code
-        </a>
+                            <div class="project-card__footer flex gap-3 flex-wrap">
+                                <a href="https://ethical-hacking-portalethical-hacking.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mh-card project-item web reveal proj-card" data-delay="0.3">
-                        <div class="mh-preview-box">
-                            <iframe src="https://entitykart.onrender.com" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
+                    <!-- Entitykart E-commerce -->
+                    <div class="project-card project-item web reveal" data-delay="0.3">
+                        <div class="project-card__image-wrap">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="Entitykart E-commerce" loading="lazy" class="project-card__image">
                         </div>
-                        <div class="mh-info-box">
+                        <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Entitykart E-commerce</h3>
@@ -1535,56 +904,50 @@
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Complete cart, checkout & order management system</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Admin dashboard with sales analytics & reports</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>JWT-secured REST API with role-based auth</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Complete cart, checkout &amp; order management system</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Admin dashboard with sales analytics &amp; reports</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>JWT-secured REST API with role-based auth</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
-                                <a href="https://entitykart.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
-            <i class="bx bx-navigation"></i> Live
-        </a><a href="https://github.com/Sadique721/Entitykart" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
-            <i class="bx bxl-github"></i> Code
-        </a>
+                            <div class="project-card__footer flex gap-3 flex-wrap">
+                                <a href="https://entitykart.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721/Entitykart" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mh-card project-item web reveal proj-card" data-delay="0.4">
-                        <div class="mh-preview-box">
-                            <iframe src="https://entitykart-enterprise-ecommerce.onrender.com" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
+                    <!-- Entitykart Microservices -->
+                    <div class="project-card project-item web reveal" data-delay="0.4">
+                        <div class="project-card__image-wrap">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="Entitykart Microservices" loading="lazy" class="project-card__image">
                         </div>
-                        <div class="mh-info-box">
+                        <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Entitykart Microservices</h3>
                                     <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Microservices</span>
                                 </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Enterprise-grade e-commerce microservices platform on highly scalable distributed architecture with Spring Cloud, Docker & Eureka.</p>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Enterprise-grade e-commerce microservices platform on highly scalable distributed architecture with Spring Cloud, Docker &amp; Eureka.</p>
                                 <div class="flex flex-wrap gap-2">
                                     <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Spring Cloud</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Spring Boot</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Docker</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Eureka</span>
                                 </div>
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>8 independent microservices with API Gateway</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Centralized Eureka Service Discovery & Config</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Resilience4j Circuit Breaker & Distributed Tracing</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>8 independent microservices with API Gateway</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Centralized Eureka Service Discovery &amp; Config</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Resilience4j Circuit Breaker &amp; Distributed Tracing</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
-                                <a href="https://entitykart-enterprise-ecommerce.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
-            <i class="bx bx-navigation"></i> Live
-        </a><a href="https://github.com/Sadique721/Entitykart-Microservices" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
-            <i class="bx bxl-github"></i> Code
-        </a>
+                            <div class="project-card__footer flex gap-3 flex-wrap">
+                                <a href="https://entitykart-enterprise-ecommerce.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721/Entitykart-Microservices" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mh-card project-item web reveal proj-card" data-delay="0.1">
-                        <div class="mh-preview-box">
-                            <iframe src="https://interactive-digital-clock.vercel.app" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
+                    <!-- Interactive Digital Clock -->
+                    <div class="project-card project-item web reveal" data-delay="0.1">
+                        <div class="project-card__image-wrap">
+                            <img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=800&q=80" alt="Interactive Digital Clock" loading="lazy" class="project-card__image">
                         </div>
-                        <div class="mh-info-box">
+                        <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Interactive Digital Clock</h3>
@@ -1597,25 +960,22 @@
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Multiple neon glow color themes & sound alerts</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>High-precision stopwatch with lap recording</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Responsive digital UI with smooth animations</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Multiple neon glow color themes &amp; sound alerts</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>High-precision stopwatch with lap recording</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Responsive digital UI with smooth animations</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
-                                <a href="https://interactive-digital-clock.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
-            <i class="bx bx-navigation"></i> Live
-        </a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
-            <i class="bx bxl-github"></i> Code
-        </a>
+                            <div class="project-card__footer flex gap-3 flex-wrap">
+                                <a href="https://interactive-digital-clock.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mh-card project-item web reveal proj-card" data-delay="0.2">
-                        <div class="mh-preview-box">
-                            <iframe src="https://whimsical-duckanoo-1363ca.netlify.app/" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
+                    <!-- MSA Cricket Informer -->
+                    <div class="project-card project-item web reveal" data-delay="0.2">
+                        <div class="project-card__image-wrap">
+                            <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&q=80" alt="MSA Cricket Informer" loading="lazy" class="project-card__image">
                         </div>
-                        <div class="mh-info-box">
+                        <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">MSA Cricket Informer</h3>
@@ -1628,25 +988,22 @@
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Live score updates with ball-by-ball commentary</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Player stats & team rankings breakdown</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Upcoming matches & tournament schedule calendar</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Live score updates with ball-by-ball commentary</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Player stats &amp; team rankings breakdown</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Upcoming matches &amp; tournament schedule calendar</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
-                                <a href="https://whimsical-duckanoo-1363ca.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
-            <i class="bx bx-navigation"></i> Live
-        </a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
-            <i class="bx bxl-github"></i> Code
-        </a>
+                            <div class="project-card__footer flex gap-3 flex-wrap">
+                                <a href="https://whimsical-duckanoo-1363ca.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mh-card project-item web reveal proj-card" data-delay="0.3">
-                        <div class="mh-preview-box">
-                            <iframe src="https://shabnam-enterprises-seven.vercel.app/" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
+                    <!-- Shabnam Enterprises -->
+                    <div class="project-card project-item web reveal" data-delay="0.3">
+                        <div class="project-card__image-wrap">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Shabnam Enterprises" loading="lazy" class="project-card__image">
                         </div>
-                        <div class="mh-info-box">
+                        <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Shabnam Enterprises</h3>
@@ -1659,56 +1016,50 @@
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Sleek glassmorphism UI with smooth animations</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive service portfolio & client showcase</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Functional contact & business inquiry integration</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Sleek glassmorphism UI with smooth animations</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive service portfolio &amp; client showcase</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Functional contact &amp; business inquiry integration</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
-                                <a href="https://shabnam-enterprises-seven.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
-            <i class="bx bx-navigation"></i> Live
-        </a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
-            <i class="bx bxl-github"></i> Code
-        </a>
+                            <div class="project-card__footer flex gap-3 flex-wrap">
+                                <a href="https://shabnam-enterprises-seven.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mh-card project-item web reveal proj-card" data-delay="0.4">
-                        <div class="mh-preview-box">
-                            <iframe src="https://code-snippet-hub.vercel.app" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
+                    <!-- CodeSnippet Hub -->
+                    <div class="project-card project-item web reveal" data-delay="0.4">
+                        <div class="project-card__image-wrap">
+                            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80" alt="CodeSnippet Hub and Sandbox" loading="lazy" class="project-card__image">
                         </div>
-                        <div class="mh-info-box">
+                        <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">CodeSnippet Hub & Sandbox</h3>
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">CodeSnippet Hub &amp; Sandbox</h3>
                                     <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">React / Developer</span>
                                 </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Developer code snippet repository and live browser sandbox for testing JavaScript, HTML & CSS snippets in real time.</p>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Developer code snippet repository and live browser sandbox for testing JavaScript, HTML &amp; CSS snippets in real time.</p>
                                 <div class="flex flex-wrap gap-2">
                                     <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">React.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Monaco Editor</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Tailwind CSS</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vercel</span>
                                 </div>
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Monaco code editor with syntax highlighting</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Live real-time code output preview sandbox</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Save & copy code snippets with one-click export</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Monaco code editor with syntax highlighting</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Live real-time code output preview sandbox</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Save &amp; copy code snippets with one-click export</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
-                                <a href="https://code-snippet-hub.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
-            <i class="bx bx-navigation"></i> Live
-        </a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
-            <i class="bx bxl-github"></i> Code
-        </a>
+                            <div class="project-card__footer flex gap-3 flex-wrap">
+                                <a href="https://code-snippet-hub.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mh-card project-item web reveal proj-card" data-delay="0.5">
-                        <div class="mh-preview-box">
-                            <iframe src="https://myportfoliositesadique.netlify.app/" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
+                    <!-- Futuristic 3D Portfolio -->
+                    <div class="project-card project-item web reveal" data-delay="0.5">
+                        <div class="project-card__image-wrap">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" alt="Futuristic 3D Portfolio" loading="lazy" class="project-card__image">
                         </div>
-                        <div class="mh-info-box">
+                        <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Futuristic 3D Portfolio</h3>
@@ -1721,54 +1072,50 @@
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive 3D particle background canvas</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Smooth scroll reveal animations & sound effects</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Responsive glassmorphism UI with tech skill orbits</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive 3D particle background canvas</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Smooth scroll reveal animations &amp; sound effects</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Responsive glassmorphism UI with tech skill orbits</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
-                                <a href="https://myportfoliositesadique.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
-            <i class="bx bx-navigation"></i> Live
-        </a><a href="https://github.com/Sadique721/Portfolio" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
-            <i class="bx bxl-github"></i> Code
-        </a>
+                            <div class="project-card__footer flex gap-3 flex-wrap">
+                                <a href="https://myportfoliositesadique.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721/Portfolio" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mh-card project-item web reveal proj-card" data-delay="0.6">
-                        <div class="mh-preview-box">
-                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" alt="Agrotech Platform" loading="lazy" class="w-full object-contain transition-transform duration-300 group-hover:scale-105"></div>
+                    <!-- Agrotech Platform -->
+                    <div class="project-card project-item web reveal" data-delay="0.6">
+                        <div class="project-card__image-wrap">
+                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" alt="Agrotech Platform" loading="lazy" class="project-card__image">
                         </div>
-                        <div class="mh-info-box">
+                        <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Agrotech Platform</h3>
                                     <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Python</span>
                                 </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Agricultural management system with crop monitoring, ML price prediction, and inventory management using Python & Django.</p>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Agricultural management system with crop monitoring, ML price prediction, and inventory management using Python &amp; Django.</p>
                                 <div class="flex flex-wrap gap-2">
                                     <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Python</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Django</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Machine Learning</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">SQLite</span>
                                 </div>
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Crop recommendation algorithm based on soil conditions</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>ML market price trend forecasting</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Farmer inventory & order tracking system</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Crop recommendation algorithm based on soil conditions</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>ML market price trend forecasting</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Farmer inventory &amp; order tracking system</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
-                                <a href="https://github.com/Sadique721/Agrotech-Platform" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
-            <i class="bx bxl-github"></i> Code
-        </a>
+                            <div class="project-card__footer flex gap-3 flex-wrap">
+                                <a href="https://github.com/Sadique721/Agrotech-Platform" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mh-card project-item ds reveal proj-card" data-delay="0.1">
-                        <div class="mh-preview-box">
-                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Data Visualization Studio" loading="lazy" class="w-full object-contain transition-transform duration-300 group-hover:scale-105"></div>
+                    <!-- Data Visualization Studio -->
+                    <div class="project-card project-item ds reveal" data-delay="0.1">
+                        <div class="project-card__image-wrap">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Data Visualization Studio" loading="lazy" class="project-card__image">
                         </div>
-                        <div class="mh-info-box">
+                        <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Data Visualization Studio</h3>
@@ -1785,22 +1132,21 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
-                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
-            <i class="bx bxl-github"></i> Code
-        </a>
+                            <div class="project-card__footer flex gap-3 flex-wrap">
+                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mh-card project-item ai reveal proj-card" data-delay="0.2">
-                        <div class="mh-preview-box">
-                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide"><img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80" alt="AI Resume Analyzer & ATS" loading="lazy" class="w-full object-contain transition-transform duration-300 group-hover:scale-105"></div>
+                    <!-- AI Resume Analyzer -->
+                    <div class="project-card project-item ai reveal" data-delay="0.2">
+                        <div class="project-card__image-wrap">
+                            <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80" alt="AI Resume Analyzer and ATS" loading="lazy" class="project-card__image">
                         </div>
-                        <div class="mh-info-box">
+                        <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">AI Resume Analyzer & ATS</h3>
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">AI Resume Analyzer &amp; ATS</h3>
                                     <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Python/NLP</span>
                                 </div>
                                 <p class="text-slate-400 text-sm sm:text-base leading-relaxed">AI-powered resume analyzer that scores resumes for ATS compatibility, suggests keyword improvements, and generates tailored cover letters.</p>
@@ -1814,19 +1160,18 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
-                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
-            <i class="bx bxl-github"></i> Code
-        </a>
+                            <div class="project-card__footer flex gap-3 flex-wrap">
+                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mh-card project-item ai reveal proj-card" data-delay="0.3">
-                        <div class="mh-preview-box">
-                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80" alt="Smart Healthcare Predictor" loading="lazy" class="w-full object-contain transition-transform duration-300 group-hover:scale-105"></div>
+                    <!-- Smart Healthcare Predictor -->
+                    <div class="project-card project-item ai reveal" data-delay="0.3">
+                        <div class="project-card__image-wrap">
+                            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80" alt="Smart Healthcare Predictor" loading="lazy" class="project-card__image">
                         </div>
-                        <div class="mh-info-box">
+                        <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Smart Healthcare Predictor</h3>
@@ -1843,13 +1188,12 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
-                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
-            <i class="bx bxl-github"></i> Code
-        </a>
+                            <div class="project-card__footer flex gap-3 flex-wrap">
+                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -2074,21 +1418,20 @@
         // ===== MOBILE MENU =====
         const toggle = document.getElementById('menu-toggle');
         const mob = document.getElementById('mobile-menu');
-        const icon = toggle.querySelector('i');
-        toggle.addEventListener('click', () => {
-            const isOpen = mob.classList.contains('right-0');
-            gsap.to(mob, { right: isOpen ? '-100%' : 0, duration: 0.5, ease: isOpen ? 'power2.in' : 'power2.out' });
-            mob.classList.toggle('right-0', !isOpen);
-            mob.classList.toggle('right-[-100%]', isOpen);
-            icon.className = isOpen ? 'bx bx-menu' : 'bx bx-x';
-        });
-        document.querySelectorAll('.mobile-nav-link').forEach(l => {
-            l.addEventListener('click', () => {
-                gsap.to(mob, { right: '-100%', duration: 0.5, ease: 'power2.in' });
-                mob.classList.remove('right-0'); mob.classList.add('right-[-100%]');
-                icon.className = 'bx bx-menu';
+        const icon = toggle ? toggle.querySelector('i') : null;
+        if (toggle && mob) {
+            toggle.addEventListener('click', () => {
+                const isOpen = mob.classList.contains('open');
+                mob.classList.toggle('open', !isOpen);
+                if (icon) icon.className = isOpen ? 'bx bx-menu text-xl' : 'bx bx-x text-xl';
             });
-        });
+            document.querySelectorAll('.mobile-nav-link').forEach(l => {
+                l.addEventListener('click', () => {
+                    mob.classList.remove('open');
+                    if (icon) icon.className = 'bx bx-menu text-xl';
+                });
+            });
+        }
 
         // ===== LIVE CLOCK =====
         function tick() {
