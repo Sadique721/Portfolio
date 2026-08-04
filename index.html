@@ -734,6 +734,49 @@
                 padding: 1.25rem 1rem;
             }
         }
+
+        /* ===== BULLETPROOF MOBILE HERO LAYOUT ===== */
+        @media (max-width: 767px) {
+            section#home {
+                min-height: auto !important;
+                height: auto !important;
+                display: block !important;
+                padding-top: 100px !important;
+                padding-bottom: 50px !important;
+                overflow: visible !important;
+            }
+            section#home > .container {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1.75rem !important;
+                align-items: center !important;
+            }
+            .home-img {
+                order: -1 !important;
+                width: 100% !important;
+                margin-top: 0.5rem !important;
+                margin-bottom: 1rem !important;
+                display: flex !important;
+                justify-content: center !important;
+            }
+            .home-content {
+                order: 2 !important;
+                width: 100% !important;
+                text-align: center !important;
+            }
+            .parallax-layer {
+                transform: none !important;
+            }
+            .profile-frame {
+                width: 160px !important;
+                height: 160px !important;
+                margin: 0 auto !important;
+            }
+            .orbit-container-cw, .orbit-container-ccw {
+                transform: scale(0.44) !important;
+                transform-origin: center center !important;
+            }
+        }
 </style>
 </head>
 <body class="text-slate-200 overflow-x-hidden">
