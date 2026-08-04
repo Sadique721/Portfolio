@@ -49,7 +49,17 @@
         .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: linear-gradient(90deg, transparent, #22d3ee, transparent); }
         .typing-cursor { display: inline-block; width: 3px; height: 1em; background: #22d3ee; margin-left: 5px; animation: blink 1s infinite; }
         @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
-        .reveal { opacity: 0; transform: translateY(50px); }
+        /* REVEAL ELEMENTS GUARANTEED VISIBILITY */
+        .reveal {
+            opacity: 1 !important;
+            transform: none !important;
+            visibility: visible !important;
+        }
+        #home .reveal, #home .home-content, #home .home-img {
+            opacity: 1 !important;
+            transform: none !important;
+            visibility: visible !important;
+        }
         .parallax-layer { transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1); }
         .skill-ring { position: relative; width: 120px; height: 120px; }
         .bg-ring { fill: none; stroke: rgba(15,23,42,0.5); stroke-width: 10; }
