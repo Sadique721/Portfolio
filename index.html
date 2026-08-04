@@ -1149,7 +1149,7 @@
 
         <!-- PROJECTS -->
         <section id="projects" class="py-20 px-4 sm:px-8 md:px-16 lg:px-24 bg-gradient-to-b from-transparent to-slate-900/50 relative">
-            <div class="container mx-auto">
+            <div class="container mx-auto max-w-6xl">
                 <h2 class="text-4xl font-bold mb-16 text-center section-title reveal"><span class="gradient-text digital-font">Featured Projects</span></h2>
                 <div class="flex flex-wrap justify-center gap-4 mb-12 reveal">
                     <button class="project-filter active px-6 py-2 rounded-full bg-cyan-900/30 border border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300" data-filter="all">All Projects</button>
@@ -1157,1127 +1157,399 @@
                     <button class="project-filter px-6 py-2 rounded-full bg-green-900/30 border border-green-400 text-green-400 hover:bg-green-400/10 transition-all duration-300" data-filter="ds">Data Science</button>
                     <button class="project-filter px-6 py-2 rounded-full bg-cyan-900/30 border border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300" data-filter="web">Web Dev</button>
                 </div>
-                <div class="grid grid-cols-1 gap-12">
-                    <!-- Project 1: Agrotech Platform -->
-                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
-                                </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>agrotech-platform.python.org</span>
-                                </div>
-                                <a href="https://github.com/Sadique721/Agrotech-Platform" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> GitHub</a>
-                            </div>
-                            <div class="proj-preview-panel">
-                                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" alt="Agrotech Platform preview" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Agrotech Platform</h3>
-                                    <span class="px-3 py-1 rounded-full bg-green-900/40 text-green-400 text-xs font-semibold border border-green-700/50">Python</span>
-                                </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Agricultural management system with crop monitoring, ML price prediction, and inventory management using Python & Django.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Python</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Django</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">ML</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Data Analysis</span>
-                                </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>ML-based real-time crop price prediction engine</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Smart inventory tracking with low-stock alerts</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Weather-integrated farming recommendations</span></div>
-                                </div>
-                            </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://github.com/Sadique721/Agrotech-Platform" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105">
-                                    <i class='bx bxl-github mr-1.5'></i> Source Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="grid grid-cols-1 gap-10">
 
-                    <!-- Project 2: Advanced Scientific Calculator -->
-                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.1">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
-                                </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>github.com/Sadique721/Scientific-Calc</span>
-                                </div>
-                                <a href="https://github.com/Sadique721/Advanced-Scientific-Calculator" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> GitHub</a>
-                            </div>
-                            <div class="proj-preview-panel">
-                                <img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=800&q=80" alt="Scientific Calculator preview" loading="lazy">
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-6 border border-slate-800 bg-slate-900/80 rounded-xl overflow-hidden group shadow-sm hover:shadow-lg hover:border-cyan-500/40 transition-all duration-300 project-item web reveal proj-card" data-delay="0.1">
+                        <div class="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r border-slate-800">
+                            <iframe src="https://recipe-finder-pro.vercel.app" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
                         </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Advanced Scientific Calculator</h3>
-                                    <span class="px-3 py-1 rounded-full bg-blue-900/40 text-blue-400 text-xs font-semibold border border-blue-700/50">C Programming</span>
-                                </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">High-performance calculator with 50+ mathematical operations, real-time graphing, and equation solving in C.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-blue-300 text-xs border border-slate-700/40">C Programming</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-blue-300 text-xs border border-slate-700/40">Data Structures</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-blue-300 text-xs border border-slate-700/40">Algorithms</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-blue-300 text-xs border border-slate-700/40">Mathematics</span>
-                                </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400 mt-0.5'></i><span>50+ built-in mathematical &amp; trigonometric functions</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400 mt-0.5'></i><span>Real-time graphing &amp; equation visualizer</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400 mt-0.5'></i><span>Memory stack with calculation history</span></div>
-                                </div>
-                            </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://github.com/Sadique721/Advanced-Scientific-Calculator" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105">
-                                    <i class='bx bxl-github mr-1.5'></i> Source Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.2">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
-                                </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>ethical-hacking-portal.onrender.com</span>
-                                </div>
-                                <a href="https://ethical-hacking-portalethical-hacking.onrender.com" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Live App</a>
-                            </div>
-                            <div class="proj-preview-panel">
-                                <iframe src="https://ethical-hacking-portalethical-hacking.onrender.com" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
-                            </div>
-                        </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Ethical Hacking Portal</h3>
-                                    <span class="px-3 py-1 rounded-full bg-red-900/40 text-red-400 text-xs font-semibold border border-slate-700/50">Django</span>
-                                </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Comprehensive cybersecurity learning platform with CTF challenges, live vulnerability testing, and progress tracking built with Django.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-red-300 text-xs border border-slate-700/40">Django</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-red-300 text-xs border border-slate-700/40">Python</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-red-300 text-xs border border-slate-700/40">Security</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-red-300 text-xs border border-slate-700/40">MySQL</span>
-                                </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-red-400 mt-0.5'></i><span>CTF challenges &amp; live vulnerability testing sandbox</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-red-400 mt-0.5'></i><span>User progress tracking with leaderboard system</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-red-400 mt-0.5'></i><span>Secure sandboxed environment with role-based access</span></div>
-                                </div>
-                            </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://ethical-hacking-portalethical-hacking.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
-                                <a href="https://github.com/Sadique721/ethical-hacking-portal" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.3">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
-                                </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>recipe-finder-pro.vercel.app</span>
-                                </div>
-                                <a href="https://recipe-finder-pro.vercel.app" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Live App</a>
-                            </div>
-                            <div class="proj-preview-panel">
-                                <iframe src="https://recipe-finder-pro.vercel.app" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
-                            </div>
-                        </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                        <div class="p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Recipe Finder Pro</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-slate-700/50">React.js</span>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">React / Web App</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Intelligent recipe discovery platform with ingredient-based search, nutritional analysis, and weekly meal planning using React.js.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">React.js</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">API Integration</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">JavaScript</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">CSS3</span>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Search & discover thousands of delicious recipes with instant ingredient filtering, detailed nutritional information, and step-by-step instructions.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">React.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Tailwind CSS</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Spoonacular API</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vercel</span>
                                 </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Smart ingredient-based recipe search &amp; filtering</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Nutritional analysis with calorie breakdown</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Save favorites &amp; weekly meal planning feature</span></div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Instant ingredient filtering & search engine</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Nutritional facts and calorie breakdown</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Save favorite recipes with local storage</span></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://recipe-finder-pro.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
-                                <a href="https://github.com/Sadique721/recipe-finder-pro-" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.4">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
-                                </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>github.com/Sadique721/Analog-Clock</span>
-                                </div>
-                                <a href="https://github.com/Sadique721/-Modern-Analog-Clock" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Open</a>
-                            </div>
-                            <div class="proj-preview-panel">
-                                <img src="https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=800&q=80" alt="Modern Analog Clock preview" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Modern Analog Clock</h3>
-                                    <span class="px-3 py-1 rounded-full bg-yellow-900/40 text-yellow-400 text-xs font-semibold border border-slate-700/50">JavaScript</span>
-                                </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Beautiful analog clock with multiple themes, multi-timezone support, and silky 60fps canvas-rendered animations using pure JavaScript.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">JavaScript</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">HTML5 Canvas</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">CSS Animations</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">Responsive</span>
-                                </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400 mt-0.5'></i><span>Multiple clock themes (dark, light, neon, minimal)</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400 mt-0.5'></i><span>Multi-timezone support with real-time sync</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400 mt-0.5'></i><span>Silky smooth 60fps canvas-rendered animations</span></div>
-                                </div>
-                            </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://github.com/Sadique721/-Modern-Analog-Clock" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
+                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
+                                <a href="https://recipe-finder-pro.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
+            <i class="bx bx-navigation"></i> Live
+        </a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
+            <i class="bx bxl-github"></i> Code
+        </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.5">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
+                    <div class="grid md:grid-cols-2 gap-6 border border-slate-800 bg-slate-900/80 rounded-xl overflow-hidden group shadow-sm hover:shadow-lg hover:border-cyan-500/40 transition-all duration-300 project-item web reveal proj-card" data-delay="0.2">
+                        <div class="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r border-slate-800">
+                            <iframe src="https://ethical-hacking-portalethical-hacking.onrender.com" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
+                        </div>
+                        <div class="p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Ethical Hacking Portal</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Python / Security</span>
                                 </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>entitykart.onrender.com</span>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Cybersecurity platform for ethical hacking, penetration testing tutorials, vulnerability assessments, and security labs.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Python</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Flask</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Cybersecurity</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Render</span>
                                 </div>
-                                <a href="https://entitykart.onrender.com" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Live App</a>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive vulnerability assessment modules</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Penetration testing cheat sheets & labs</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Secure authentication & user tracking</span></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="proj-preview-panel">
-                                <iframe src="https://entitykart.onrender.com" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
+                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
+                                <a href="https://ethical-hacking-portalethical-hacking.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
+            <i class="bx bx-navigation"></i> Live
+        </a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
+            <i class="bx bxl-github"></i> Code
+        </a>
                             </div>
                         </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 border border-slate-800 bg-slate-900/80 rounded-xl overflow-hidden group shadow-sm hover:shadow-lg hover:border-cyan-500/40 transition-all duration-300 project-item web reveal proj-card" data-delay="0.3">
+                        <div class="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r border-slate-800">
+                            <iframe src="https://entitykart.onrender.com" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
+                        </div>
+                        <div class="p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Entitykart E-commerce</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-slate-700/50">Spring Boot</span>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Spring Boot</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Full-featured online shopping platform with Spring Boot backend, React frontend, JWT authentication, and complete order management.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Spring Boot</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">React</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">MySQL</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">JWT Auth</span>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Full-featured online shopping platform with Spring Boot backend, React frontend, JWT authentication, and complete order management.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Spring Boot</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">React</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">MySQL</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">JWT Auth</span>
                                 </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Complete cart, checkout &amp; order management system</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Admin dashboard with sales analytics &amp; reports</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>JWT-secured REST API with role-based auth</span></div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Complete cart, checkout & order management system</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Admin dashboard with sales analytics & reports</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>JWT-secured REST API with role-based auth</span></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://entitykart.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
-                                <a href="https://github.com/Sadique721/Entitykart" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
+                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
+                                <a href="https://entitykart.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
+            <i class="bx bx-navigation"></i> Live
+        </a><a href="https://github.com/Sadique721/Entitykart" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
+            <i class="bx bxl-github"></i> Code
+        </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.1">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
-                                </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>entitykart-microservices.onrender.com</span>
-                                </div>
-                                <a href="https://entitykart-enterprise-ecommerce.onrender.com" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Live App</a>
-                            </div>
-                            <div class="proj-preview-panel">
-                                <iframe src="https://entitykart-enterprise-ecommerce.onrender.com" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-6 border border-slate-800 bg-slate-900/80 rounded-xl overflow-hidden group shadow-sm hover:shadow-lg hover:border-cyan-500/40 transition-all duration-300 project-item web reveal proj-card" data-delay="0.4">
+                        <div class="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r border-slate-800">
+                            <iframe src="https://entitykart-enterprise-ecommerce.onrender.com" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
                         </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                        <div class="p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Entitykart Microservices</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-slate-700/50">Microservices</span>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Microservices</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Enterprise-grade e-commerce microservices platform on highly scalable distributed architecture with Spring Cloud, Docker &amp; Eureka.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Spring Cloud</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Spring Boot</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Docker</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Microservices</span>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Enterprise-grade e-commerce microservices platform on highly scalable distributed architecture with Spring Cloud, Docker & Eureka.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Spring Cloud</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Spring Boot</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Docker</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Eureka</span>
                                 </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>8 independent microservices with API Gateway</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Eureka service discovery &amp; load balancing</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Docker containerized with auto-scaling support</span></div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>8 independent microservices with API Gateway</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Centralized Eureka Service Discovery & Config</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Resilience4j Circuit Breaker & Distributed Tracing</span></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://entitykart-enterprise-ecommerce.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
-                                <a href="https://github.com/Sadique721/entitykart-enterprise-ecommerce-microservices" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
+                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
+                                <a href="https://entitykart-enterprise-ecommerce.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
+            <i class="bx bx-navigation"></i> Live
+        </a><a href="https://github.com/Sadique721/Entitykart-Microservices" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
+            <i class="bx bxl-github"></i> Code
+        </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.2">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
-                                </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>interactive-digital-clock.vercel.app</span>
-                                </div>
-                                <a href="https://interactive-digital-clock.vercel.app" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Live App</a>
-                            </div>
-                            <div class="proj-preview-panel">
-                                <iframe src="https://interactive-digital-clock.vercel.app" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-6 border border-slate-800 bg-slate-900/80 rounded-xl overflow-hidden group shadow-sm hover:shadow-lg hover:border-cyan-500/40 transition-all duration-300 project-item web reveal proj-card" data-delay="0.1">
+                        <div class="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r border-slate-800">
+                            <iframe src="https://interactive-digital-clock.vercel.app" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
                         </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                        <div class="p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Interactive Digital Clock</h3>
-                                    <span class="px-3 py-1 rounded-full bg-yellow-900/40 text-yellow-400 text-xs font-semibold border border-slate-700/50">JavaScript</span>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">JavaScript</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Feature-rich digital clock with auto day/night mode, custom alarm &amp; sound effects, and persistent user settings via LocalStorage.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">HTML5</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">CSS3</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">JavaScript</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">LocalStorage</span>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Futuristic neon digital clock with alarm manager, stopwatch, countdown timer, and dynamic particle background.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">JavaScript</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">HTML5</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">CSS3</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vercel</span>
                                 </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400 mt-0.5'></i><span>Auto day/night theme switching by system time</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400 mt-0.5'></i><span>Custom alarm &amp; hourly chime sound effects</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400 mt-0.5'></i><span>Persistent user preferences via LocalStorage</span></div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Multiple neon glow color themes & sound alerts</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>High-precision stopwatch with lap recording</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Responsive digital UI with smooth animations</span></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://interactive-digital-clock.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
-                                <a href="https://github.com/Sadique721/Interactive-Digital-Clock" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
+                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
+                                <a href="https://interactive-digital-clock.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
+            <i class="bx bx-navigation"></i> Live
+        </a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
+            <i class="bx bxl-github"></i> Code
+        </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.3">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
-                                </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>cricket-informer.netlify.app</span>
-                                </div>
-                                <a href="https://whimsical-duckanoo-1363ca.netlify.app/" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Live App</a>
-                            </div>
-                            <div class="proj-preview-panel">
-                                <iframe src="https://whimsical-duckanoo-1363ca.netlify.app/" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-6 border border-slate-800 bg-slate-900/80 rounded-xl overflow-hidden group shadow-sm hover:shadow-lg hover:border-cyan-500/40 transition-all duration-300 project-item web reveal proj-card" data-delay="0.2">
+                        <div class="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r border-slate-800">
+                            <iframe src="https://whimsical-duckanoo-1363ca.netlify.app/" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
                         </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                        <div class="p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">MSA Cricket Informer</h3>
-                                    <span class="px-3 py-1 rounded-full bg-green-900/40 text-green-400 text-xs font-semibold border border-slate-700/50">Web App</span>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">React.js</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Live cricket tracking portal displaying real-time match details, scheduling, and dynamic score notifications via REST API.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">HTML5</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">CSS3</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">JavaScript</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">REST APIs</span>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Real-time cricket score tracking web app providing live match updates, player statistics, and tournament schedules.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">React.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Cricket API</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Tailwind CSS</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Netlify</span>
                                 </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400 mt-0.5'></i><span>Live ball-by-ball score updates via REST API</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400 mt-0.5'></i><span>Match schedule, team stats &amp; player profiles</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400 mt-0.5'></i><span>Dynamic browser push notifications for wickets/sixes</span></div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Live score updates with ball-by-ball commentary</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Player stats & team rankings breakdown</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Upcoming matches & tournament schedule calendar</span></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://whimsical-duckanoo-1363ca.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
-                                <a href="https://github.com/Sadique721/MSA-Sport-Informer" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
+                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
+                                <a href="https://whimsical-duckanoo-1363ca.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
+            <i class="bx bx-navigation"></i> Live
+        </a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
+            <i class="bx bxl-github"></i> Code
+        </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.4">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
-                                </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>shabnam-enterprises.vercel.app</span>
-                                </div>
-                                <a href="https://shabnam-enterprises-seven.vercel.app/" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Live App</a>
-                            </div>
-                            <div class="proj-preview-panel">
-                                <iframe src="https://shabnam-enterprises-seven.vercel.app/" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-6 border border-slate-800 bg-slate-900/80 rounded-xl overflow-hidden group shadow-sm hover:shadow-lg hover:border-cyan-500/40 transition-all duration-300 project-item web reveal proj-card" data-delay="0.3">
+                        <div class="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r border-slate-800">
+                            <iframe src="https://shabnam-enterprises-seven.vercel.app/" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
                         </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                        <div class="p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Shabnam Enterprises</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-slate-700/50">Responsive Web</span>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Corporate / React</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Complete business showcase portal with dynamic services catalog, contact forms, and Google Maps integration.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">HTML5</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">CSS3</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">JavaScript</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Responsive Design</span>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Modern corporate business landing page featuring interactive service showcases, client testimonials, and online inquiry form.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">React.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Tailwind CSS</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Framer Motion</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vercel</span>
                                 </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Dynamic services catalog with animated showcase</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Fully responsive across all device breakpoints</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Interactive contact form &amp; Google Maps integration</span></div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Sleek glassmorphism UI with smooth animations</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive service portfolio & client showcase</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Functional contact & business inquiry integration</span></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://shabnam-enterprises-seven.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
-                                <a href="https://github.com/Sadique721/Shabnam-Enterprises" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.5">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
-                                </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>github.com/Sadique721/RoyaltechLearning</span>
-                                </div>
-                                <a href="https://github.com/Sadique721/RoyaltechLearning" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Open</a>
-                            </div>
-                            <div class="proj-preview-panel">
-                                <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80" alt="Royaltech Learning preview" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Royaltech Learning</h3>
-                                    <span class="px-3 py-1 rounded-full bg-blue-900/40 text-blue-400 text-xs font-semibold border border-slate-700/50">C Programming</span>
-                                </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Educational software focused on basic programming foundations, algorithm visualization, and data structure diagrams in C.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-blue-300 text-xs border border-slate-700/40">C Programming</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-blue-300 text-xs border border-slate-700/40">Algorithms</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-blue-300 text-xs border border-slate-700/40">Data Structures</span>
-                                </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400 mt-0.5'></i><span>Step-by-step algorithm visualization &amp; tracing</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400 mt-0.5'></i><span>Interactive data structure diagrams (trees, graphs)</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400 mt-0.5'></i><span>Beginner-friendly concept quizzes &amp; code challenges</span></div>
-                                </div>
-                            </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://github.com/Sadique721/RoyaltechLearning" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
+                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
+                                <a href="https://shabnam-enterprises-seven.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
+            <i class="bx bx-navigation"></i> Live
+        </a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
+            <i class="bx bxl-github"></i> Code
+        </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.1">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
-                                </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>code-snippet-hub.vercel.app</span>
-                                </div>
-                                <a href="https://github.com/Sadique721/CodeSnippet-Hub" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Live App</a>
-                            </div>
-                            <div class="proj-preview-panel">
-                                <iframe src="https://code-snippet-hub.vercel.app" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-6 border border-slate-800 bg-slate-900/80 rounded-xl overflow-hidden group shadow-sm hover:shadow-lg hover:border-cyan-500/40 transition-all duration-300 project-item web reveal proj-card" data-delay="0.4">
+                        <div class="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r border-slate-800">
+                            <iframe src="https://code-snippet-hub.vercel.app" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
                         </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">CodeSnippet Hub &amp; Sandbox</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-slate-700/50">React.js</span>
+                        <div class="p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">CodeSnippet Hub & Sandbox</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">React / Developer</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Real-time collaborative code snippet sharing platform &amp; instant code execution sandbox using React, WebSockets, and Node.js.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">React.js</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Node.js</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">WebSockets</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">MongoDB</span>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Developer code snippet repository and live browser sandbox for testing JavaScript, HTML & CSS snippets in real time.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">React.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Monaco Editor</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Tailwind CSS</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vercel</span>
                                 </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Live syntax-highlighted editor with multi-language support</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Instant shareable URLs with password protection</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Real-time pair-programming room with WebSocket sync</span></div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Monaco code editor with syntax highlighting</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Live real-time code output preview sandbox</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Save & copy code snippets with one-click export</span></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://github.com/Sadique721/CodeSnippet-Hub" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
-                                <a href="https://github.com/Sadique721/CodeSnippet-Hub" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
+                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
+                                <a href="https://code-snippet-hub.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
+            <i class="bx bx-navigation"></i> Live
+        </a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
+            <i class="bx bxl-github"></i> Code
+        </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.2">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
-                                </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>myportfoliositesadique.netlify.app</span>
-                                </div>
-                                <a href="https://myportfoliositesadique.netlify.app/" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Live App</a>
-                            </div>
-                            <div class="proj-preview-panel">
-                                <iframe src="https://myportfoliositesadique.netlify.app/" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-6 border border-slate-800 bg-slate-900/80 rounded-xl overflow-hidden group shadow-sm hover:shadow-lg hover:border-cyan-500/40 transition-all duration-300 project-item web reveal proj-card" data-delay="0.5">
+                        <div class="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r border-slate-800">
+                            <iframe src="https://myportfoliositesadique.netlify.app/" loading="lazy" class="w-full h-full border-0" style="background-color: #0b1329;"></iframe>
                         </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-purple-400">Futuristic 3D Portfolio</h3>
-                                    <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-400 text-xs font-semibold border border-slate-700/50">Three.js</span>
+                        <div class="p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Futuristic 3D Portfolio</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Three.js / WebGL</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Next-gen interactive developer portfolio with 3D WebGL particle background, GSAP animations, Lenis smooth scroll, and PDF.js certificate rendering.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">Three.js</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">GSAP</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">Tailwind CSS</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">Lenis</span>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Interactive 3D developer portfolio built with Three.js, GSAP animations, particle effects, and audio-reactive elements.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Three.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">GSAP</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">WebGL</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Netlify</span>
                                 </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>Custom 3D WebGL particle network with mouse interaction</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>PDF.js integrated certificate preview cards</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>GSAP scroll-triggered reveal animations throughout</span></div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive 3D particle background canvas</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Smooth scroll reveal animations & sound effects</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Responsive glassmorphism UI with tech skill orbits</span></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://myportfoliositesadique.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
-                                <a href="https://github.com/Sadique721/Portfolio" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- AI PROJECTS - All with DIFFERENT, unique images & browser frames -->
-        <section id="ai-projects" class="py-20 px-4 sm:px-8 md:px-16 lg:px-24 relative bg-gradient-to-b from-slate-900/30 to-transparent">
-            <div class="container mx-auto">
-                <h2 class="text-4xl font-bold mb-16 text-center reveal"><span class="ai-gradient digital-font">AI & Data Science Projects</span></h2>
-                <div class="grid grid-cols-1 gap-12">
-
-                    <!-- AI Project 1: Image Recognition -->
-                    <div class="neon-card rounded-2xl overflow-hidden project-item ai reveal proj-card">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
-                                </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>cv-recognition.ai</span>
-                                </div>
-                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> GitHub</a>
-                            </div>
-                            <div class="proj-preview-panel">
-                                <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80" alt="Image Recognition AI preview" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-purple-400">🧠 Intelligent Image Recognition</h3>
-                                    <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-400 text-xs font-semibold border border-slate-700/50">Computer Vision</span>
-                                </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Deep learning model for real-time object detection and classification using TensorFlow and OpenCV with 95%+ accuracy on COCO benchmark datasets.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">TensorFlow</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">OpenCV</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">CNN</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">Python</span>
-                                </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>95%+ accuracy on COCO benchmark datasets</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>Real-time detection at 30fps via webcam/video</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>Transfer learning with custom dataset fine-tuning</span></div>
-                                </div>
-                            </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105">
-                                    <i class='bx bxl-github mr-1.5'></i> Source Code
-                                </a>
+                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
+                                <a href="https://myportfoliositesadique.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
+            <i class="bx bx-navigation"></i> Live
+        </a><a href="https://github.com/Sadique721/Portfolio" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
+            <i class="bx bxl-github"></i> Code
+        </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- AI Project 2: Sentiment Chatbot -->
-                    <div class="neon-card rounded-2xl overflow-hidden project-item ai reveal proj-card" data-delay="0.1">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
-                                </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>sentiment-nlp-chatbot.ai</span>
-                                </div>
-                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> GitHub</a>
-                            </div>
-                            <div class="proj-preview-panel">
-                                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80" alt="Sentiment Chatbot preview" loading="lazy">
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-6 border border-slate-800 bg-slate-900/80 rounded-xl overflow-hidden group shadow-sm hover:shadow-lg hover:border-cyan-500/40 transition-all duration-300 project-item web reveal proj-card" data-delay="0.6">
+                        <div class="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r border-slate-800">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" alt="Agrotech Platform" loading="lazy" class="w-full object-contain transition-transform duration-300 group-hover:scale-105"></div>
                         </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-purple-400">💬 Sentiment Analysis Chatbot</h3>
-                                    <span class="px-3 py-1 rounded-full bg-indigo-900/40 text-indigo-400 text-xs font-semibold border border-slate-700/50">NLP Engineer</span>
+                        <div class="p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Agrotech Platform</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Python</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">AI-powered chatbot with BERT-based sentiment analysis for real-time conversation, emotion detection, and contextual response generation.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">PyTorch</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">BERT</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">NLP</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">Flask</span>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Agricultural management system with crop monitoring, ML price prediction, and inventory management using Python & Django.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Python</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Django</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Machine Learning</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">SQLite</span>
                                 </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>BERT transformer for context-aware emotion detection</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>Multi-turn conversation memory &amp; context tracking</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>Flask REST API with real-time WebSocket support</span></div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Crop recommendation algorithm based on soil conditions</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>ML market price trend forecasting</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Farmer inventory & order tracking system</span></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105">
-                                    <i class='bx bxl-github mr-1.5'></i> Source Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-                                </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">cv-recognition.ai</span>
-                                </div>
-                                <button onclick="openProjectModal('Intelligent Image Recognition System', '#', 'image', 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=80')" class="px-2.5 py-1 rounded bg-purple-500/20 text-purple-300 border border-purple-500/40 hover:bg-purple-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
-                            </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Intelligent Image Recognition System', '#', 'image', 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=80')">
-                                <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=700&q=80" alt="Image Recognition AI" class="w-full h-full object-cover origin-top transition-transform duration-300 group-hover/preview:scale-105">
-                                <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-purple-500/20 border border-purple-400 text-purple-300 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-purple-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-purple-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">View AI model architecture & details in full screen</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-purple-400">🧠 Intelligent Image Recognition System</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-purple-300 text-sm font-semibold border border-slate-700/50">Computer Vision</span>
-                                </div>
-                                <p class="text-slate-400 mb-4 text-base">Deep learning model for real-time object detection and classification using TensorFlow and OpenCV with 95%+ accuracy on benchmark datasets.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">TensorFlow</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">OpenCV</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">CNN</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">Python</span>
-                                </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>95%+ accuracy on COCO benchmark datasets</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Real-time detection at 30fps via webcam/video</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Transfer learning with custom dataset fine-tuning</span></div>
-                                </div>
-                            </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between">
-                                <div class="flex items-center space-x-4 text-sm text-slate-500">
-                                    <span><i class='bx bx-star text-yellow-400'></i> 95% Accuracy</span>
-                                    <span><i class='bx bx-time text-cyan-400'></i> Real-time</span>
-                                </div>
-                                <button onclick="openProjectModal('Intelligent Image Recognition System', '#', 'image', 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=80')" class="inline-flex items-center text-purple-400 hover:text-purple-300 font-semibold cursor-pointer text-sm">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
+                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
+                                <a href="https://github.com/Sadique721/Agrotech-Platform" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
+            <i class="bx bxl-github"></i> Code
+        </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- AI Project 2: Sentiment Chatbot -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item ai reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.1">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-                                </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">sentiment-nlp-chatbot.ai</span>
-                                </div>
-                                <button onclick="openProjectModal('Sentiment Analysis Chatbot', '#', 'image', 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200&q=80')" class="px-2.5 py-1 rounded bg-purple-500/20 text-purple-300 border border-purple-500/40 hover:bg-purple-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
-                            </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Sentiment Analysis Chatbot', '#', 'image', 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200&q=80')">
-                                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=700&q=80" alt="Sentiment Analysis NLP" class="w-full h-full object-cover origin-top transition-transform duration-300 group-hover/preview:scale-105">
-                                <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-purple-500/20 border border-purple-400 text-purple-300 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-purple-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-purple-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">View NLP model details in full screen</span>
-                                </div>
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-6 border border-slate-800 bg-slate-900/80 rounded-xl overflow-hidden group shadow-sm hover:shadow-lg hover:border-cyan-500/40 transition-all duration-300 project-item ds reveal proj-card" data-delay="0.1">
+                        <div class="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r border-slate-800">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Data Visualization Studio" loading="lazy" class="w-full object-contain transition-transform duration-300 group-hover:scale-105"></div>
                         </div>
-                        <div class="p-6 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-purple-400">💬 Sentiment Analysis Chatbot</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-indigo-300 text-sm font-semibold border border-slate-700/50">NLP Engineer</span>
+                        <div class="p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Data Visualization Studio</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Data Science</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-base">AI-powered chatbot with BERT-based sentiment analysis for real-time conversation, emotion detection, and contextual response generation.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">PyTorch</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">BERT</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">NLP</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">Flask</span>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Advanced interactive data visualization platform supporting 30+ chart types with real-time streaming data and collaborative sharing.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">D3.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Python</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Seaborn</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Matplotlib</span>
                                 </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>BERT transformer for context-aware emotion detection</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Multi-turn conversation memory & context tracking</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Flask REST API with real-time WebSocket support</span></div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>30+ chart types with real-time streaming data updates</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>One-click export to PDF, SVG, and interactive HTML</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Collaborative dashboard sharing with annotation tools</span></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between">
-                                <div class="flex items-center space-x-4 text-sm text-slate-500">
-                                    <span><i class='bx bx-brain text-purple-400'></i> BERT Model</span>
-                                    <span><i class='bx bx-data text-cyan-400'></i> NLP Pipeline</span>
-                                </div>
-                                <button onclick="openProjectModal('Sentiment Analysis Chatbot', '#', 'image', 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200&q=80')" class="inline-flex items-center text-purple-400 hover:text-purple-300 font-semibold cursor-pointer text-sm">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
+                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
+                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
+            <i class="bx bxl-github"></i> Code
+        </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- DS Project 1: Predictive Analytics -->
-                    <div class="neon-card rounded-2xl overflow-hidden project-item ds reveal proj-card" data-delay="0.2">
-                        <div class="proj-preview-col">
-                            <div class="proj-browser-bar">
-                                <div class="proj-dots">
-                                    <div class="proj-dot" style="background:#ef4444"></div>
-                                    <div class="proj-dot" style="background:#eab308"></div>
-                                    <div class="proj-dot" style="background:#22c55e"></div>
-                                </div>
-                                <div class="proj-url-bar">
-                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
-                                    <span>predictive-analytics.ds</span>
-                                </div>
-                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> GitHub</a>
-                            </div>
-                            <div class="proj-preview-panel">
-                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Predictive Analytics preview" loading="lazy">
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-6 border border-slate-800 bg-slate-900/80 rounded-xl overflow-hidden group shadow-sm hover:shadow-lg hover:border-cyan-500/40 transition-all duration-300 project-item ai reveal proj-card" data-delay="0.2">
+                        <div class="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r border-slate-800">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide"><img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80" alt="AI Resume Analyzer & ATS" loading="lazy" class="w-full object-contain transition-transform duration-300 group-hover:scale-105"></div>
                         </div>
-                        <div class="proj-info-col">
-                            <div>
-                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">📊 Predictive Analytics Dashboard</h3>
-                                    <span class="px-3 py-1 rounded-full bg-green-900/40 text-green-400 text-xs font-semibold border border-slate-700/50">Data Science</span>
+                        <div class="p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">AI Resume Analyzer & ATS</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Python/NLP</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-sm sm:text-base">End-to-end ML pipeline for business intelligence: sales forecasting, customer churn prediction, and anomaly detection with interactive Plotly dashboards.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">Python</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">Scikit-learn</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">Pandas</span>
-                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">Plotly</span>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">AI-powered resume analyzer that scores resumes for ATS compatibility, suggests keyword improvements, and generates tailored cover letters.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Python</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">NLP</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Spacy</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Streamlit</span>
                                 </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400 mt-0.5'></i><span>Sales forecasting with SARIMA &amp; Prophet time-series models</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400 mt-0.5'></i><span>Customer churn prediction with 88% precision</span></div>
-                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400 mt-0.5'></i><span>Interactive Plotly dashboard with drill-down analytics</span></div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>ATS compatibility scoring with keyword gap analysis</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Job description matching with skill recommendation engine</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>AI-generated cover letter using fine-tuned GPT model</span></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
-                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105">
-                                    <i class='bx bxl-github mr-1.5'></i> Source Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-                                </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">predictive-analytics.ds</span>
-                                </div>
-                                <button onclick="openProjectModal('Predictive Analytics Dashboard', '#', 'image', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80')" class="px-2.5 py-1 rounded bg-green-500/20 text-green-300 border border-green-500/40 hover:bg-green-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
-                            </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Predictive Analytics Dashboard', '#', 'image', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80')">
-                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="Predictive Analytics Dashboard" class="w-full h-full object-cover origin-top transition-transform duration-300 group-hover/preview:scale-105">
-                                <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-green-500/20 border border-green-400 text-green-300 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-green-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-green-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">View data dashboard in full screen</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-green-400">📊 Predictive Analytics Dashboard</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-green-300 text-sm font-semibold border border-slate-700/50">Data Scientist</span>
-                                </div>
-                                <p class="text-slate-400 mb-4 text-base">Comprehensive data analysis platform with machine learning-based predictive modeling, interactive visualizations, and automated reporting.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Pandas</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Scikit-learn</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Tableau</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">SQL</span>
-                                </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>ML regression & classification predictive models</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Interactive Tableau dashboards with drill-down filters</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Automated PDF/Excel reporting with scheduled runs</span></div>
-                                </div>
-                            </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between">
-                                <div class="flex items-center space-x-4 text-sm text-slate-500">
-                                    <span><i class='bx bx-trending-up text-green-400'></i> Predictive ML</span>
-                                    <span><i class='bx bx-chart text-cyan-400'></i> Interactive UI</span>
-                                </div>
-                                <button onclick="openProjectModal('Predictive Analytics Dashboard', '#', 'image', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80')" class="inline-flex items-center text-green-400 hover:text-green-300 font-semibold cursor-pointer text-sm">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
+                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
+                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
+            <i class="bx bxl-github"></i> Code
+        </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- DS Project 2: Real-time streaming -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item ds reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.3">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-                                </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">streaming-kafka-spark.aws</span>
-                                </div>
-                                <button onclick="openProjectModal('Real-time Data Streaming Analytics', '#', 'image', 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80')" class="px-2.5 py-1 rounded bg-green-500/20 text-green-300 border border-green-500/40 hover:bg-green-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
-                            </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Real-time Data Streaming Analytics', '#', 'image', 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80')">
-                                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=700&q=80" alt="Big Data Streaming" class="w-full h-full object-cover origin-top transition-transform duration-300 group-hover/preview:scale-105">
-                                <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-green-500/20 border border-green-400 text-green-300 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-green-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-green-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">View streaming architecture in full screen</span>
-                                </div>
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-6 border border-slate-800 bg-slate-900/80 rounded-xl overflow-hidden group shadow-sm hover:shadow-lg hover:border-cyan-500/40 transition-all duration-300 project-item ai reveal proj-card" data-delay="0.3">
+                        <div class="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r border-slate-800">
+                            <div class="absolute inset-0 overflow-y-auto scrollbar-hide"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80" alt="Smart Healthcare Predictor" loading="lazy" class="w-full object-contain transition-transform duration-300 group-hover:scale-105"></div>
                         </div>
-                        <div class="p-6 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-green-400">⚡ Real-time Data Streaming Analytics</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-teal-300 text-sm font-semibold border border-slate-700/50">Big Data</span>
+                        <div class="p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Smart Healthcare Predictor</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">ML/Python</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-base">Big data processing pipeline for real-time analytics using Apache Spark and Kafka, deployed on AWS with auto-scaling infrastructure.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Apache Spark</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Kafka</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Python</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">AWS</span>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Multi-disease prediction system using ML to detect diabetes, heart disease, and pneumonia from patient data and medical images.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Python</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Scikit-learn</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">XGBoost</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Flask</span>
                                 </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Processes 1M+ events/sec with Kafka streaming</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Spark distributed computing with fault tolerance</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>AWS EC2/S3 deployed with auto-scaling policies</span></div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Multi-disease prediction: diabetes, heart, pneumonia</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Medical image analysis using CNN for X-ray classification</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive Streamlit dashboard with patient risk reports</span></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between">
-                                <div class="flex items-center space-x-4 text-sm text-slate-500">
-                                    <span><i class='bx bx-bolt-circle text-yellow-400'></i> Real-time</span>
-                                    <span><i class='bx bx-cloud text-cyan-400'></i> AWS Cloud</span>
-                                </div>
-                                <button onclick="openProjectModal('Real-time Data Streaming Analytics', '#', 'image', 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80')" class="inline-flex items-center text-green-400 hover:text-green-300 font-semibold cursor-pointer text-sm">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- AI Project 3: AI Agent MSA -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item ai reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.4">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-                                </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">github.com/Sadique721/AI-Agent-MSA</span>
-                                </div>
-                                <button onclick="openProjectModal('AI Agent MSA System', 'https://github.com/Sadique721/AI-Agent-MSA-', 'image', 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80')" class="px-2.5 py-1 rounded bg-purple-500/20 text-purple-300 border border-purple-500/40 hover:bg-purple-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
-                            </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('AI Agent MSA System', 'https://github.com/Sadique721/AI-Agent-MSA-', 'image', 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80')">
-                                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=700&q=80" alt="AI Agent MSA" class="w-full h-full object-cover origin-top transition-transform duration-300 group-hover/preview:scale-105">
-                                <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-purple-500/20 border border-purple-400 text-purple-300 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-purple-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-purple-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">View autonomous AI agent workflow in full screen</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-purple-400">🤖 AI Agent MSA System</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-purple-300 text-sm font-semibold border border-slate-700/50">AI Agent</span>
-                                </div>
-                                <p class="text-slate-400 mb-4 text-base">Autonomous AI agent system designed for intelligent task execution, planning, database interaction, and automated API workflows.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">Python</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">Agentic Workflows</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">API Automation</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">LangChain</span>
-                                </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>LangChain-powered autonomous planning & reasoning</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Multi-tool integration (DB, APIs, file system)</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Self-correcting agent loop with memory persistence</span></div>
-                                </div>
-                            </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex flex-wrap items-center justify-between gap-4">
-                                <a href="https://github.com/Sadique721/AI-Agent-MSA-" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 hover:scale-105 transition-all duration-300 text-sm">
-                                    <i class='bx bxl-github mr-1.5 text-base'></i> Source Code
-                                </a>
-                                <button onclick="openProjectModal('AI Agent MSA System', 'https://github.com/Sadique721/AI-Agent-MSA-', 'image', 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80')" class="inline-flex items-center text-purple-400 hover:text-purple-300 font-semibold cursor-pointer text-sm">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- NEW AI Project 4: AI Resume Analyzer & ATS Optimizer -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item ai reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.1">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-                                </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">github.com/Sadique721/AI-Resume-Analyzer</span>
-                                </div>
-                                <button onclick="openProjectModal('AI Resume Analyzer & ATS Optimizer', 'https://github.com/Sadique721/AI-Resume-Analyzer', 'image', 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1200&q=80')" class="px-2.5 py-1 rounded bg-purple-500/20 text-purple-300 border border-purple-500/40 hover:bg-purple-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
-                            </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('AI Resume Analyzer & ATS Optimizer', 'https://github.com/Sadique721/AI-Resume-Analyzer', 'image', 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1200&q=80')">
-                                <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=700&q=80" alt="AI Resume Analyzer" class="w-full h-full object-cover origin-top transition-transform duration-300 group-hover/preview:scale-105">
-                                <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-purple-500/20 border border-purple-400 text-purple-300 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-purple-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-purple-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">View ATS resume analyzer in full screen</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-purple-400">📄 AI Resume Analyzer & ATS Optimizer</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-purple-300 text-sm font-semibold border border-slate-700/50">AI & NLP</span>
-                                </div>
-                                <p class="text-slate-400 mb-4 text-base">Intelligent resume parsing and ATS score optimization system built with Python, NLP (NLTK, Spacy), and Streamlit.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">Python</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">NLP</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">Streamlit</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-purple-300 text-xs">Spacy</span>
-                                </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Automatic skill extraction & job description keyword matching</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Instant ATS compatibility score calculation & formatting tips</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>PDF & DOCX file parsing with real-time feedback UI</span></div>
-                                </div>
-                            </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex flex-wrap items-center justify-between gap-4">
-                                <a href="https://github.com/Sadique721/AI-Resume-Analyzer" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 hover:scale-105 transition-all duration-300 text-sm">
-                                    <i class='bx bxl-github mr-1.5 text-base'></i> Source Code
-                                </a>
-                                <button onclick="openProjectModal('AI Resume Analyzer & ATS Optimizer', 'https://github.com/Sadique721/AI-Resume-Analyzer', 'image', 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1200&q=80')" class="inline-flex items-center text-purple-400 hover:text-purple-300 font-semibold cursor-pointer text-sm">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- NEW DS Project 3: Smart Healthcare & Disease Predictor -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item ds reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.2">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-                                </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">github.com/Sadique721/Smart-Healthcare</span>
-                                </div>
-                                <button onclick="openProjectModal('Smart Healthcare & Disease Predictor', 'https://github.com/Sadique721/Smart-Healthcare-Prediction', 'image', 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80')" class="px-2.5 py-1 rounded bg-green-500/20 text-green-300 border border-green-500/40 hover:bg-green-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
-                            </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Smart Healthcare & Disease Predictor', 'https://github.com/Sadique721/Smart-Healthcare-Prediction', 'image', 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80')">
-                                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&q=80" alt="Smart Healthcare" class="w-full h-full object-cover origin-top transition-transform duration-300 group-hover/preview:scale-105">
-                                <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-green-500/20 border border-green-400 text-green-300 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-green-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-green-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">View healthcare prediction system in full screen</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-green-400">🏥 Smart Healthcare & Disease Predictor</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-green-300 text-sm font-semibold border border-slate-700/50">Data Science</span>
-                                </div>
-                                <p class="text-slate-400 mb-4 text-base">Machine learning health analytics system predicting risk levels for multiple conditions using Random Forest & XGBoost.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Python</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Scikit-learn</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">XGBoost</span>
-                                    <span class="px-2 py-0.5 rounded bg-slate-900/70 text-green-300 text-xs">Flask</span>
-                                </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Multi-disease predictive ML classification (Heart, Diabetes, Kidney)</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>94%+ accuracy validated on medical benchmark datasets</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Flask web API with interactive symptom checker UI</span></div>
-                                </div>
-                            </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex flex-wrap items-center justify-between gap-4">
-                                <a href="https://github.com/Sadique721/Smart-Healthcare-Prediction" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 hover:scale-105 transition-all duration-300 text-sm">
-                                    <i class='bx bxl-github mr-1.5 text-base'></i> Source Code
-                                </a>
-                                <button onclick="openProjectModal('Smart Healthcare & Disease Predictor', 'https://github.com/Sadique721/Smart-Healthcare-Prediction', 'image', 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80')" class="inline-flex items-center text-green-400 hover:text-green-300 font-semibold cursor-pointer text-sm">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
+                            <div class="flex gap-3 pt-3 flex-wrap border-t border-slate-800/80">
+                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm">
+            <i class="bx bxl-github"></i> Code
+        </a>
                             </div>
                         </div>
                     </div>
@@ -2285,8 +1557,6 @@
             </div>
         </section>
 
-
-        <!-- CONTACT -->
         <section id="contact" class="py-20 px-4 sm:px-8 md:px-16 lg:px-24 relative">
             <div class="container mx-auto">
                 <h2 class="text-4xl font-bold mb-16 text-center section-title reveal"><span class="gradient-text digital-font">Get In Touch</span></h2>
