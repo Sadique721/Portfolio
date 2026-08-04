@@ -228,13 +228,192 @@
                 margin-top: 1.25rem;
             }
         }
-        /* Fullscreen Project Modal Animation */
-        #project-modal {
-            animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        /* ===== PROJECT CARD INLINE PREVIEW ===== */
+        /* Preview panel — always tall, no modal needed */
+        .proj-preview-panel {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: #060d1a;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(34,211,238,0.15);
+            flex-shrink: 0;
         }
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: scale(0.98); }
-            to { opacity: 1; transform: scale(1); }
+        @media (min-width: 768px) {
+            .proj-preview-panel {
+                height: auto;
+                min-height: 480px;
+                border-bottom: none;
+                border-right: 1px solid rgba(34,211,238,0.15);
+                flex-shrink: 0;
+            }
+        }
+        .proj-preview-panel iframe,
+        .proj-preview-panel img {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.5s ease;
+        }
+        .proj-preview-panel:hover img { transform: scale(1.04); }
+        .proj-browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: rgba(9,14,27,0.97);
+            border-bottom: 1px solid rgba(30,41,59,0.9);
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+        .proj-dots { display: flex; gap: 5px; }
+        .proj-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+        .proj-url-bar {
+            flex: 1;
+            min-width: 0;
+            background: rgba(2,6,23,0.8);
+            border: 1px solid rgba(30,41,59,0.9);
+            border-radius: 6px;
+            padding: 3px 10px;
+            font-size: 10px;
+            color: #64748b;
+            font-family: monospace;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            overflow: hidden;
+        }
+        .proj-url-bar span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .proj-open-link {
+            flex-shrink: 0;
+            font-size: 10px;
+            color: #22d3ee;
+            text-decoration: none;
+            padding: 3px 8px;
+            border: 1px solid rgba(34,211,238,0.4);
+            border-radius: 5px;
+            white-space: nowrap;
+            transition: all 0.2s;
+            background: rgba(34,211,238,0.07);
+        }
+        .proj-open-link:hover { background: #22d3ee; color: #0a192f; }
+        /* Card layout */
+        .proj-card {
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 768px) {
+            .proj-card { flex-direction: row; }
+            .proj-preview-col {
+                width: 50%;
+                flex-shrink: 0;
+                display: flex;
+                flex-direction: column;
+            }
+            .proj-info-col {
+                width: 50%;
+                flex-shrink: 0;
+            }
+        }
+        .proj-preview-col {
+            display: flex;
+            flex-direction: column;
+        }
+        .proj-info-col {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        @media (max-width: 767px) {
+            .proj-info-col { padding: 20px 16px; }
+        }
+
+        /* ===== MOBILE RESPONSIVE OVERHAUL ===== */
+        /* Hero */
+        @media (max-width: 639px) {
+            #home h1 { font-size: 2.4rem !important; line-height: 1.15; }
+            #home .typed-wrapper { font-size: 1.25rem !important; height: auto !important; min-height: 2rem; }
+            #home .role-badges { gap: 6px !important; }
+            #home .role-badges > div { padding: 4px 10px; font-size: 0.7rem !important; }
+            #home .stat-grid { grid-template-columns: repeat(2,1fr); gap: 8px; }
+            #home .stat-grid > div { padding: 10px 8px; }
+            #home .stat-grid .text-3xl { font-size: 1.5rem !important; }
+            #home .stat-grid .text-sm { font-size: 0.65rem !important; }
+            #home p.text-lg { font-size: 0.92rem !important; }
+            .profile-frame { width: 220px !important; height: 220px !important; }
+        }
+        @media (max-width: 767px) {
+            #home { padding-top: 5rem !important; }
+            .home-content { text-align: center; }
+            .home-img { margin-top: 2rem; }
+        }
+        /* Stat grid responsive */
+        .stat-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+        @media (max-width: 639px) { .stat-grid { grid-template-columns: repeat(2,1fr); } }
+        /* Skills section */
+        @media (max-width: 639px) {
+            .skill-ring { width: 90px !important; height: 90px !important; }
+            .skill-ring svg { width: 90px; height: 90px; }
+            .skill-ring .bg-ring, .skill-ring .progress-ring { stroke-width: 8 !important; }
+        }
+        /* Projects section filter buttons */
+        @media (max-width: 639px) {
+            #projects .flex.flex-wrap.justify-center.gap-4 button,
+            #ai-projects .flex.flex-wrap.justify-center.gap-4 button {
+                padding: 6px 14px;
+                font-size: 0.78rem;
+            }
+        }
+        /* Experience timeline mobile */
+        @media (max-width: 767px) {
+            .cert-card { max-width: 100% !important; }
+            .cert-iframe-wrap { height: 180px; }
+            .cert-wrap-left, .cert-wrap-right {
+                padding: 0 !important;
+                margin-top: 1rem;
+                width: 100% !important;
+            }
+        }
+        /* Contact section */
+        @media (max-width: 639px) {
+            #contact input, #contact textarea, #contact select {
+                font-size: 0.9rem;
+            }
+            #contact .grid-cols-2 { grid-template-columns: 1fr !important; }
+        }
+        /* Footer */
+        @media (max-width: 639px) {
+            footer .flex.space-x-6 { flex-wrap: wrap; gap: 12px; justify-content: center; }
+            footer .flex.space-x-6 a { font-size: 0.85rem; }
+        }
+        /* Nav header logo */
+        @media (max-width: 400px) {
+            header a.text-3xl { font-size: 1.1rem !important; }
+            header a.text-3xl span { display: none; }
+        }
+        /* About section stats */
+        @media (max-width: 639px) {
+            #about .grid-cols-4 { grid-template-columns: repeat(2,1fr) !important; }
+        }
+        /* Section headings */
+        @media (max-width: 639px) {
+            h2.text-4xl, h2.text-5xl { font-size: 1.75rem !important; }
+        }
+        /* Premium card hover glow */
+        .neon-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        @keyframes cardGlow {
+            0%,100% { box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 0 rgba(34,211,238,0); }
+            50% { box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 30px rgba(34,211,238,0.18); }
+        }
+        .neon-card:hover {
+            animation: cardGlow 2s ease-in-out infinite;
         }
     </style>
 </head>
@@ -878,778 +1057,574 @@
                 </div>
                 <div class="grid grid-cols-1 gap-12">
                     <!-- Project 1: Agrotech Platform -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
                                 </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">agrotech-platform.python.org</span>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>agrotech-platform.python.org</span>
                                 </div>
-                                <button onclick="openProjectModal('Agrotech Platform', '#', 'image', 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80')" class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
+                                <a href="https://github.com/Sadique721/Agrotech-Platform" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> GitHub</a>
                             </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Agrotech Platform', '#', 'image', 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80')">
-                                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="Agrotech" class="w-full h-full object-cover origin-top transition-transform duration-300 group-hover/preview:scale-105">
-                                <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 border border-cyan-400 text-cyan-400 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-cyan-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-cyan-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">View project layout & details in full screen</span>
-                                </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" alt="Agrotech Platform preview" loading="lazy">
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col justify-between">
+                        <div class="proj-info-col">
                             <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-cyan-400">Agrotech Platform</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-green-400 text-sm font-semibold border border-slate-700/50">Python</span>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Agrotech Platform</h3>
+                                    <span class="px-3 py-1 rounded-full bg-green-900/40 text-green-400 text-xs font-semibold border border-green-700/50">Python</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-base">Agricultural management system with crop monitoring, price prediction, and inventory management using Python</p>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Agricultural management system with crop monitoring, ML price prediction, and inventory management using Python & Django.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Python</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Django</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">ML</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Data Analysis</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Python</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Django</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">ML</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Data Analysis</span>
                                 </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>ML-based real-time crop price prediction engine</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Smart inventory tracking with low-stock alerts</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Weather-integrated farming recommendations</span></div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>ML-based real-time crop price prediction engine</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Smart inventory tracking with low-stock alerts</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Weather-integrated farming recommendations</span></div>
                                 </div>
                             </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between">
-                                <button onclick="openProjectModal('Agrotech Platform', '#', 'image', 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80')" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold cursor-pointer">
-                                    Full Interactive Screen <i class='bx bx-expand-alt ml-1.5'></i>
-                                </button>
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://github.com/Sadique721/Agrotech-Platform" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105">
+                                    <i class='bx bxl-github mr-1.5'></i> Source Code
+                                </a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Project 2: Advanced Scientific Calculator -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.1">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.1">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
                                 </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">github.com/Sadique721/Scientific-Calc</span>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>github.com/Sadique721/Scientific-Calc</span>
                                 </div>
-                                <button onclick="openProjectModal('Advanced Scientific Calculator', 'https://github.com/Sadique721/Advanced-Scientific-Calculator', 'image', 'https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=1200&q=80')" class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
+                                <a href="https://github.com/Sadique721/Advanced-Scientific-Calculator" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> GitHub</a>
                             </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Advanced Scientific Calculator', 'https://github.com/Sadique721/Advanced-Scientific-Calculator', 'image', 'https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=1200&q=80')">
-                                <img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=600&q=80" alt="Calculator" class="w-full h-full object-cover origin-top transition-transform duration-300 group-hover/preview:scale-105">
-                                <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 border border-cyan-400 text-cyan-400 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-cyan-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-cyan-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">View project layout & details in full screen</span>
-                                </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=800&q=80" alt="Scientific Calculator preview" loading="lazy">
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col justify-between">
+                        <div class="proj-info-col">
                             <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-cyan-400">Advanced Scientific Calculator</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-blue-400 text-sm font-semibold border border-slate-700/50">C Programming</span>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Advanced Scientific Calculator</h3>
+                                    <span class="px-3 py-1 rounded-full bg-blue-900/40 text-blue-400 text-xs font-semibold border border-blue-700/50">C Programming</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-base">High-performance calculator with complex mathematical operations, graphing, and equation solving in C</p>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">High-performance calculator with 50+ mathematical operations, real-time graphing, and equation solving in C.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">C Programming</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Data Structures</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Algorithms</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Mathematics</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-blue-300 text-xs border border-slate-700/40">C Programming</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-blue-300 text-xs border border-slate-700/40">Data Structures</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-blue-300 text-xs border border-slate-700/40">Algorithms</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-blue-300 text-xs border border-slate-700/40">Mathematics</span>
                                 </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400'></i><span>50+ built-in mathematical & trigonometric functions</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400'></i><span>Real-time graphing & equation visualizer</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400'></i><span>Memory stack with calculation history</span></div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400 mt-0.5'></i><span>50+ built-in mathematical &amp; trigonometric functions</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400 mt-0.5'></i><span>Real-time graphing &amp; equation visualizer</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400 mt-0.5'></i><span>Memory stack with calculation history</span></div>
                                 </div>
                             </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-4 items-center justify-between">
-                                <a href="https://github.com/Sadique721/Advanced-Scientific-Calculator" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 hover:scale-105 transition-all duration-300 text-sm">
-                                    <i class='bx bxl-github mr-1.5 text-base'></i> Source Code
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://github.com/Sadique721/Advanced-Scientific-Calculator" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105">
+                                    <i class='bx bxl-github mr-1.5'></i> Source Code
                                 </a>
-                                <button onclick="openProjectModal('Advanced Scientific Calculator', 'https://github.com/Sadique721/Advanced-Scientific-Calculator', 'image', 'https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=1200&q=80')" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold cursor-pointer text-sm">
-                                    Full Screen <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 3: Ethical Hacking Portal -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.2">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.2">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
                                 </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">ethical-hacking-portal.onrender.com</span>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>ethical-hacking-portal.onrender.com</span>
                                 </div>
-                                <button onclick="openProjectModal('Ethical Hacking Portal', 'https://ethical-hacking-portalethical-hacking.onrender.com', 'iframe')" class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
+                                <a href="https://ethical-hacking-portalethical-hacking.onrender.com" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Open</a>
                             </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Ethical Hacking Portal', 'https://ethical-hacking-portalethical-hacking.onrender.com', 'iframe')">
-                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80" alt="Ethical Hacking" class="w-full h-full object-cover origin-top transition-transform duration-300 group-hover/preview:scale-105">
-                                <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 border border-cyan-400 text-cyan-400 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-cyan-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-cyan-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">Interact with live portal in full screen</span>
-                                </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80" alt="Ethical Hacking Portal preview" loading="lazy">
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col justify-between">
+                        <div class="proj-info-col">
                             <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-cyan-400">Ethical Hacking Portal</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-red-400 text-sm font-semibold border border-slate-700/50">Django</span>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Ethical Hacking Portal</h3>
+                                    <span class="px-3 py-1 rounded-full bg-red-900/40 text-red-400 text-xs font-semibold border border-slate-700/50">Django</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-base">Comprehensive cybersecurity learning platform with vulnerability testing modules built with Django</p>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Comprehensive cybersecurity learning platform with CTF challenges, live vulnerability testing, and progress tracking built with Django.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">Django</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">Python</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">Security</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-red-300 text-xs">MySQL</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-red-300 text-xs border border-slate-700/40">Django</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-red-300 text-xs border border-slate-700/40">Python</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-red-300 text-xs border border-slate-700/40">Security</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-red-300 text-xs border border-slate-700/40">MySQL</span>
                                 </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-red-400'></i><span>CTF challenges & live vulnerability testing sandbox</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-red-400'></i><span>User progress tracking with leaderboard system</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-red-400'></i><span>Secure sandboxed environment with role-based access</span></div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-red-400 mt-0.5'></i><span>CTF challenges &amp; live vulnerability testing sandbox</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-red-400 mt-0.5'></i><span>User progress tracking with leaderboard system</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-red-400 mt-0.5'></i><span>Secure sandboxed environment with role-based access</span></div>
                                 </div>
                             </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-3 items-center">
-                                <a href="https://ethical-hacking-portalethical-hacking.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:from-cyan-400 hover:to-blue-400 hover:scale-105 transition-all duration-300 text-sm shadow-lg shadow-cyan-500/20">
-                                    <i class='bx bx-navigation mr-1.5 text-base'></i> Live Demo
-                                </a>
-                                <a href="https://github.com/Sadique721/ethical-hacking-portal" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 hover:scale-105 transition-all duration-300 text-sm">
-                                    <i class='bx bxl-github mr-1.5 text-base'></i> Source Code
-                                </a>
-                                <button onclick="openProjectModal('Ethical Hacking Portal', 'https://ethical-hacking-portalethical-hacking.onrender.com', 'iframe')" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold cursor-pointer text-sm ml-auto">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://ethical-hacking-portalethical-hacking.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
+                                <a href="https://github.com/Sadique721/ethical-hacking-portal" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 4: Recipe Finder Pro -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.3">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.3">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
                                 </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">recipe-finder-pro.vercel.app</span>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>recipe-finder-pro.vercel.app</span>
                                 </div>
-                                <button onclick="openProjectModal('Recipe Finder Pro', 'https://recipe-finder-pro.vercel.app', 'iframe')" class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
+                                <a href="https://recipe-finder-pro.vercel.app" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Open</a>
                             </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Recipe Finder Pro', 'https://recipe-finder-pro.vercel.app', 'iframe')">
-                                <iframe src="https://recipe-finder-pro.vercel.app" loading="lazy" class="w-full h-full border-0 pointer-events-auto" style="background-color: #0b1329;"></iframe>
-                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 border border-cyan-400 text-cyan-400 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-cyan-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-cyan-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">Interact with live app in full screen</span>
-                                </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Recipe Finder Pro preview" loading="lazy">
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col justify-between">
+                        <div class="proj-info-col">
                             <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-cyan-400">Recipe Finder Pro</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-cyan-400 text-sm font-semibold border border-slate-700/50">React.js</span>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Recipe Finder Pro</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-slate-700/50">React.js</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-base">Intelligent recipe discovery platform with ingredient-based search and nutritional analysis using React.js</p>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Intelligent recipe discovery platform with ingredient-based search, nutritional analysis, and weekly meal planning using React.js.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">React.js</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">API Integration</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">JavaScript</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">CSS3</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">React.js</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">API Integration</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">JavaScript</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">CSS3</span>
                                 </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Smart ingredient-based recipe search & filtering</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Nutritional analysis with calorie breakdown</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Save favorites & weekly meal planning feature</span></div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Smart ingredient-based recipe search &amp; filtering</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Nutritional analysis with calorie breakdown</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Save favorites &amp; weekly meal planning feature</span></div>
                                 </div>
                             </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-3 items-center">
-                                <a href="https://recipe-finder-pro.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:from-cyan-400 hover:to-blue-400 hover:scale-105 transition-all duration-300 text-sm shadow-lg shadow-cyan-500/20">
-                                    <i class='bx bx-navigation mr-1.5 text-base'></i> Live Demo
-                                </a>
-                                <a href="https://github.com/Sadique721/recipe-finder-pro-" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 hover:scale-105 transition-all duration-300 text-sm">
-                                    <i class='bx bxl-github mr-1.5 text-base'></i> Source Code
-                                </a>
-                                <button onclick="openProjectModal('Recipe Finder Pro', 'https://recipe-finder-pro.vercel.app', 'iframe')" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold cursor-pointer text-sm ml-auto">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://recipe-finder-pro.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
+                                <a href="https://github.com/Sadique721/recipe-finder-pro-" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 5: Modern Analog Clock -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.4">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.4">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
                                 </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">github.com/Sadique721/Analog-Clock</span>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>github.com/Sadique721/Analog-Clock</span>
                                 </div>
-                                <button onclick="openProjectModal('Modern Analog Clock', 'https://github.com/Sadique721/-Modern-Analog-Clock', 'image', 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&q=80')" class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
+                                <a href="https://github.com/Sadique721/-Modern-Analog-Clock" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Open</a>
                             </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Modern Analog Clock', 'https://github.com/Sadique721/-Modern-Analog-Clock', 'image', 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&q=80')">
-                                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80" alt="Analog Clock" class="w-full h-full object-cover origin-top transition-transform duration-300 group-hover/preview:scale-105">
-                                <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 border border-cyan-400 text-cyan-400 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-cyan-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-cyan-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">View project layout & details in full screen</span>
-                                </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80" alt="Modern Analog Clock preview" loading="lazy">
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col justify-between">
+                        <div class="proj-info-col">
                             <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-cyan-400">Modern Analog Clock</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-yellow-400 text-sm font-semibold border border-slate-700/50">JavaScript</span>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Modern Analog Clock</h3>
+                                    <span class="px-3 py-1 rounded-full bg-yellow-900/40 text-yellow-400 text-xs font-semibold border border-slate-700/50">JavaScript</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-base">Beautiful analog clock with multiple themes, timezone support, and smooth animations using pure JavaScript</p>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Beautiful analog clock with multiple themes, multi-timezone support, and silky 60fps canvas-rendered animations using pure JavaScript.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">JavaScript</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">HTML5 Canvas</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">CSS Animations</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">Responsive</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">JavaScript</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">HTML5 Canvas</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">CSS Animations</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">Responsive</span>
                                 </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400'></i><span>Multiple clock themes (dark, light, neon, minimal)</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400'></i><span>Multi-timezone support with real-time sync</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400'></i><span>Silky smooth 60fps canvas-rendered animations</span></div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400 mt-0.5'></i><span>Multiple clock themes (dark, light, neon, minimal)</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400 mt-0.5'></i><span>Multi-timezone support with real-time sync</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400 mt-0.5'></i><span>Silky smooth 60fps canvas-rendered animations</span></div>
                                 </div>
                             </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-4 items-center justify-between">
-                                <a href="https://github.com/Sadique721/-Modern-Analog-Clock" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 hover:scale-105 transition-all duration-300 text-sm">
-                                    <i class='bx bxl-github mr-1.5 text-base'></i> Source Code
-                                </a>
-                                <button onclick="openProjectModal('Modern Analog Clock', 'https://github.com/Sadique721/-Modern-Analog-Clock', 'image', 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&q=80')" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold cursor-pointer text-sm">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://github.com/Sadique721/-Modern-Analog-Clock" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 6: Entitykart E-commerce -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.5">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.5">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
                                 </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">entitykart.onrender.com</span>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>entitykart.onrender.com</span>
                                 </div>
-                                <button onclick="openProjectModal('Entitykart E-commerce', 'https://entitykart.onrender.com', 'iframe')" class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
+                                <a href="https://entitykart.onrender.com" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Open</a>
                             </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Entitykart E-commerce', 'https://entitykart.onrender.com', 'iframe')">
-                                <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&q=80" alt="E-commerce" class="w-full h-full object-cover origin-top transition-transform duration-300 group-hover/preview:scale-105">
-                                <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 border border-cyan-400 text-cyan-400 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-cyan-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-cyan-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">Interact with live e-commerce app in full screen</span>
-                                </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80" alt="Entitykart E-commerce preview" loading="lazy">
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col justify-between">
+                        <div class="proj-info-col">
                             <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-cyan-400">Entitykart E-commerce</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-cyan-400 text-sm font-semibold border border-slate-700/50">Spring Boot</span>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Entitykart E-commerce</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-slate-700/50">Spring Boot</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-base">Full-featured online shopping platform with Spring Boot backend, React frontend and JWT authentication</p>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Full-featured online shopping platform with Spring Boot backend, React frontend, JWT authentication, and complete order management.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Spring Boot</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">React</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">MySQL</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">JWT Auth</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Spring Boot</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">React</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">MySQL</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">JWT Auth</span>
                                 </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Complete cart, checkout & order management system</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Admin dashboard with sales analytics & reports</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>JWT-secured REST API with role-based auth</span></div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Complete cart, checkout &amp; order management system</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Admin dashboard with sales analytics &amp; reports</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>JWT-secured REST API with role-based auth</span></div>
                                 </div>
                             </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-3 items-center">
-                                <a href="https://entitykart.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:from-cyan-400 hover:to-blue-400 hover:scale-105 transition-all duration-300 text-sm shadow-lg shadow-cyan-500/20">
-                                    <i class='bx bx-navigation mr-1.5 text-base'></i> Live Demo
-                                </a>
-                                <a href="https://github.com/Sadique721/Entitykart" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 hover:scale-105 transition-all duration-300 text-sm">
-                                    <i class='bx bxl-github mr-1.5 text-base'></i> Source Code
-                                </a>
-                                <button onclick="openProjectModal('Entitykart E-commerce', 'https://entitykart.onrender.com', 'iframe')" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold cursor-pointer text-sm ml-auto">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://entitykart.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
+                                <a href="https://github.com/Sadique721/Entitykart" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 7: Entitykart Microservices -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.1">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.1">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
                                 </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">entitykart-microservices.onrender.com</span>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>entitykart-microservices.onrender.com</span>
                                 </div>
-                                <button onclick="openProjectModal('Entitykart Microservices', 'https://entitykart-enterprise-ecommerce.onrender.com', 'iframe')" class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
+                                <a href="https://entitykart-enterprise-ecommerce.onrender.com" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Open</a>
                             </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Entitykart Microservices', 'https://entitykart-enterprise-ecommerce.onrender.com', 'iframe')">
-                                <iframe src="https://entitykart-enterprise-ecommerce.onrender.com" loading="lazy" class="w-full h-full border-0 pointer-events-auto" style="background-color: #0b1329;"></iframe>
-                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 border border-cyan-400 text-cyan-400 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-cyan-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-cyan-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">Interact with microservices portal in full screen</span>
-                                </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="Entitykart Microservices preview" loading="lazy">
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col justify-between">
+                        <div class="proj-info-col">
                             <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-cyan-400">Entitykart Microservices</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-cyan-400 text-sm font-semibold border border-slate-700/50">Microservices</span>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Entitykart Microservices</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-slate-700/50">Microservices</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-base">Enterprise-grade e-commerce microservices platform backend built on highly scalable distributed architecture.</p>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Enterprise-grade e-commerce microservices platform on highly scalable distributed architecture with Spring Cloud, Docker &amp; Eureka.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Spring Cloud</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Spring Boot</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Docker</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Microservices</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Spring Cloud</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Spring Boot</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Docker</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Microservices</span>
                                 </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>8 independent microservices with API Gateway</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Eureka service discovery & load balancing</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Docker containerized with auto-scaling support</span></div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>8 independent microservices with API Gateway</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Eureka service discovery &amp; load balancing</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Docker containerized with auto-scaling support</span></div>
                                 </div>
                             </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-3 items-center">
-                                <a href="https://entitykart-enterprise-ecommerce.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:from-cyan-400 hover:to-blue-400 hover:scale-105 transition-all duration-300 text-sm shadow-lg shadow-cyan-500/20">
-                                    <i class='bx bx-navigation mr-1.5 text-base'></i> Live Demo
-                                </a>
-                                <a href="https://github.com/Sadique721/entitykart-enterprise-ecommerce-microservices" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 hover:scale-105 transition-all duration-300 text-sm">
-                                    <i class='bx bxl-github mr-1.5 text-base'></i> Source Code
-                                </a>
-                                <button onclick="openProjectModal('Entitykart Microservices', 'https://entitykart-enterprise-ecommerce.onrender.com', 'iframe')" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold cursor-pointer text-sm ml-auto">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://entitykart-enterprise-ecommerce.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
+                                <a href="https://github.com/Sadique721/entitykart-enterprise-ecommerce-microservices" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 8: Interactive Digital Clock -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.2">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.2">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
                                 </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">interactive-digital-clock.vercel.app</span>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>interactive-digital-clock.vercel.app</span>
                                 </div>
-                                <button onclick="openProjectModal('Interactive Digital Clock', 'https://interactive-digital-clock.vercel.app', 'iframe')" class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
+                                <a href="https://interactive-digital-clock.vercel.app" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Open</a>
                             </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Interactive Digital Clock', 'https://interactive-digital-clock.vercel.app', 'iframe')">
-                                <img src="https://images.unsplash.com/photo-1508962914676-134849a727f0?w=600&q=80" alt="Interactive Digital Clock" class="w-full h-full object-cover origin-top transition-transform duration-300 group-hover/preview:scale-105">
-                                <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 border border-cyan-400 text-cyan-400 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-cyan-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-cyan-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">Interact with live clock app in full screen</span>
-                                </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1508962914676-134849a727f0?w=800&q=80" alt="Interactive Digital Clock preview" loading="lazy">
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col justify-between">
+                        <div class="proj-info-col">
                             <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-cyan-400">Interactive Digital Clock</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-yellow-400 text-sm font-semibold border border-slate-700/50">JavaScript</span>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Interactive Digital Clock</h3>
+                                    <span class="px-3 py-1 rounded-full bg-yellow-900/40 text-yellow-400 text-xs font-semibold border border-slate-700/50">JavaScript</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-base">Feature-rich digital clock with auto day/night mode, custom sound effects, and persistent local settings.</p>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Feature-rich digital clock with auto day/night mode, custom alarm &amp; sound effects, and persistent user settings via LocalStorage.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">HTML5</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">CSS3</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">JavaScript</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-yellow-300 text-xs">LocalStorage</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">HTML5</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">CSS3</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">JavaScript</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-yellow-300 text-xs border border-slate-700/40">LocalStorage</span>
                                 </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400'></i><span>Auto day/night theme switching by system time</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400'></i><span>Custom alarm & hourly chime sound effects</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400'></i><span>Persistent user preferences via LocalStorage</span></div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400 mt-0.5'></i><span>Auto day/night theme switching by system time</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400 mt-0.5'></i><span>Custom alarm &amp; hourly chime sound effects</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-yellow-400 mt-0.5'></i><span>Persistent user preferences via LocalStorage</span></div>
                                 </div>
                             </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-3 items-center">
-                                <a href="https://interactive-digital-clock.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:from-cyan-400 hover:to-blue-400 hover:scale-105 transition-all duration-300 text-sm shadow-lg shadow-cyan-500/20">
-                                    <i class='bx bx-navigation mr-1.5 text-base'></i> Live Demo
-                                </a>
-                                <a href="https://github.com/Sadique721/Interactive-Digital-Clock" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 hover:scale-105 transition-all duration-300 text-sm">
-                                    <i class='bx bxl-github mr-1.5 text-base'></i> Source Code
-                                </a>
-                                <button onclick="openProjectModal('Interactive Digital Clock', 'https://interactive-digital-clock.vercel.app', 'iframe')" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold cursor-pointer text-sm ml-auto">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://interactive-digital-clock.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
+                                <a href="https://github.com/Sadique721/Interactive-Digital-Clock" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 9: MSA Cricket Informer -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.3">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.3">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
                                 </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">cricket-informer.netlify.app</span>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>cricket-informer.netlify.app</span>
                                 </div>
-                                <button onclick="openProjectModal('MSA Cricket Informer', 'https://whimsical-duckanoo-1363ca.netlify.app/', 'iframe')" class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
+                                <a href="https://whimsical-duckanoo-1363ca.netlify.app/" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Open</a>
                             </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('MSA Cricket Informer', 'https://whimsical-duckanoo-1363ca.netlify.app/', 'iframe')">
-                                <iframe src="https://whimsical-duckanoo-1363ca.netlify.app/" loading="lazy" class="w-full h-full border-0 pointer-events-auto" style="background-color: #0b1329;"></iframe>
-                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 border border-cyan-400 text-cyan-400 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-cyan-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-cyan-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">Interact with live cricket app in full screen</span>
-                                </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&q=80" alt="MSA Cricket Informer preview" loading="lazy">
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col justify-between">
+                        <div class="proj-info-col">
                             <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-cyan-400">MSA Cricket Informer</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-green-400 text-sm font-semibold border border-slate-700/50">Web App</span>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">MSA Cricket Informer</h3>
+                                    <span class="px-3 py-1 rounded-full bg-green-900/40 text-green-400 text-xs font-semibold border border-slate-700/50">Web App</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-base">Live cricket tracking portal displaying real-time match details, scheduling, and dynamic score notifications.</p>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Live cricket tracking portal displaying real-time match details, scheduling, and dynamic score notifications via REST API.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">HTML5</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">CSS3</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">JavaScript</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-green-300 text-xs">REST APIs</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">HTML5</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">CSS3</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">JavaScript</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">REST APIs</span>
                                 </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Live ball-by-ball score updates via REST API</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Match schedule, team stats & player profiles</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400'></i><span>Dynamic browser push notifications for wickets/sixes</span></div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400 mt-0.5'></i><span>Live ball-by-ball score updates via REST API</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400 mt-0.5'></i><span>Match schedule, team stats &amp; player profiles</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400 mt-0.5'></i><span>Dynamic browser push notifications for wickets/sixes</span></div>
                                 </div>
                             </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-3 items-center">
-                                <a href="https://whimsical-duckanoo-1363ca.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:from-cyan-400 hover:to-blue-400 hover:scale-105 transition-all duration-300 text-sm shadow-lg shadow-cyan-500/20">
-                                    <i class='bx bx-navigation mr-1.5 text-base'></i> Live Demo
-                                </a>
-                                <a href="https://github.com/Sadique721/MSA-Sport-Informer" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 hover:scale-105 transition-all duration-300 text-sm">
-                                    <i class='bx bxl-github mr-1.5 text-base'></i> Source Code
-                                </a>
-                                <button onclick="openProjectModal('MSA Cricket Informer', 'https://whimsical-duckanoo-1363ca.netlify.app/', 'iframe')" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold cursor-pointer text-sm ml-auto">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://whimsical-duckanoo-1363ca.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
+                                <a href="https://github.com/Sadique721/MSA-Sport-Informer" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 10: Shabnam Enterprises -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.4">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.4">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
                                 </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">shabnam-enterprises.vercel.app</span>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>shabnam-enterprises.vercel.app</span>
                                 </div>
-                                <button onclick="openProjectModal('Shabnam Enterprises', 'https://shabnam-enterprises-seven.vercel.app/', 'iframe')" class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
+                                <a href="https://shabnam-enterprises-seven.vercel.app/" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Open</a>
                             </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Shabnam Enterprises', 'https://shabnam-enterprises-seven.vercel.app/', 'iframe')">
-                                <iframe src="https://shabnam-enterprises-seven.vercel.app/" loading="lazy" class="w-full h-full border-0 pointer-events-auto" style="background-color: #0b1329;"></iframe>
-                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 border border-cyan-400 text-cyan-400 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-cyan-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-cyan-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">Interact with live business portal in full screen</span>
-                                </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Shabnam Enterprises preview" loading="lazy">
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col justify-between">
+                        <div class="proj-info-col">
                             <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-cyan-400">Shabnam Enterprises</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-cyan-400 text-sm font-semibold border border-slate-700/50">Responsive Web</span>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Shabnam Enterprises</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-slate-700/50">Responsive Web</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-base">A complete business showcase portal for a commercial company featuring dynamic services catalogs.</p>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Complete business showcase portal with dynamic services catalog, contact forms, and Google Maps integration.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">HTML5</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">CSS3</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">JavaScript</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Responsive Design</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">HTML5</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">CSS3</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">JavaScript</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Responsive Design</span>
                                 </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Dynamic services catalog with animated showcase</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Fully responsive across all device breakpoints</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Interactive contact form & Google Maps integration</span></div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Dynamic services catalog with animated showcase</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Fully responsive across all device breakpoints</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Interactive contact form &amp; Google Maps integration</span></div>
                                 </div>
                             </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-3 items-center">
-                                <a href="https://shabnam-enterprises-seven.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:from-cyan-400 hover:to-blue-400 hover:scale-105 transition-all duration-300 text-sm shadow-lg shadow-cyan-500/20">
-                                    <i class='bx bx-navigation mr-1.5 text-base'></i> Live Demo
-                                </a>
-                                <a href="https://github.com/Sadique721/Shabnam-Enterprises" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 hover:scale-105 transition-all duration-300 text-sm">
-                                    <i class='bx bxl-github mr-1.5 text-base'></i> Source Code
-                                </a>
-                                <button onclick="openProjectModal('Shabnam Enterprises', 'https://shabnam-enterprises-seven.vercel.app/', 'iframe')" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold cursor-pointer text-sm ml-auto">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://shabnam-enterprises-seven.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
+                                <a href="https://github.com/Sadique721/Shabnam-Enterprises" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 11: Royaltech Learning -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.5">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.5">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
                                 </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">github.com/Sadique721/RoyaltechLearning</span>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>github.com/Sadique721/RoyaltechLearning</span>
                                 </div>
-                                <button onclick="openProjectModal('Royaltech Learning', 'https://github.com/Sadique721/RoyaltechLearning', 'image', 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=80')" class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
+                                <a href="https://github.com/Sadique721/RoyaltechLearning" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Open</a>
                             </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Royaltech Learning', 'https://github.com/Sadique721/RoyaltechLearning', 'image', 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=80')">
-                                <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600&q=80" alt="Royaltech Learning" class="w-full h-full object-cover origin-top transition-transform duration-300 group-hover/preview:scale-105">
-                                <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 border border-cyan-400 text-cyan-400 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-cyan-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-cyan-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">View project layout & details in full screen</span>
-                                </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80" alt="Royaltech Learning preview" loading="lazy">
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col justify-between">
+                        <div class="proj-info-col">
                             <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-cyan-400">Royaltech Learning</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-blue-400 text-sm font-semibold border border-slate-700/50">C Programming</span>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Royaltech Learning</h3>
+                                    <span class="px-3 py-1 rounded-full bg-blue-900/40 text-blue-400 text-xs font-semibold border border-slate-700/50">C Programming</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-base">Educational software solution focused on basic programming foundations, algorithms, and data structure visualizations in C.</p>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Educational software focused on basic programming foundations, algorithm visualization, and data structure diagrams in C.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">C Programming</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Algorithms</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-xs">Data Structures</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-blue-300 text-xs border border-slate-700/40">C Programming</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-blue-300 text-xs border border-slate-700/40">Algorithms</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-blue-300 text-xs border border-slate-700/40">Data Structures</span>
                                 </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400'></i><span>Step-by-step algorithm visualization & tracing</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400'></i><span>Interactive data structure diagrams (trees, graphs)</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400'></i><span>Beginner-friendly concept quizzes & code challenges</span></div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400 mt-0.5'></i><span>Step-by-step algorithm visualization &amp; tracing</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400 mt-0.5'></i><span>Interactive data structure diagrams (trees, graphs)</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-blue-400 mt-0.5'></i><span>Beginner-friendly concept quizzes &amp; code challenges</span></div>
                                 </div>
                             </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-4 items-center justify-between">
-                                <a href="https://github.com/Sadique721/RoyaltechLearning" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 hover:scale-105 transition-all duration-300 text-sm">
-                                    <i class='bx bxl-github mr-1.5 text-base'></i> Source Code
-                                </a>
-                                <button onclick="openProjectModal('Royaltech Learning', 'https://github.com/Sadique721/RoyaltechLearning', 'image', 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=80')" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold cursor-pointer text-sm">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://github.com/Sadique721/RoyaltechLearning" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- NEW Project 12: CodeSnippet Hub & Live Sandbox -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.1">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.1">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
                                 </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">code-snippet-hub.vercel.app</span>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>code-snippet-hub.vercel.app</span>
                                 </div>
-                                <button onclick="openProjectModal('CodeSnippet Hub & Sandbox', 'https://code-snippet-hub.vercel.app', 'image', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80')" class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
+                                <a href="https://github.com/Sadique721/CodeSnippet-Hub" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Open</a>
                             </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('CodeSnippet Hub & Sandbox', 'https://code-snippet-hub.vercel.app', 'image', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80')">
-                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80" alt="CodeSnippet Hub" class="w-full h-full object-cover origin-top transition-transform duration-300 group-hover/preview:scale-105">
-                                <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 border border-cyan-400 text-cyan-400 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-cyan-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-cyan-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">View code editor & sandbox in full screen</span>
-                                </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80" alt="CodeSnippet Hub &amp; Sandbox preview" loading="lazy">
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col justify-between">
+                        <div class="proj-info-col">
                             <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-cyan-400">CodeSnippet Hub & Sandbox</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-cyan-400 text-sm font-semibold border border-slate-700/50">React.js</span>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">CodeSnippet Hub &amp; Sandbox</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-slate-700/50">React.js</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-base">Real-time collaborative code snippet sharing platform & instant code execution sandbox using React, WebSockets, and Node.js.</p>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Real-time collaborative code snippet sharing platform &amp; instant code execution sandbox using React, WebSockets, and Node.js.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">React.js</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">Node.js</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">WebSockets</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-cyan-300 text-xs">MongoDB</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">React.js</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">Node.js</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">WebSockets</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-cyan-300 text-xs border border-slate-700/40">MongoDB</span>
                                 </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Live syntax-highlighted code editor with multi-language support</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Instant shareable URLs with password protection & expiration</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400'></i><span>Real-time pair-programming room with WebSocket sync</span></div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Live syntax-highlighted editor with multi-language support</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Instant shareable URLs with password protection</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-cyan-400 mt-0.5'></i><span>Real-time pair-programming room with WebSocket sync</span></div>
                                 </div>
                             </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-3 items-center">
-                                <a href="https://github.com/Sadique721/CodeSnippet-Hub" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:from-cyan-400 hover:to-blue-400 hover:scale-105 transition-all duration-300 text-sm shadow-lg shadow-cyan-500/20">
-                                    <i class='bx bx-navigation mr-1.5 text-base'></i> Live Demo
-                                </a>
-                                <a href="https://github.com/Sadique721/CodeSnippet-Hub" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 hover:scale-105 transition-all duration-300 text-sm">
-                                    <i class='bx bxl-github mr-1.5 text-base'></i> Source Code
-                                </a>
-                                <button onclick="openProjectModal('CodeSnippet Hub & Sandbox', 'https://github.com/Sadique721/CodeSnippet-Hub', 'image', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80')" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold cursor-pointer text-sm ml-auto">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://github.com/Sadique721/CodeSnippet-Hub" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
+                                <a href="https://github.com/Sadique721/CodeSnippet-Hub" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- NEW Project 13: 3D Developer Portfolio Platform -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item web reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.2">
-                        <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
-                            <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
-                                <div class="flex items-center space-x-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <div class="neon-card rounded-2xl overflow-hidden project-item web reveal proj-card" data-delay="0.2">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
                                 </div>
-                                <div class="flex-1 max-w-[220px] bg-slate-950/80 px-2.5 py-0.5 rounded-md border border-slate-800 text-[10px] text-slate-400 font-mono truncate text-center flex items-center justify-center gap-1">
-                                    <i class='bx bx-lock-alt text-emerald-400 text-[10px]'></i>
-                                    <span class="truncate">myportfoliositesadique.netlify.app</span>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>myportfoliositesadique.netlify.app</span>
                                 </div>
-                                <button onclick="openProjectModal('Futuristic 3D Developer Portfolio', 'https://myportfoliositesadique.netlify.app/', 'iframe')" class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500 hover:text-slate-950 text-[11px] font-semibold transition-all flex items-center gap-1">
-                                    <i class='bx bx-expand-alt'></i><span class="hidden sm:inline">Full View</span>
-                                </button>
+                                <a href="https://myportfoliositesadique.netlify.app/" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> Open</a>
                             </div>
-                            <div class="relative flex-1 w-full h-full overflow-hidden group/preview cursor-pointer" onclick="openProjectModal('Futuristic 3D Developer Portfolio', 'https://myportfoliositesadique.netlify.app/', 'iframe')">
-                                <iframe src="https://myportfoliositesadique.netlify.app/" loading="lazy" class="w-full h-full border-0 pointer-events-auto" style="background-color: #0b1329;"></iframe>
-                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-xs">
-                                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 border border-cyan-400 text-cyan-400 flex items-center justify-center text-2xl mb-2 shadow-lg shadow-cyan-500/30 transform scale-75 group-hover/preview:scale-100 transition-all duration-300">
-                                        <i class='bx bx-expand-alt'></i>
-                                    </div>
-                                    <span class="text-xs font-bold text-cyan-300 digital-font uppercase tracking-wider">Click for Full Interactive Screen</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">Interact with live 3D portfolio app in full screen</span>
-                                </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1608503396060-cfdfa39ad1eb?w=800&q=80" alt="Futuristic 3D Portfolio preview" loading="lazy">
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col justify-between">
+                        <div class="proj-info-col">
                             <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <h3 class="text-2xl font-bold text-cyan-400">Futuristic 3D Portfolio</h3>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-purple-400 text-sm font-semibold border border-slate-700/50">Three.js</span>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-purple-400">Futuristic 3D Portfolio</h3>
+                                    <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-400 text-xs font-semibold border border-slate-700/50">Three.js</span>
                                 </div>
-                                <p class="text-slate-400 mb-4 text-base">Next-gen interactive developer portfolio featuring 3D particle background, smooth Lenis scrolling, GSAP animations, and PDF rendering.</p>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Next-gen interactive developer portfolio with 3D WebGL particle background, GSAP animations, Lenis smooth scroll, and PDF.js certificate rendering.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-purple-300 text-xs">Three.js</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-purple-300 text-xs">GSAP</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-purple-300 text-xs">Tailwind CSS</span>
-                                    <span class="px-3 py-1 rounded-full bg-slate-800 text-purple-300 text-xs">Lenis</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">Three.js</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">GSAP</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">Tailwind CSS</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">Lenis</span>
                                 </div>
-                                <div class="space-y-2 mt-3">
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Custom 3D WebGL particle particle network with mouse interaction</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>Full-screen interactive project viewer with device switcher</span></div>
-                                    <div class="flex items-center gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400'></i><span>PDF.js integrated certificate preview cards</span></div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>Custom 3D WebGL particle network with mouse interaction</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>PDF.js integrated certificate preview cards</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>GSAP scroll-triggered reveal animations throughout</span></div>
                                 </div>
                             </div>
-                            <div class="pt-4 border-t border-slate-700/50 flex flex-wrap gap-3 items-center">
-                                <a href="https://myportfoliositesadique.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:from-cyan-400 hover:to-blue-400 hover:scale-105 transition-all duration-300 text-sm shadow-lg shadow-cyan-500/20">
-                                    <i class='bx bx-navigation mr-1.5 text-base'></i> Live Demo
-                                </a>
-                                <a href="https://github.com/Sadique721/Portfolio" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 hover:scale-105 transition-all duration-300 text-sm">
-                                    <i class='bx bxl-github mr-1.5 text-base'></i> Source Code
-                                </a>
-                                <button onclick="openProjectModal('Futuristic 3D Developer Portfolio', 'https://myportfoliositesadique.netlify.app/', 'iframe')" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold cursor-pointer text-sm ml-auto">
-                                    Full View <i class='bx bx-expand-alt ml-1'></i>
-                                </button>
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://myportfoliositesadique.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold hover:scale-105 transition-all duration-300 text-sm"><i class='bx bx-navigation mr-1.5'></i> Live Demo</a>
+                                <a href="https://github.com/Sadique721/Portfolio" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105"><i class='bx bxl-github mr-1.5'></i> Source Code</a>
                             </div>
                         </div>
                     </div>
@@ -1664,7 +1639,96 @@
                 <div class="grid grid-cols-1 gap-12">
 
                     <!-- AI Project 1: Image Recognition -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item ai reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]">
+                    <div class="neon-card rounded-2xl overflow-hidden project-item ai reveal proj-card">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
+                                </div>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>cv-recognition.ai</span>
+                                </div>
+                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> GitHub</a>
+                            </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80" alt="Image Recognition AI preview" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="proj-info-col">
+                            <div>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-purple-400">🧠 Intelligent Image Recognition</h3>
+                                    <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-400 text-xs font-semibold border border-slate-700/50">Computer Vision</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">Deep learning model for real-time object detection and classification using TensorFlow and OpenCV with 95%+ accuracy on COCO benchmark datasets.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">TensorFlow</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">OpenCV</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">CNN</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">Python</span>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>95%+ accuracy on COCO benchmark datasets</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>Real-time detection at 30fps via webcam/video</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>Transfer learning with custom dataset fine-tuning</span></div>
+                                </div>
+                            </div>
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105">
+                                    <i class='bx bxl-github mr-1.5'></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Project 2: Sentiment Chatbot -->
+                    <div class="neon-card rounded-2xl overflow-hidden project-item ai reveal proj-card" data-delay="0.1">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
+                                </div>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>sentiment-nlp-chatbot.ai</span>
+                                </div>
+                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> GitHub</a>
+                            </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80" alt="Sentiment Chatbot preview" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="proj-info-col">
+                            <div>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-purple-400">💬 Sentiment Analysis Chatbot</h3>
+                                    <span class="px-3 py-1 rounded-full bg-indigo-900/40 text-indigo-400 text-xs font-semibold border border-slate-700/50">NLP Engineer</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">AI-powered chatbot with BERT-based sentiment analysis for real-time conversation, emotion detection, and contextual response generation.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">PyTorch</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">BERT</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">NLP</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-purple-300 text-xs border border-slate-700/40">Flask</span>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>BERT transformer for context-aware emotion detection</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>Multi-turn conversation memory &amp; context tracking</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-purple-400 mt-0.5'></i><span>Flask REST API with real-time WebSocket support</span></div>
+                                </div>
+                            </div>
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105">
+                                    <i class='bx bxl-github mr-1.5'></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                         <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
                             <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
                                 <div class="flex items-center space-x-1.5">
@@ -1782,7 +1846,50 @@
                     </div>
 
                     <!-- DS Project 1: Predictive Analytics -->
-                    <div class="neon-card rounded-2xl overflow-hidden group project-item ds reveal grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[350px]" data-delay="0.2">
+                    <div class="neon-card rounded-2xl overflow-hidden project-item ds reveal proj-card" data-delay="0.2">
+                        <div class="proj-preview-col">
+                            <div class="proj-browser-bar">
+                                <div class="proj-dots">
+                                    <div class="proj-dot" style="background:#ef4444"></div>
+                                    <div class="proj-dot" style="background:#eab308"></div>
+                                    <div class="proj-dot" style="background:#22c55e"></div>
+                                </div>
+                                <div class="proj-url-bar">
+                                    <i class='bx bx-lock-alt' style="color:#34d399;font-size:10px"></i>
+                                    <span>predictive-analytics.ds</span>
+                                </div>
+                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener" class="proj-open-link"><i class='bx bx-link-external'></i> GitHub</a>
+                            </div>
+                            <div class="proj-preview-panel">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Predictive Analytics preview" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="proj-info-col">
+                            <div>
+                                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">📊 Predictive Analytics Dashboard</h3>
+                                    <span class="px-3 py-1 rounded-full bg-green-900/40 text-green-400 text-xs font-semibold border border-slate-700/50">Data Science</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm sm:text-base">End-to-end ML pipeline for business intelligence: sales forecasting, customer churn prediction, and anomaly detection with interactive Plotly dashboards.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">Python</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">Scikit-learn</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">Pandas</span>
+                                    <span class="px-2 py-1 rounded-full bg-slate-800/80 text-green-300 text-xs border border-slate-700/40">Plotly</span>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400 mt-0.5'></i><span>Sales forecasting with SARIMA &amp; Prophet time-series models</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400 mt-0.5'></i><span>Customer churn prediction with 88% precision</span></div>
+                                    <div class="flex items-start gap-2 text-sm text-slate-300"><i class='bx bx-check-circle text-green-400 mt-0.5'></i><span>Interactive Plotly dashboard with drill-down analytics</span></div>
+                                </div>
+                            </div>
+                            <div class="pt-4 mt-4 border-t border-slate-700/40 flex flex-wrap gap-3">
+                                <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/40 text-slate-300 hover:text-white hover:bg-slate-800 text-sm transition-all hover:scale-105">
+                                    <i class='bx bxl-github mr-1.5'></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                         <div class="overflow-hidden relative flex flex-col h-[280px] md:h-full min-h-[320px] bg-slate-950 border-b md:border-b-0 md:border-r border-slate-700/50">
                             <div class="px-3 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between gap-2 z-10">
                                 <div class="flex items-center space-x-1.5">
@@ -2075,8 +2182,7 @@
                 </div>
             </div>
         </section>
-            </div>
-        </section>
+
 
         <!-- CONTACT -->
         <section id="contact" class="py-20 px-4 sm:px-8 md:px-16 lg:px-24 relative">
@@ -2136,84 +2242,9 @@
         </section>
     </main>
 
-    <!-- FULL SCREEN INTERACTIVE PROJECT MODAL VIEWER -->
-    <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-950/90 backdrop-blur-md hidden transition-all duration-300 opacity-0">
-        <div class="relative w-full max-w-6xl h-[92vh] flex flex-col bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden">
-            <!-- macOS Window Header Bar -->
-            <div class="px-4 py-3 bg-slate-950 border-b border-slate-800 flex items-center justify-between gap-3 shrink-0">
-                <div class="flex items-center space-x-2">
-                    <button onclick="closeProjectModal()" class="w-3.5 h-3.5 rounded-full bg-red-500 hover:bg-red-600 transition-colors flex items-center justify-center group" title="Close">
-                        <i class='bx bx-x text-[10px] text-slate-950 opacity-0 group-hover:opacity-100 font-bold'></i>
-                    </button>
-                    <button onclick="closeProjectModal()" class="w-3.5 h-3.5 rounded-full bg-yellow-500 hover:bg-yellow-600 transition-colors flex items-center justify-center group" title="Minimize">
-                        <i class='bx bx-minus text-[10px] text-slate-950 opacity-0 group-hover:opacity-100 font-bold'></i>
-                    </button>
-                    <button onclick="setModalDevice('desktop')" class="w-3.5 h-3.5 rounded-full bg-green-500 hover:bg-green-600 transition-colors flex items-center justify-center group" title="Expand Desktop">
-                        <i class='bx bx-expand-alt text-[10px] text-slate-950 opacity-0 group-hover:opacity-100 font-bold'></i>
-                    </button>
-                </div>
+    
 
-                <!-- Title and Live URL Address Bar -->
-                <div class="flex-1 max-w-xl mx-2">
-                    <div class="bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800 flex items-center justify-between text-xs text-slate-300 font-mono gap-2 shadow-inner">
-                        <div class="flex items-center gap-1.5 truncate">
-                            <i class='bx bx-lock-alt text-emerald-400 text-sm'></i>
-                            <span id="modal-title-text" class="font-semibold text-cyan-400 truncate">Project Name</span>
-                        </div>
-                        <a id="modal-external-link" href="#" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 flex items-center gap-1 text-[11px] shrink-0 font-sans" title="Open in new tab">
-                            <span>Open Direct</span> <i class='bx bx-link-external'></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Viewport Controls & Actions -->
-                <div class="flex items-center space-x-1.5">
-                    <div class="bg-slate-900 border border-slate-800 rounded-lg p-0.5 flex items-center">
-                        <button id="btn-device-desktop" onclick="setModalDevice('desktop')" class="px-2.5 py-1 rounded text-cyan-400 bg-slate-800 text-xs font-semibold flex items-center gap-1 transition-all" title="Desktop View (100%)">
-                            <i class='bx bx-desktop text-sm'></i><span class="hidden md:inline">Desktop</span>
-                        </button>
-                        <button id="btn-device-tablet" onclick="setModalDevice('tablet')" class="px-2.5 py-1 rounded text-slate-400 hover:text-cyan-400 text-xs font-semibold flex items-center gap-1 transition-all" title="Tablet View (768px)">
-                            <i class='bx bx-tab text-sm'></i><span class="hidden md:inline">Tablet</span>
-                        </button>
-                        <button id="btn-device-mobile" onclick="setModalDevice('mobile')" class="px-2.5 py-1 rounded text-slate-400 hover:text-cyan-400 text-xs font-semibold flex items-center gap-1 transition-all" title="Mobile View (375px)">
-                            <i class='bx bx-mobile-alt text-sm'></i><span class="hidden md:inline">Mobile</span>
-                        </button>
-                    </div>
-
-                    <button onclick="reloadModalIframe()" class="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 transition-colors" title="Reload Frame">
-                        <i class='bx bx-refresh text-lg'></i>
-                    </button>
-
-                    <button onclick="closeProjectModal()" class="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-red-400 transition-colors" title="Close Modal (Esc)">
-                        <i class='bx bx-x text-lg'></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Modal Viewer Container -->
-            <div id="modal-container" class="relative flex-1 w-full bg-slate-950 overflow-hidden flex items-center justify-center p-2 transition-all duration-300">
-                <!-- Loader -->
-                <div id="modal-loader" class="absolute inset-0 bg-slate-950/80 z-20 flex flex-col items-center justify-center gap-3">
-                    <div class="w-10 h-10 border-3 border-cyan-400/20 border-t-cyan-400 rounded-full animate-spin"></div>
-                    <span class="text-xs font-semibold text-cyan-400 digital-font">Loading Live Interactive View...</span>
-                </div>
-
-                <!-- Live Interactive Iframe Frame Wrapper -->
-                <div id="modal-viewport-wrapper" class="w-full h-full max-w-full transition-all duration-300 bg-slate-900 rounded-xl overflow-hidden shadow-2xl border border-slate-800/80 relative">
-                    <iframe id="modal-iframe" src="" class="w-full h-full border-0 hidden" allow="fullscreen; autoplay"></iframe>
-                    <img id="modal-fallback-img" src="" alt="Project Preview" class="w-full h-full object-contain hidden bg-slate-950">
-                </div>
-            </div>
-
-            <!-- Modal Footer -->
-            <div class="px-4 py-2 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400 shrink-0">
-                <span class="flex items-center gap-1.5"><i class='bx bx-info-circle text-cyan-400'></i> Live Interactive Sandbox & Multi-Device Testing</span>
-                <span class="hidden sm:inline">Press <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-[10px] text-slate-300">Esc</kbd> to close</span>
-            </div>
-        </div>
-    </div>
-
-    <footer class="py-8 px-4 sm:px-8 md:px-16 lg:px-24 border-t border-slate-800">
+        <footer class="py-8 px-4 sm:px-8 md:px-16 lg:px-24 border-t border-slate-800">
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="text-center md:text-left mb-4 md:mb-0">
@@ -2471,130 +2502,7 @@
             });
         });
 
-        // ===== FULL-SCREEN INTERACTIVE PROJECT MODAL CONTROLLER =====
-        function openProjectModal(title, url, displayType = 'iframe', fallbackImg = '') {
-            const modal = document.getElementById('project-modal');
-            const titleElem = document.getElementById('modal-title-text');
-            const extLink = document.getElementById('modal-external-link');
-            const iframe = document.getElementById('modal-iframe');
-            const img = document.getElementById('modal-fallback-img');
-            const loader = document.getElementById('modal-loader');
-
-            if (!modal) return;
-
-            titleElem.textContent = title;
-            extLink.href = (url && url !== '#') ? url : 'javascript:void(0)';
-            
-            // Show loader initially
-            loader.classList.remove('hidden');
-            iframe.classList.add('hidden');
-            img.classList.add('hidden');
-
-            // Reset viewport to desktop
-            setModalDevice('desktop');
-
-            if (displayType === 'iframe' && url && url !== '#') {
-                iframe.src = url;
-                iframe.classList.remove('hidden');
-                iframe.onload = () => {
-                    loader.classList.add('hidden');
-                };
-                // Fallback hide loader after 2.5s if onload doesn't fire
-                setTimeout(() => loader.classList.add('hidden'), 2500);
-            } else {
-                // Image mode (e.g. C / Python backend projects or repo showcase)
-                const imageSrc = fallbackImg || url;
-                if (imageSrc && imageSrc !== '#') {
-                    img.src = imageSrc;
-                    img.classList.remove('hidden');
-                } else {
-                    img.src = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80';
-                    img.classList.remove('hidden');
-                }
-                loader.classList.add('hidden');
-            }
-
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-            }, 20);
-
-            // Pause Lenis smooth scroll while modal is open
-            if (typeof lenis !== 'undefined' && lenis.stop) lenis.stop();
-        }
-
-        function closeProjectModal() {
-            const modal = document.getElementById('project-modal');
-            const iframe = document.getElementById('modal-iframe');
-            if (!modal) return;
-
-            modal.classList.add('opacity-0');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                iframe.src = '';
-            }, 300);
-
-            // Resume Lenis smooth scroll
-            if (typeof lenis !== 'undefined' && lenis.start) lenis.start();
-        }
-
-        function reloadModalIframe() {
-            const iframe = document.getElementById('modal-iframe');
-            const loader = document.getElementById('modal-loader');
-            if (iframe && iframe.src) {
-                loader.classList.remove('hidden');
-                const currSrc = iframe.src;
-                iframe.src = '';
-                iframe.src = currSrc;
-                setTimeout(() => loader.classList.add('hidden'), 1500);
-            }
-        }
-
-        function setModalDevice(device) {
-            const wrapper = document.getElementById('modal-viewport-wrapper');
-            const btnDesktop = document.getElementById('btn-device-desktop');
-            const btnTablet = document.getElementById('btn-device-tablet');
-            const btnMobile = document.getElementById('btn-device-mobile');
-
-            if (!wrapper) return;
-
-            // Reset buttons
-            [btnDesktop, btnTablet, btnMobile].forEach(btn => {
-                if (btn) {
-                    btn.classList.remove('text-cyan-400', 'bg-slate-800');
-                    btn.classList.add('text-slate-400');
-                }
-            });
-
-            if (device === 'desktop') {
-                wrapper.style.width = '100%';
-                wrapper.style.maxHeight = '100%';
-                if (btnDesktop) {
-                    btnDesktop.classList.add('text-cyan-400', 'bg-slate-800');
-                    btnDesktop.classList.remove('text-slate-400');
-                }
-            } else if (device === 'tablet') {
-                wrapper.style.width = '768px';
-                wrapper.style.maxHeight = '100%';
-                if (btnTablet) {
-                    btnTablet.classList.add('text-cyan-400', 'bg-slate-800');
-                    btnTablet.classList.remove('text-slate-400');
-                }
-            } else if (device === 'mobile') {
-                wrapper.style.width = '375px';
-                wrapper.style.maxHeight = '667px';
-                if (btnMobile) {
-                    btnMobile.classList.add('text-cyan-400', 'bg-slate-800');
-                    btnMobile.classList.remove('text-slate-400');
-                }
-            }
-        }
-
-        // Close modal on Escape key press
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeProjectModal();
-        });
-    </script>
+            </script>
     <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" loop></audio>
 
     <script>
