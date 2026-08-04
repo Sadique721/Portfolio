@@ -457,7 +457,37 @@
         .neon-card:hover {
             animation: cardGlow 2s ease-in-out infinite;
         }
-    </style>
+    
+        /* ===== DESKTOP VS MOBILE NAV FIX ===== */
+        @media (max-width: 767px) {
+            .desktop-nav { display: none !important; }
+        }
+
+        /* ===== MOBILE MENU SLIDE-IN DRAWER ===== */
+        #mobile-menu {
+            right: -100%;
+            transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #mobile-menu.open {
+            right: 0 !important;
+        }
+
+        /* ===== HERO PROFILE ORBIT MOBILE FIT ===== */
+        @media (max-width: 639px) {
+            .profile-frame {
+                width: 220px !important;
+                height: 220px !important;
+                margin: 0 auto !important;
+            }
+            .profile-inner {
+                border-width: 3px !important;
+            }
+            .orbit-container-cw, .orbit-container-ccw {
+                transform: scale(0.68) !important;
+                transform-origin: center center !important;
+            }
+        }
+</style>
 </head>
 <body class="text-slate-200 overflow-x-hidden">
     <div class="scroll-progress"></div>
@@ -477,7 +507,7 @@
                 <span class="typing-cursor"></span>
             </a>
             <div class="flex items-center space-x-4">
-                <nav class="hidden md:flex items-center space-x-8">
+                <nav class="desktop-nav hidden md:flex items-center space-x-8">
                     <a href="#home" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Home</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
                     <a href="#about" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">About</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
                     <a href="#skills" class="text-lg hover:text-cyan-400 transition duration-300 relative group"><span class="relative z-10">Skills</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
@@ -495,7 +525,8 @@
     </header>
 
     <!-- MOBILE MENU -->
-    <nav id="mobile-menu" class="fixed top-0 right-[-100%] md:hidden w-3/4 h-full bg-slate-900/95 backdrop-blur-lg z-50 flex flex-col items-center justify-center space-y-8 neon-card">
+    <nav id="mobile-menu" class="fixed top-0 right-[-100%] md:hidden w-3/4 max-w-xs h-full bg-slate-900/98 backdrop-blur-xl z-50 flex flex-col items-center justify-center space-y-6 neon-card p-6 shadow-2xl transition-all duration-300">
+        <button id="mobile-close-btn" class="absolute top-6 right-6 text-3xl text-cyan-400 hover:text-white"><i class='bx bx-x'></i></button>
         <a href="#home" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Home</a>
         <a href="#about" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">About</a>
         <a href="#skills" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Skills</a>
@@ -2641,6 +2672,35 @@
             initCertRenderers();
         }
     })();
-    </script>
+    
+        // ===== MOBILE MENU TOGGLE =====
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileCloseBtn = document.getElementById('mobile-close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.add('open');
+            });
+        }
+        if (mobileCloseBtn && mobileMenu) {
+            mobileCloseBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        }
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu) mobileMenu.classList.remove('open');
+            });
+        });
+        document.addEventListener('click', (e) => {
+            if (mobileMenu && mobileMenu.classList.contains('open')) {
+                if (!mobileMenu.contains(e.target) && menuToggle && !menuToggle.contains(e.target)) {
+                    mobileMenu.classList.remove('open');
+                }
+            }
+        });
+</script>
 </body>
 </html>
