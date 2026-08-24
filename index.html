@@ -10,11 +10,15 @@
     <meta property="og:description" content="Specialized in Full Stack Development, Java & Python, AI Engineering, and Data Science." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://myportfoliositesadique.netlify.app/" />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop" />
+    <meta property="og:image" content="https://myportfoliositesadique.netlify.app/assets/images/profile.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Md Sadique Amin | Futuristic Developer Portfolio" />
     <meta name="twitter:description" content="Full Stack Developer, Java & Python, AI Engineer, and Data Science." />
-    <link rel="icon" type="image/svg+xml" href="https://unpkg.com/boxicons@2.1.4/svg/solid/bxs-code-alt.svg" />
+    <meta name="twitter:image" content="https://myportfoliositesadique.netlify.app/assets/images/profile.webp" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#0a192f">
+    <link rel="manifest" href="assets/images/site.webmanifest">
     <link rel="stylesheet" href="assets/css/style.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
@@ -23,7 +27,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Md Sadique Amin",
+      "jobTitle": "Full Stack Developer & AI Engineer",
+      "url": "https://myportfoliositesadique.netlify.app/",
+      "image": "https://myportfoliositesadique.netlify.app/assets/images/profile.webp",
+      "sameAs": [
+        "https://github.com/Sadique721",
+        "https://www.linkedin.com/in/md-sadique-amin-b6a948198/",
+        "https://www.instagram.com/mdsadiqueamin721/"
+      ],
+      "knowsAbout": ["Java", "Spring Boot", "Python", "Django", "React", "Machine Learning", "Data Science", "DevOps"],
+      "gender": "Male"
+    }
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; background: #0a192f; overflow-x: hidden; }
@@ -46,7 +69,7 @@
         @keyframes buzzing { 0%, 100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-6px) scale(1.05); } }
 
         /* ===== GLOBAL UTILITIES ===== */
-        .role-badge { background: linear-gradient(45deg, rgba(34,211,238,0.1), rgba(139,92,246,0.1)); border: 1px solid rgba(34,211,238,0.3); backdrop-filter: blur(10px); }
+        .role-badge { background: linear-gradient(45deg, rgba(34,211,238,0.1), rgba(139,92,246,0.1)); border: 1px solid rgba(34,211,238,0.3); backdrop-filter: blur(10px); animation: float 4s ease-in-out infinite; }
         .tech-item { padding: 4px 12px; background: rgba(34,211,238,0.1); border-radius: 20px; font-size: 0.8rem; color: #22d3ee; border: 1px solid rgba(34,211,238,0.3); }
         .neon-card { background: rgba(15,23,42,0.7); backdrop-filter: blur(10px); border: 1px solid rgba(34,211,238,0.2); box-shadow: 0 8px 32px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
         .neon-card:hover { border-color: rgba(34,211,238,0.8); animation: cardGlow 2s ease-in-out infinite; transform: translateY(-8px); }
@@ -68,8 +91,34 @@
         /* ===== FIXED ELEMENTS ===== */
         #three-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
         .scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, #22d3ee, #8b5cf6); z-index: 9999; }
-        .custom-cursor { width: 20px; height: 20px; border: 2px solid #22d3ee; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
-        .custom-cursor-dot { width: 4px; height: 4px; background: #22d3ee; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; }
+        @media (hover: hover) and (pointer: fine) {
+            .custom-cursor { width: 20px; height: 20px; border: 2px solid #22d3ee; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; mix-blend-mode: difference; display: block; }
+            .custom-cursor-dot { width: 4px; height: 4px; background: #22d3ee; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; display: block; }
+        }
+        @media not all and (hover: hover) and (pointer: fine) {
+            .custom-cursor, .custom-cursor-dot { display: none !important; }
+        }
+        
+        /* Spotlight mouse-reactive glow desktop only */
+        @media (hover: hover) and (pointer: fine) {
+            .neon-card, .project-card, .cert-card {
+                position: relative;
+                overflow: hidden;
+            }
+            .neon-card::before, .project-card::before, .cert-card::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(34, 211, 238, 0.08), transparent 80%);
+                z-index: 1;
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            .neon-card:hover::before, .project-card:hover::before, .cert-card:hover::before {
+                opacity: 1;
+            }
+        }
 
         /* ===== REVEAL / VISIBILITY GUARANTEE ===== */
         .reveal { opacity: 1 !important; transform: none !important; visibility: visible !important; }
@@ -166,11 +215,24 @@
         .project-card__image-wrap { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #060d1a; border-bottom: 1px solid rgba(30,41,59,0.85); flex-shrink: 0; }
         .project-card__image { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform 0.5s ease; }
         .project-card:hover .project-card__image { transform: scale(1.04); }
+        /* Spotlight horizontal layout — image fills full height of card row */
+        @media (min-width: 1024px) {
+            .project-card.flex-row > .project-card__image-wrap,
+            .project-card > .project-card__image-wrap[class*='lg:w-'] {
+                aspect-ratio: unset;
+                min-height: 340px;
+                height: auto;
+                align-self: stretch;
+                border-bottom: none;
+                border-right: 1px solid rgba(30,41,59,0.85);
+            }
+        }
         .project-card__placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg,#0a192f 0%,#0d2044 40%,#0f1a3a 100%); color: #22d3ee; gap: 0.5rem; padding: 1.5rem; text-align: center; }
         .project-card__placeholder i { font-size: 2.5rem; opacity: 0.7; }
         .project-card__placeholder span { font-size: 0.75rem; opacity: 0.6; font-family: monospace; word-break: break-all; }
         .project-card__body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
         .project-card__body > .space-y-3 { flex: 1; }
+        .project-card__body > .space-y-4 { flex: 1; }
         .project-card__footer { margin-top: auto; padding-top: 0.75rem; border-top: 1px solid rgba(30,41,59,0.8); }
         @media (max-width: 767px) { .project-card__body { padding: 1rem; } }
 
@@ -190,6 +252,14 @@
     </style>
 </head>
 <body class="text-slate-200 overflow-x-hidden">
+    <!-- PRELOADER -->
+    <div id="preloader" class="fixed inset-0 z-[100000] bg-slate-950 flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="relative flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full border-4 border-slate-800 border-t-cyan-400 animate-spin-slow mb-4" style="animation: spin-slow 1.5s linear infinite;"></div>
+            <div class="digital-font text-2xl font-bold gradient-text tracking-widest animate-pulse">MSA</div>
+            <span class="text-xs text-slate-500 mt-2">Tap anywhere to skip</span>
+        </div>
+    </div>
     <div class="scroll-progress"></div>
     <canvas id="three-canvas"></canvas>
     <div class="custom-cursor"></div>
@@ -213,7 +283,7 @@
                     <a href="#skills" class="text-sm font-medium hover:text-cyan-400 transition duration-300 relative group whitespace-nowrap"><span class="relative z-10">Skills</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
                     <a href="#experience" class="text-sm font-medium hover:text-cyan-400 transition duration-300 relative group whitespace-nowrap"><span class="relative z-10">Experience</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
                     <a href="#projects" class="text-sm font-medium hover:text-cyan-400 transition duration-300 relative group whitespace-nowrap"><span class="relative z-10">Projects</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                    <a href="#ai-projects" class="text-sm font-medium hover:text-cyan-400 transition duration-300 relative group whitespace-nowrap"><span class="relative z-10">AI Projects</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                    <a href="#projects" data-filter-trigger="ai" class="text-sm font-medium hover:text-cyan-400 transition duration-300 relative group whitespace-nowrap"><span class="relative z-10">AI Projects</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
                     <a href="#contact" class="text-sm font-medium hover:text-cyan-400 transition duration-300 relative group whitespace-nowrap"><span class="relative z-10">Contact</span><span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
                 </div>
                 <button id="music-btn" class="text-xl text-cyan-400 hover:text-cyan-300 glow focus:outline-none transition duration-300 mr-1 flex items-center justify-center w-9 h-9 rounded-full bg-slate-800/80 border border-cyan-400/30" title="Play Background Music">
@@ -225,16 +295,18 @@
     </header>
 
     <!-- MOBILE MENU -->
-    <div id="mobile-menu" class="fixed top-0 right-[-100%] lg:hidden w-3/4 max-w-xs h-full bg-slate-900/98 backdrop-blur-xl z-50 flex flex-col items-center justify-center space-y-6 neon-card p-6 shadow-2xl transition-all duration-300">
-        <button id="mobile-close-btn" class="absolute top-6 right-6 text-3xl text-cyan-400 hover:text-white"><i class='bx bx-x'></i></button>
-        <a href="#home" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Home</a>
-        <a href="#about" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">About</a>
-        <a href="#skills" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Skills</a>
-        <a href="#experience" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Experience</a>
-        <a href="#projects" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Projects</a>
-        <a href="#ai-projects" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">AI Projects</a>
-        <a href="#contact" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Contact</a>
-    </nav>
+    <div id="mobile-menu" class="fixed top-0 right-[-100%] lg:hidden w-3/4 max-w-xs h-full bg-slate-900/98 backdrop-blur-xl z-50 flex flex-col items-center justify-center space-y-6 neon-card p-6 shadow-2xl transition-all duration-300" aria-label="Mobile Navigation Drawer">
+        <button id="mobile-close-btn" class="absolute top-6 right-6 text-3xl text-cyan-400 hover:text-white" aria-label="Close Mobile Menu"><i class='bx bx-x'></i></button>
+        <nav class="flex flex-col items-center justify-center space-y-6" aria-label="Mobile navigation">
+            <a href="#home" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Home</a>
+            <a href="#about" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">About</a>
+            <a href="#skills" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Skills</a>
+            <a href="#experience" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Experience</a>
+            <a href="#projects" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Projects</a>
+            <a href="#projects" data-filter-trigger="ai" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">AI Projects</a>
+            <a href="#contact" class="mobile-nav-link text-2xl hover:text-cyan-400 transition duration-300 digital-font">Contact</a>
+        </nav>
+    </div>
 
     <main>
         <!-- HERO -->
@@ -267,21 +339,21 @@
                         <a href="#projects" class="magnetic-btn px-8 py-3 border-2 border-cyan-400 text-cyan-400 font-semibold rounded-lg hover:bg-cyan-400/10 transition-all duration-300 transform hover:scale-105"><i class='bx bx-code-alt mr-2'></i>View Projects</a>
                     </div>
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-8">
-                        <div class="text-center p-4 rounded-lg bg-slate-800/30 border border-slate-700 parallax-layer" data-speed="0.3">
-                            <div class="text-3xl font-bold text-cyan-400 digital-font" id="projectCount">0</div>
-                            <div class="text-sm text-slate-400">Projects</div>
+                        <div class="text-center p-4 pt-6 sm:p-4 rounded-lg bg-slate-800/30 border border-slate-700 parallax-layer" data-speed="0.3">
+                            <div class="text-3xl sm:text-4xl font-bold text-cyan-400 digital-font leading-normal pt-1" id="projectCount">0</div>
+                            <div class="text-xs sm:text-sm text-slate-400">Projects</div>
                         </div>
-                        <div class="text-center p-4 rounded-lg bg-slate-800/30 border border-slate-700 parallax-layer" data-speed="0.4">
-                            <div class="text-3xl font-bold text-purple-400 digital-font" id="aiProjectCount">0</div>
-                            <div class="text-sm text-slate-400">AI Projects</div>
+                        <div class="text-center p-4 pt-6 sm:p-4 rounded-lg bg-slate-800/30 border border-slate-700 parallax-layer" data-speed="0.4">
+                            <div class="text-3xl sm:text-4xl font-bold text-purple-400 digital-font leading-normal pt-1" id="aiProjectCount">0</div>
+                            <div class="text-xs sm:text-sm text-slate-400">AI Projects</div>
                         </div>
-                        <div class="text-center p-4 rounded-lg bg-slate-800/30 border border-slate-700 parallax-layer" data-speed="0.5">
-                            <div class="text-3xl font-bold text-cyan-400 digital-font" id="experienceCount">0</div>
-                            <div class="text-sm text-slate-400">Months Exp</div>
+                        <div class="text-center p-4 pt-6 sm:p-4 rounded-lg bg-slate-800/30 border border-slate-700 parallax-layer" data-speed="0.5">
+                            <div class="text-3xl sm:text-4xl font-bold text-cyan-400 digital-font leading-normal pt-1" id="experienceCount">0</div>
+                            <div class="text-xs sm:text-sm text-slate-400">Months Exp</div>
                         </div>
-                        <div class="text-center p-4 rounded-lg bg-slate-800/30 border border-slate-700 parallax-layer" data-speed="0.6">
-                            <div class="text-3xl font-bold text-green-400 digital-font" id="skillCount">0</div>
-                            <div class="text-sm text-slate-400">Skills</div>
+                        <div class="text-center p-4 pt-6 sm:p-4 rounded-lg bg-slate-800/30 border border-slate-700 parallax-layer" data-speed="0.6">
+                            <div class="text-3xl sm:text-4xl font-bold text-green-400 digital-font leading-normal pt-1" id="skillCount">0</div>
+                            <div class="text-xs sm:text-sm text-slate-400">Skills</div>
                         </div>
                     </div>
                 </div>
@@ -303,7 +375,7 @@
                         </div>
                         
                         <!-- Single Static Dashed Ring with Orbiting Icons -->
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-cyan-400/40 pointer-events-none z-20 w-[380px] h-[380px] sm:w-[440px] h-[440px] lg:w-[500px] h-[500px]">
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-cyan-400/40 pointer-events-none z-20 w-[380px] h-[380px] sm:w-[440px] sm:h-[440px] lg:w-[500px] lg:h-[500px]">
                             <!-- Rotating Container for Icons (Static dashed ring behind it) -->
                             <div class="absolute inset-0 orbit-container-cw pointer-events-none">
                             <!-- Java (0 deg) -->
@@ -619,22 +691,25 @@
                 <h2 class="text-4xl font-bold mb-16 text-center section-title reveal"><span class="gradient-text digital-font">Experience & Education</span></h2>
                 <div class="max-w-4xl mx-auto reveal">
                     <div class="relative">
-                        <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 to-transparent transform md:-translate-x-1/2"></div>
+                        <!-- Timeline track -->
+                        <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-800 transform md:-translate-x-1/2"></div>
+                        <!-- Timeline progress draw -->
+                        <div id="timeline-progress" class="absolute left-0 md:left-1/2 top-0 w-0.5 bg-gradient-to-b from-cyan-400 via-purple-500 to-green-500 transform md:-translate-x-1/2 origin-top" style="height: 0%;"></div>
                         <div class="space-y-12">
                             <!-- Keyanna Technology -->
                             <div class="relative flex flex-col md:flex-row items-center">
                                 <div class="w-full ml-10 md:ml-0 md:w-1/2 cert-wrap-left flex items-center justify-center md:justify-end order-2 md:order-1">
-                                    <div class="cert-card w-full max-w-xs">
+                                    <div class="cert-card w-full max-w-xs cursor-pointer" onclick="openLightbox('certificate-images/internship-letter-keyanna.png', 'Keyanna Technology Certificate', 'certificate-images/internship-letter-keyanna.pdf', 'View Original PDF')">
                                         <div class="cert-card-header">
                                             <div class="cert-dot"></div>
                                             <span>Internship Certificate</span>
                                         </div>
                                         <div class="cert-iframe-wrap">
-                                            <img src="certificate images/Internship letter - MDSadique Amin.png" alt="Keyanna Technology Certificate" class="w-full h-full object-cover object-top">
+                                            <img src="certificate-images/internship-letter-keyanna.webp" alt="Keyanna Technology Certificate" class="w-full h-full object-cover object-top" loading="lazy">
                                         </div>
                                         <div class="cert-footer">
                                             <p>Keyanna Technology Pvt Ltd</p>
-                                            <a href="certificate images/Internship letter - MDSadique Amin.png" target="_blank" class="cert-btn"><i class='bx bx-link-external'></i> View</a>
+                                            <button class="cert-btn" aria-label="View Keyanna Certificate"><i class='bx bx-zoom-in'></i> View</button>
                                         </div>
                                     </div>
                                 </div>
@@ -670,17 +745,17 @@
                                 </div>
                                 <div class="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-cyan-400 border-4 border-slate-900 transform -translate-x-1/2 z-10 top-6 md:top-auto"></div>
                                 <div class="w-full ml-10 md:ml-0 md:w-1/2 cert-wrap-right flex items-center justify-center md:justify-start order-2">
-                                    <div class="cert-card w-full max-w-xs">
+                                    <div class="cert-card w-full max-w-xs cursor-pointer" onclick="openLightbox('certificate-images/offer-letter-grownited.png', 'Grownited Offer Letter', 'certificate-images/offer-letter-grownited.pdf', 'View Original PDF')">
                                         <div class="cert-card-header">
                                             <div class="cert-dot"></div>
                                             <span>Offer Letter</span>
                                         </div>
                                         <div class="cert-iframe-wrap">
-                                            <img src="certificate images/Md Sadique Amin offer latter.png" alt="Grownited Offer Letter" class="w-full h-full object-cover object-top">
+                                            <img src="certificate-images/offer-letter-grownited.webp" alt="Grownited Offer Letter" class="w-full h-full object-cover object-top" loading="lazy">
                                         </div>
                                         <div class="cert-footer">
                                             <p>Grownited Private Limited</p>
-                                            <a href="certificate images/Md Sadique Amin offer latter.png" target="_blank" class="cert-btn"><i class='bx bx-link-external'></i> View</a>
+                                            <button class="cert-btn" aria-label="View Grownited Letter"><i class='bx bx-zoom-in'></i> View</button>
                                         </div>
                                     </div>
                                 </div>
@@ -688,17 +763,17 @@
                             <!-- CSRBOX -->
                             <div class="relative flex flex-col md:flex-row items-center">
                                 <div class="w-full ml-10 md:ml-0 md:w-1/2 cert-wrap-left flex items-center justify-center md:justify-end order-2 md:order-1">
-                                    <div class="cert-card w-full max-w-xs">
+                                    <div class="cert-card w-full max-w-xs cursor-pointer" onclick="openLightbox('certificate-images/csrbox-ai-internship-certificate.png', 'CSRBOX Completion Certificate', 'certificate-images/csrbox-ai-internship-certificate.pdf', 'View Original PDF')">
                                         <div class="cert-card-header">
                                             <div class="cert-dot"></div>
                                             <span>Completion Certificate</span>
                                         </div>
                                         <div class="cert-iframe-wrap">
-                                            <img src="certificate images/Md Sadique Amin.png" alt="CSRBOX Certificate" class="w-full h-full object-cover object-top">
+                                            <img src="certificate-images/csrbox-ai-internship-certificate.webp" alt="CSRBOX Certificate" class="w-full h-full object-cover object-top" loading="lazy">
                                         </div>
                                         <div class="cert-footer">
                                             <p>CSRBOX Foundation &mdash; AI Internship</p>
-                                            <a href="certificate images/Md Sadique Amin.png" target="_blank" class="cert-btn"><i class='bx bx-link-external'></i> View</a>
+                                            <button class="cert-btn" aria-label="View CSRBOX Certificate"><i class='bx bx-zoom-in'></i> View</button>
                                         </div>
                                     </div>
                                 </div>
@@ -735,17 +810,17 @@
                                 </div>
                                 <div class="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-cyan-400 border-4 border-slate-900 transform -translate-x-1/2 z-10 top-6 md:top-auto"></div>
                                 <div class="w-full ml-10 md:ml-0 md:w-1/2 cert-wrap-right flex items-center justify-center md:justify-start order-2">
-                                    <div class="cert-card w-full max-w-xs">
+                                    <div class="cert-card w-full max-w-xs cursor-pointer" onclick="openLightbox('certificate-images/internship-certificate-technofly.png', 'TechnoFly Internship Certificate', 'certificate-images/internship-certificate-technofly.pdf', 'View Original PDF')">
                                         <div class="cert-card-header">
                                             <div class="cert-dot"></div>
                                             <span>Internship Certificate</span>
                                         </div>
                                         <div class="cert-iframe-wrap">
-                                            <img src="certificate images/internship certificate.png" alt="TechnoFly Certificate" class="w-full h-full object-cover object-top">
+                                            <img src="certificate-images/internship-certificate-technofly.webp" alt="TechnoFly Certificate" class="w-full h-full object-cover object-top" loading="lazy">
                                         </div>
                                         <div class="cert-footer">
                                             <p>TechnoFly Solutions, Bengaluru</p>
-                                            <a href="certificate images/internship certificate.png" target="_blank" class="cert-btn"><i class='bx bx-link-external'></i> View</a>
+                                            <button class="cert-btn" aria-label="View TechnoFly Certificate"><i class='bx bx-zoom-in'></i> View</button>
                                         </div>
                                     </div>
                                 </div>
@@ -753,17 +828,17 @@
                             <!-- BSNL -->
                             <div class="relative flex flex-col md:flex-row items-center">
                                 <div class="w-full ml-10 md:ml-0 md:w-1/2 cert-wrap-left flex items-center justify-center md:justify-end order-2 md:order-1">
-                                    <div class="cert-card w-full max-w-xs">
+                                    <div class="cert-card w-full max-w-xs cursor-pointer" onclick="openLightbox('certificate-images/bsnl-training-certificate.png', 'BSNL Training Certificate', 'certificate-images/bsnl-training-certificate.pdf', 'View Original PDF')">
                                         <div class="cert-card-header">
                                             <div class="cert-dot"></div>
                                             <span>Training Certificate</span>
                                         </div>
                                         <div class="cert-iframe-wrap">
-                                            <img src="certificate images/SADIQUE AMIN.pdf Certificate  new intanship.png" alt="BSNL Training Certificate" class="w-full h-full object-cover object-top">
+                                            <img src="certificate-images/bsnl-training-certificate.webp" alt="BSNL Training Certificate" class="w-full h-full object-cover object-top" loading="lazy">
                                         </div>
                                         <div class="cert-footer">
                                             <p>BSNL, Hyderabad</p>
-                                            <a href="certificate images/SADIQUE AMIN.pdf Certificate  new intanship.png" target="_blank" class="cert-btn"><i class='bx bx-link-external'></i> View</a>
+                                            <button class="cert-btn" aria-label="View BSNL Certificate"><i class='bx bx-zoom-in'></i> View</button>
                                         </div>
                                     </div>
                                 </div>
@@ -831,14 +906,14 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                     <!-- Recipe Finder Pro -->
-                    <div class="project-card project-item web reveal" data-delay="0.1">
-                        <div class="project-card__image-wrap">
-                            <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=800&q=80" alt="Recipe Finder Pro" loading="lazy" class="project-card__image">
+                    <div class="project-card project-item web col-span-1 md:col-span-2 flex flex-col lg:flex-row reveal" data-delay="0.1">
+                        <div class="project-card__image-wrap lg:w-3/5">
+                            <img src="assets/images/recipe_finder_pro.webp" alt="Recipe Finder Pro" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/recipe_finder_pro.webp', 'Recipe Finder Pro', 'https://recipe-finder-pro.vercel.app', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/recipe-finder-pro-', '<i class=\'bx bxl-github\'></i> View Repository')">
                         </div>
-                        <div class="project-card__body">
-                            <div class="space-y-3">
+                        <div class="project-card__body lg:w-2/5 flex flex-col justify-between p-6 sm:p-8">
+                            <div class="space-y-4">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Recipe Finder Pro</h3>
+                                    <h3 class="text-2xl font-bold text-cyan-400">Recipe Finder Pro</h3>
                                     <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">React / Web App</span>
                                 </div>
                                 <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Search &amp; discover thousands of delicious recipes with instant ingredient filtering, detailed nutritional information, and step-by-step instructions.</p>
@@ -847,354 +922,383 @@
                                 </div>
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
-                                    <ul class="space-y-1">
+                                    <ul class="space-y-1.5">
                                         <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Instant ingredient filtering &amp; search engine</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Nutritional facts and calorie breakdown</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Save favorite recipes with local storage</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="project-card__footer flex gap-3 flex-wrap">
-                                <a href="https://recipe-finder-pro.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
+                            <div class="project-card__footer flex gap-3 flex-wrap mt-6 pt-4 border-t border-slate-800">
+                                <a href="https://recipe-finder-pro.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721/recipe-finder-pro-" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Digital Clock -->
+                    <div class="project-card project-item web col-span-1 md:col-span-2 flex flex-col lg:flex-row reveal" data-delay="0.2">
+                        <div class="project-card__image-wrap lg:w-3/5">
+                            <img src="assets/images/digital_clock.webp" alt="Interactive Digital Clock" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/digital_clock.webp', 'Interactive Digital Clock', 'https://interactive-digital-clock.vercel.app', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/Interactive-Digital-Clock', '<i class=\'bx bxl-github\'></i> View Repository')">
+                        </div>
+                        <div class="project-card__body lg:w-2/5 flex flex-col justify-between p-6 sm:p-8">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
+                                    <h3 class="text-2xl font-bold text-cyan-400">Interactive Digital Clock</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">JavaScript / Utility</span>
+                                </div>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">A futuristic clock application featuring local time tracking, visual alarm configurations, and modern visual theme setups.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">HTML5</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">CSS3</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vanilla JS</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vercel</span>
+                                </div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1.5">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>24-hour digital precision counter</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive alarm trigger mechanism</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Color theme toggler overlay</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="project-card__footer flex gap-3 flex-wrap mt-6 pt-4 border-t border-slate-800">
+                                <a href="https://interactive-digital-clock.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721/Interactive-Digital-Clock" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MSA Cricket Informer -->
+                    <div class="project-card project-item web col-span-1 md:col-span-2 flex flex-col lg:flex-row reveal" data-delay="0.3">
+                        <div class="project-card__image-wrap lg:w-3/5">
+                            <img src="assets/images/cricket_informer.webp" alt="MSA Cricket Informer" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/cricket_informer.webp', 'MSA Cricket Informer', 'https://whimsical-duckanoo-1363ca.netlify.app/', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/MSA-Sport-Informer', '<i class=\'bx bxl-github\'></i> View Repository')">
+                        </div>
+                        <div class="project-card__body lg:w-2/5 flex flex-col justify-between p-6 sm:p-8">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
+                                    <h3 class="text-2xl font-bold text-cyan-400">MSA Cricket Informer</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">JavaScript / Live API</span>
+                                </div>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">A live sport dashboard connecting with public cricket APIs to display match stats, scores, and player details.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vanilla JS</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Tailwind CSS</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Cricket Live API</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Netlify</span>
+                                </div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1.5">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Real-time score synchronizations</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Match schedule and roster display</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive player search interface</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="project-card__footer flex gap-3 flex-wrap mt-6 pt-4 border-t border-slate-800">
+                                <a href="https://whimsical-duckanoo-1363ca.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721/MSA-Sport-Informer" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shabnam Enterprises -->
+                    <div class="project-card project-item web col-span-1 md:col-span-2 flex flex-col lg:flex-row reveal" data-delay="0.1">
+                        <div class="project-card__image-wrap lg:w-3/5">
+                            <img src="assets/images/shabnam_enterprises.webp" alt="Shabnam Enterprises" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/shabnam_enterprises.webp', 'Shabnam Enterprises', 'https://shabnam-enterprises-seven.vercel.app/', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/Shabnam-Enterprises', '<i class=\'bx bxl-github\'></i> View Repository')">
+                        </div>
+                        <div class="project-card__body lg:w-2/5 flex flex-col justify-between p-6 sm:p-8">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
+                                    <h3 class="text-2xl font-bold text-cyan-400">Shabnam Enterprises</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">React / E-Commerce</span>
+                                </div>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">A clean service catalogue and portal custom designed for industrial trade business requirements.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">React.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Bootstrap</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Node.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vercel</span>
+                                </div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1.5">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive product filter and categories list</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Detailed inquiry mailer form setup</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Responsive modern grid display structure</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="project-card__footer flex gap-3 flex-wrap mt-6 pt-4 border-t border-slate-800">
+                                <a href="https://shabnam-enterprises-seven.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721/Shabnam-Enterprises" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CodeSnippet Hub & Sandbox -->
+                    <div class="project-card project-item web col-span-1 md:col-span-2 flex flex-col lg:flex-row reveal" data-delay="0.2">
+                        <div class="project-card__image-wrap lg:w-3/5">
+                            <img src="assets/images/codesnippet_hub.webp" alt="CodeSnippet Hub & Sandbox" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/codesnippet_hub.webp', 'CodeSnippet Hub & Sandbox', 'https://code-snippet-hub.vercel.app', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721', '<i class=\'bx bxl-github\'></i> Private Repository')">
+                        </div>
+                        <div class="project-card__body lg:w-2/5 flex flex-col justify-between p-6 sm:p-8">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
+                                    <h3 class="text-2xl font-bold text-cyan-400">CodeSnippet Hub</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">JavaScript / Code Sandbox</span>
+                                </div>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">A live browser editor hub enabling developers to write, save, compile and execute snippets of code in real-time.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">HTML5</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">CSS3</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Monaco Editor</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vercel</span>
+                                </div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1.5">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Monaco-powered rich IDE editor tab</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Real-time code compile and console log output</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Local snippet saving and copy manager</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="project-card__footer flex gap-3 flex-wrap mt-6 pt-4 border-t border-slate-800">
+                                <a href="https://code-snippet-hub.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><span class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-slate-800 bg-slate-900/60 text-slate-500 text-sm cursor-not-allowed" title="Code is in a private repository"><i class="bx bxl-github"></i> Private</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Futuristic 3D Portfolio -->
+                    <div class="project-card project-item web col-span-1 md:col-span-2 flex flex-col lg:flex-row reveal" data-delay="0.3">
+                        <div class="project-card__image-wrap lg:w-3/5">
+                            <img src="assets/images/portfolio_site.webp" alt="Futuristic 3D Portfolio" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/portfolio_site.webp', 'Futuristic 3D Portfolio', 'https://myportfoliositesadique.netlify.app/', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/Portfolio', '<i class=\'bx bxl-github\'></i> View Repository')">
+                        </div>
+                        <div class="project-card__body lg:w-2/5 flex flex-col justify-between p-6 sm:p-8">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
+                                    <h3 class="text-2xl font-bold text-cyan-400">Futuristic 3D Portfolio</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">HTML5 / Creative Dev</span>
+                                </div>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">This exact portfolio page! Built using highly responsive glassmorphism interfaces, smooth parallax overlays, and real-time Three.js particle systems.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Three.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">GSAP</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Lenis Scroll</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Netlify</span>
+                                </div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1.5">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive WebGL 3D background grid</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Lenis smooth scrolling with ScrollTrigger scrub</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Custom responsive Bento Grid layouts</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="project-card__footer flex gap-3 flex-wrap mt-6 pt-4 border-t border-slate-800">
+                                <a href="https://myportfoliositesadique.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721/Portfolio" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Amin Web Sandbox -->
+                    <div class="project-card project-item web col-span-1 md:col-span-2 flex flex-col lg:flex-row reveal" data-delay="0.1">
+                        <div class="project-card__image-wrap lg:w-3/5">
+                            <img src="assets/images/amin_sandbox.webp" alt="Amin Web Sandbox" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/amin_sandbox.webp', 'Amin Web Sandbox', 'https://temp-sanab.vercel.app/', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/amin', '<i class=\'bx bxl-github\'></i> View Repository')">
+                        </div>
+                        <div class="project-card__body lg:w-2/5 flex flex-col justify-between p-6 sm:p-8">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
+                                    <h3 class="text-2xl font-bold text-cyan-400">Amin Web Sandbox</h3>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">TypeScript / Sandbox</span>
+                                </div>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">A modern, modular TypeScript sandbox and prototype workspace allowing rapid UI building, component testing, and modular API mock integration.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">TypeScript</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vite</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Tailwind CSS</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vercel</span>
+                                </div>
+                                <div class="space-y-2 pt-2">
+                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
+                                    <ul class="space-y-1.5">
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Vite-powered ultra-fast hot reloading</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Modular TypeScript component layouts</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Live workspace pipeline deployments</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="project-card__footer flex gap-3 flex-wrap mt-6 pt-4 border-t border-slate-800">
+                                <a href="https://temp-sanab.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721/amin" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Ethical Hacking Portal -->
-                    <div class="project-card project-item web reveal" data-delay="0.2">
+                    <div class="project-card project-item web col-span-1 reveal" data-delay="0.2">
                         <div class="project-card__image-wrap">
-                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80" alt="Ethical Hacking Portal" loading="lazy" class="project-card__image">
+                            <img src="assets/images/ethical_hacking_portal.webp" alt="Ethical Hacking Portal" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/ethical_hacking_portal.webp', 'Ethical Hacking Portal', 'https://ethical-hacking-portal.onrender.com', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/ethical-hacking-portal', '<i class=\'bx bxl-github\'></i> View Repository')">
                         </div>
                         <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Ethical Hacking Portal</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Python / Flask</span>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">React / CyberSec</span>
                                 </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Cybersecurity platform for ethical hacking, penetration testing tutorials, vulnerability assessments, and security labs.</p>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Interactive web portal for ethical hacking tutorials, cybersecurity tools simulation, and security benchmark checks.</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Python</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Flask</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Cybersecurity</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Render</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">React.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Express</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Render</span>
                                 </div>
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive vulnerability assessment modules</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Penetration testing cheat sheets &amp; labs</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Secure authentication &amp; user tracking</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Simulated vulnerability checks &amp; sandboxes</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive cryptography tool sets</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="project-card__footer flex gap-3 flex-wrap">
-                                <a href="https://ethical-hacking-portalethical-hacking.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
+                            <div class="project-card__footer flex gap-3 flex-wrap mt-4 pt-3 border-t border-slate-800">
+                                <a href="https://ethical-hacking-portal.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721/ethical-hacking-portal" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Entitykart E-commerce -->
-                    <div class="project-card project-item web reveal" data-delay="0.3">
+                    <div class="project-card project-item web col-span-1 reveal" data-delay="0.3">
                         <div class="project-card__image-wrap">
-                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="Entitykart E-commerce" loading="lazy" class="project-card__image">
+                            <img src="assets/images/entitykart.webp" alt="Entitykart E-commerce" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/entitykart.webp', 'Entitykart E-commerce', 'https://entitykart.onrender.com', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/Entitykart', '<i class=\'bx bxl-github\'></i> View Repository')">
                         </div>
                         <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Entitykart E-commerce</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Spring Boot</span>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Spring Boot / Java</span>
                                 </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Full-featured online shopping platform with Spring Boot backend, React frontend, JWT authentication, and complete order management.</p>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Enterprise e-commerce store built with Spring MVC, custom secure user flows, and dynamic payment checks.</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Spring Boot</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">React</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">MySQL</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">JWT Auth</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Java</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Spring Boot</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">MySQL</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Thymeleaf</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Render</span>
                                 </div>
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Complete cart, checkout &amp; order management system</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Admin dashboard with sales analytics &amp; reports</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>JWT-secured REST API with role-based auth</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Spring Security based customer authentication</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Robust shopping cart &amp; invoice dispatch</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="project-card__footer flex gap-3 flex-wrap">
+                            <div class="project-card__footer flex gap-3 flex-wrap mt-4 pt-3 border-t border-slate-800">
                                 <a href="https://entitykart.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721/Entitykart" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Entitykart Microservices -->
-                    <div class="project-card project-item web reveal" data-delay="0.4">
+                    <div class="project-card project-item web col-span-1 reveal" data-delay="0.1">
                         <div class="project-card__image-wrap">
-                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="Entitykart Microservices" loading="lazy" class="project-card__image">
+                            <img src="assets/images/entitykart_microservices.webp" alt="Entitykart Microservices" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/entitykart_microservices.webp', 'Entitykart Microservices', 'https://entitykart-enterprise-ecommerce.onrender.com', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/entitykart-enterprise-ecommerce-microservices', '<i class=\'bx bxl-github\'></i> View Repository')">
                         </div>
                         <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Entitykart Microservices</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Microservices</span>
+                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Spring Cloud / Kafka</span>
                                 </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Enterprise-grade e-commerce microservices platform on highly scalable distributed architecture with Spring Cloud, Docker &amp; Eureka.</p>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">A decoupled distributed backend architecture (Eureka, API Gateway, Kafka message broker, Config server).</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Spring Cloud</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Spring Boot</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Docker</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Eureka</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Spring Cloud</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Eureka</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Kafka</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Redis</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Render</span>
                                 </div>
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>8 independent microservices with API Gateway</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Centralized Eureka Service Discovery &amp; Config</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Resilience4j Circuit Breaker &amp; Distributed Tracing</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Kafka-based event streams &amp; email dispatches</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Eureka microservices registry &amp; dynamic routing</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="project-card__footer flex gap-3 flex-wrap">
-                                <a href="https://entitykart-enterprise-ecommerce.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721/Entitykart-Microservices" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
+                            <div class="project-card__footer flex gap-3 flex-wrap mt-4 pt-3 border-t border-slate-800">
+                                <a href="https://entitykart-enterprise-ecommerce.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721/entitykart-enterprise-ecommerce-microservices" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Interactive Digital Clock -->
-                    <div class="project-card project-item web reveal" data-delay="0.1">
+                    <!-- AgroTech Platform -->
+                    <div class="project-card project-item ds col-span-1 reveal" data-delay="0.2">
                         <div class="project-card__image-wrap">
-                            <img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=800&q=80" alt="Interactive Digital Clock" loading="lazy" class="project-card__image">
+                            <img src="assets/images/agrotech.webp" alt="AgroTech Platform" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/agrotech.webp', 'AgroTech Platform', 'https://agrotech-wqj3.onrender.com', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/Agrotech', '<i class=\'bx bxl-github\'></i> View Repository')">
                         </div>
                         <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Interactive Digital Clock</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">JavaScript</span>
+                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">AgroTech Platform</h3>
+                                    <span class="px-3 py-1 rounded-full bg-green-900/40 text-green-400 text-xs font-semibold border border-green-700/50">Django / Agriculture</span>
                                 </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Futuristic neon digital clock with alarm manager, stopwatch, countdown timer, and dynamic particle background.</p>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">A modern digital agricultural assistant providing crop yield tracking, soil profile charts, and local weather alerts.</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">JavaScript</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">HTML5</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">CSS3</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vercel</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Python</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Django</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">PostgreSQL</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Render</span>
                                 </div>
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Multiple neon glow color themes &amp; sound alerts</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>High-precision stopwatch with lap recording</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Responsive digital UI with smooth animations</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Dynamic soil quality and weather chart metrics</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Farming resource allocation planner logs</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="project-card__footer flex gap-3 flex-wrap">
-                                <a href="https://interactive-digital-clock.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- MSA Cricket Informer -->
-                    <div class="project-card project-item web reveal" data-delay="0.2">
-                        <div class="project-card__image-wrap">
-                            <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&q=80" alt="MSA Cricket Informer" loading="lazy" class="project-card__image">
-                        </div>
-                        <div class="project-card__body">
-                            <div class="space-y-3">
-                                <div class="flex items-center justify-between flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">MSA Cricket Informer</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">React.js</span>
-                                </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Real-time cricket score tracking web app providing live match updates, player statistics, and tournament schedules.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">React.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Cricket API</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Tailwind CSS</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Netlify</span>
-                                </div>
-                                <div class="space-y-2 pt-2">
-                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
-                                    <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Live score updates with ball-by-ball commentary</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Player stats &amp; team rankings breakdown</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Upcoming matches &amp; tournament schedule calendar</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="project-card__footer flex gap-3 flex-wrap">
-                                <a href="https://whimsical-duckanoo-1363ca.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Shabnam Enterprises -->
-                    <div class="project-card project-item web reveal" data-delay="0.3">
-                        <div class="project-card__image-wrap">
-                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Shabnam Enterprises" loading="lazy" class="project-card__image">
-                        </div>
-                        <div class="project-card__body">
-                            <div class="space-y-3">
-                                <div class="flex items-center justify-between flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Shabnam Enterprises</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Corporate / React</span>
-                                </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Modern corporate business landing page featuring interactive service showcases, client testimonials, and online inquiry form.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">React.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Tailwind CSS</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Framer Motion</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vercel</span>
-                                </div>
-                                <div class="space-y-2 pt-2">
-                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
-                                    <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Sleek glassmorphism UI with smooth animations</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive service portfolio &amp; client showcase</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Functional contact &amp; business inquiry integration</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="project-card__footer flex gap-3 flex-wrap">
-                                <a href="https://shabnam-enterprises-seven.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CodeSnippet Hub -->
-                    <div class="project-card project-item web reveal" data-delay="0.4">
-                        <div class="project-card__image-wrap">
-                            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80" alt="CodeSnippet Hub and Sandbox" loading="lazy" class="project-card__image">
-                        </div>
-                        <div class="project-card__body">
-                            <div class="space-y-3">
-                                <div class="flex items-center justify-between flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">CodeSnippet Hub &amp; Sandbox</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">React / Developer</span>
-                                </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Developer code snippet repository and live browser sandbox for testing JavaScript, HTML &amp; CSS snippets in real time.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">React.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Monaco Editor</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Tailwind CSS</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Vercel</span>
-                                </div>
-                                <div class="space-y-2 pt-2">
-                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
-                                    <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Monaco code editor with syntax highlighting</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Live real-time code output preview sandbox</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Save &amp; copy code snippets with one-click export</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="project-card__footer flex gap-3 flex-wrap">
-                                <a href="https://code-snippet-hub.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Futuristic 3D Portfolio -->
-                    <div class="project-card project-item web reveal" data-delay="0.5">
-                        <div class="project-card__image-wrap">
-                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" alt="Futuristic 3D Portfolio" loading="lazy" class="project-card__image">
-                        </div>
-                        <div class="project-card__body">
-                            <div class="space-y-3">
-                                <div class="flex items-center justify-between flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Futuristic 3D Portfolio</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Three.js / WebGL</span>
-                                </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Interactive 3D developer portfolio built with Three.js, GSAP animations, particle effects, and audio-reactive elements.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Three.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">GSAP</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">WebGL</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Netlify</span>
-                                </div>
-                                <div class="space-y-2 pt-2">
-                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
-                                    <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive 3D particle background canvas</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Smooth scroll reveal animations &amp; sound effects</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Responsive glassmorphism UI with tech skill orbits</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="project-card__footer flex gap-3 flex-wrap">
-                                <a href="https://myportfoliositesadique.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721/Portfolio" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Agrotech Platform -->
-                    <div class="project-card project-item web reveal" data-delay="0.6">
-                        <div class="project-card__image-wrap">
-                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" alt="Agrotech Platform" loading="lazy" class="project-card__image">
-                        </div>
-                        <div class="project-card__body">
-                            <div class="space-y-3">
-                                <div class="flex items-center justify-between flex-wrap gap-2">
-                                    <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Agrotech Platform</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Python</span>
-                                </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Agricultural management system with crop monitoring, ML price prediction, and inventory management using Python &amp; Django.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Python</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Django</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Machine Learning</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">SQLite</span>
-                                </div>
-                                <div class="space-y-2 pt-2">
-                                    <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
-                                    <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Crop recommendation algorithm based on soil conditions</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>ML market price trend forecasting</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Farmer inventory &amp; order tracking system</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="project-card__footer flex gap-3 flex-wrap">
-                                <a href="https://github.com/Sadique721/Agrotech-Platform" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
+                            <div class="project-card__footer flex gap-3 flex-wrap mt-4 pt-3 border-t border-slate-800">
+                                <a href="https://agrotech-wqj3.onrender.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm"><i class="bx bx-navigation"></i> Live</a><a href="https://github.com/Sadique721/Agrotech" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Data Visualization Studio -->
-                    <div class="project-card project-item ds reveal" data-delay="0.1">
+                    <div class="project-card project-item ds col-span-1 reveal" data-delay="0.3">
                         <div class="project-card__image-wrap">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Data Visualization Studio" loading="lazy" class="project-card__image">
+                            <img src="assets/images/data_visualization.webp" alt="Data Visualization Studio" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/data_visualization.webp', 'Data Visualization Studio', '', '', 'https://github.com/Sadique721', '<i class=\'bx bxl-github\'></i> View Profile')">
                         </div>
                         <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Data Visualization Studio</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Data Science</span>
+                                    <span class="px-3 py-1 rounded-full bg-green-900/40 text-green-400 text-xs font-semibold border border-green-700/50">D3.js / Analytics</span>
                                 </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Advanced interactive data visualization platform supporting 30+ chart types with real-time streaming data and collaborative sharing.</p>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Interactive charts dashboard utilizing D3.js and React to process and render large CSV and JSON datasets.</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">D3.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Python</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Seaborn</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Matplotlib</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">D3.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">React.js</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Pandas</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Python</span>
                                 </div>
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>30+ chart types with real-time streaming data updates</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>One-click export to PDF, SVG, and interactive HTML</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Collaborative dashboard sharing with annotation tools</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Custom SVG line, bar, and scatter charts</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Large data stream CSV parser pipeline</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="project-card__footer flex gap-3 flex-wrap">
+                            <div class="project-card__footer flex gap-3 flex-wrap mt-4 pt-3 border-t border-slate-800">
                                 <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- AI Resume Analyzer -->
-                    <div class="project-card project-item ai reveal" data-delay="0.2">
+                    <!-- AI Resume Analyzer & ATS -->
+                    <div class="project-card project-item ai col-span-1 reveal" data-delay="0.1">
                         <div class="project-card__image-wrap">
-                            <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80" alt="AI Resume Analyzer and ATS" loading="lazy" class="project-card__image">
+                            <img src="assets/images/ai_resume_analyzer.webp" alt="AI Resume Analyzer & ATS" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/ai_resume_analyzer.webp', 'AI Resume Analyzer & ATS', '', '', 'https://github.com/Sadique721', '<i class=\'bx bxl-github\'></i> View Profile')">
                         </div>
                         <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">AI Resume Analyzer &amp; ATS</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">Python/NLP</span>
+                                    <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-400 text-xs font-semibold border border-purple-700/50">Python / NLP</span>
                                 </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">AI-powered resume analyzer that scores resumes for ATS compatibility, suggests keyword improvements, and generates tailored cover letters.</p>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">An ATS scanner using NLTK NLP to match user resumes against job descriptions, outputting compatibility ratings.</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Python</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">NLP</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Spacy</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Streamlit</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Python</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">PyTorch</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">NLTK</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Streamlit</span>
                                 </div>
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>ATS compatibility scoring with keyword gap analysis</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Job description matching with skill recommendation engine</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>AI-generated cover letter using fine-tuned GPT model</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Resume keyword and phrase parsing algorithm</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>ATS match score &amp; keyword suggestion logs</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="project-card__footer flex gap-3 flex-wrap">
+                            <div class="project-card__footer flex gap-3 flex-wrap mt-4 pt-3 border-t border-slate-800">
                                 <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Smart Healthcare Predictor -->
-                    <div class="project-card project-item ai reveal" data-delay="0.3">
+                    <div class="project-card project-item ai col-span-1 reveal" data-delay="0.2">
                         <div class="project-card__image-wrap">
-                            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80" alt="Smart Healthcare Predictor" loading="lazy" class="project-card__image">
+                            <img src="assets/images/smart_healthcare.webp" alt="Smart Healthcare Predictor" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/smart_healthcare.webp', 'Smart Healthcare Predictor', '', '', 'https://github.com/Sadique721', '<i class=\'bx bxl-github\'></i> View Profile')">
                         </div>
                         <div class="project-card__body">
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between flex-wrap gap-2">
                                     <h3 class="text-xl sm:text-2xl font-bold text-cyan-400">Smart Healthcare Predictor</h3>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-400 text-xs font-semibold border border-cyan-700/50">ML/Python</span>
+                                    <span class="px-3 py-1 rounded-full bg-purple-900/40 text-purple-400 text-xs font-semibold border border-purple-700/50">ML / Scikit-learn</span>
                                 </div>
-                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Multi-disease prediction system using ML to detect diabetes, heart disease, and pneumonia from patient data and medical images.</p>
+                                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">Medical analysis predictor using Scikit-learn classification models to analyze symptoms and predict potential risks.</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Python</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Scikit-learn</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">XGBoost</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Flask</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Scikit-learn</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Flask</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Pandas</span><span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-300 text-xs font-medium border border-slate-700/60 hover:scale-105 transition-transform">Python</span>
                                 </div>
                                 <div class="space-y-2 pt-2">
                                     <h4 class="font-semibold text-slate-200 text-sm">Key Features:</h4>
                                     <ul class="space-y-1">
-                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Multi-disease prediction: diabetes, heart, pneumonia</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Medical image analysis using CNN for X-ray classification</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Interactive Streamlit dashboard with patient risk reports</span></li>
+                                        <li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Scikit-learn multi-class prediction system</span></li><li class="text-sm text-slate-300 flex items-start gap-2"><i class="bx bx-check-circle text-cyan-400 mt-0.5"></i><span>Secure client health log data inputs</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="project-card__footer flex gap-3 flex-wrap">
+                            <div class="project-card__footer flex gap-3 flex-wrap mt-4 pt-3 border-t border-slate-800">
                                 <a href="https://github.com/Sadique721" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-200 hover:text-white hover:bg-slate-800 transition-all text-sm"><i class="bx bxl-github"></i> Code</a>
                             </div>
                         </div>
                     </div>
-
                 </div>
+            </div>
+        </section>
             </div>
         </section>
 
@@ -1253,6 +1357,22 @@
                 </div>
             </div>
         </section>
+        <!-- SCROLL TO TOP BUTTON -->
+        <button id="scroll-to-top" class="fixed bottom-6 right-6 w-11 h-11 rounded-full bg-slate-900/90 border border-cyan-400/40 text-cyan-400 hover:text-white hover:bg-cyan-500 flex items-center justify-center shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 z-40 opacity-0 pointer-events-none" aria-label="Scroll to top">
+            <i class='bx bx-up-arrow-alt text-2xl'></i>
+        </button>
+        
+        <!-- UNIFIED MEDIA LIGHTBOX MODAL -->
+        <div id="media-lightbox" class="fixed inset-0 z-[10000] hidden bg-slate-950/95 backdrop-blur-md flex-col items-center justify-center p-4" tabindex="-1" aria-modal="true" role="dialog" aria-label="Media Preview Lightbox">
+            <button id="close-media-lightbox" class="absolute top-6 right-6 text-4xl text-cyan-400 hover:text-white transition focus:outline-none" aria-label="Close Preview"><i class='bx bx-x'></i></button>
+            <div class="max-w-4xl max-h-[75vh] overflow-hidden rounded-xl border border-cyan-500/30 shadow-2xl relative bg-slate-900 flex items-center justify-center">
+                <img id="media-lightbox-img" src="" alt="Preview" class="max-w-full max-h-[70vh] object-contain">
+            </div>
+            <div class="mt-6 flex gap-4">
+                <a id="media-lightbox-action" href="" target="_blank" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all shadow-lg text-sm">Action</a>
+                <a id="media-lightbox-secondary" href="" target="_blank" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-700 bg-slate-800/80 text-slate-200 hover:text-white hover:bg-slate-800 transition-all shadow-lg text-sm">Secondary</a>
+            </div>
+        </div>
     </main>
 
     
@@ -1268,7 +1388,7 @@
                     <a href="#home" class="text-slate-400 hover:text-cyan-400 transition-colors duration-300">Home</a>
                     <a href="#about" class="text-slate-400 hover:text-cyan-400 transition-colors duration-300">About</a>
                     <a href="#projects" class="text-slate-400 hover:text-cyan-400 transition-colors duration-300">Projects</a>
-                    <a href="#ai-projects" class="text-slate-400 hover:text-purple-400 transition-colors duration-300">AI Projects</a>
+                    <a href="#projects" data-filter-trigger="ai" class="text-slate-400 hover:text-purple-400 transition-colors duration-300">AI Projects</a>
                     <a href="#contact" class="text-slate-400 hover:text-cyan-400 transition-colors duration-300">Contact</a>
                 </div>
             </div>
@@ -1284,29 +1404,60 @@
         const lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smooth: true,
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 1,
             smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
         });
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
         requestAnimationFrame(raf);
 
-        // ===== GSAP =====
-        gsap.registerPlugin(ScrollTrigger);
-
-        gsap.to('.scroll-progress', {
-            width: '100%', ease: 'none',
-            scrollTrigger: { trigger: 'body', start: 'top top', end: 'bottom bottom', scrub: 0.3 }
+        // Track scroll triggers
+        lenis.on('scroll', ScrollTrigger.update);
+        ScrollTrigger.scrollerProxy(document.body, {
+            scrollTop(value) {
+                return arguments.length ? lenis.scrollTo(value, { duration: 0 }) : lenis.scroll;
+            },
+            getBoundingClientRect() {
+                return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+            }
         });
+        ScrollTrigger.addEventListener('refresh', () => lenis.resize());
+        ScrollTrigger.refresh();
 
-        gsap.utils.toArray('.reveal').forEach(elem => {
-            const delay = parseFloat(elem.dataset.delay || 0);
-            gsap.fromTo(elem, { opacity: 0, y: 80 }, {
-                opacity: 1, y: 0, duration: 1, delay,
-                scrollTrigger: { trigger: elem, start: 'top 82%', toggleActions: 'play none none reverse' }
-            });
-        });
+        // ===== REDUCED MOTION DETECTION =====
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+        // ===== PRELOADER AUTOMATION =====
+        const preloader = document.getElementById('preloader');
+        function fadeOutPreloader() {
+            if (preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }
+        }
+        if (preloader) {
+            if (prefersReducedMotion) {
+                preloader.style.display = 'none';
+            } else {
+                const loaderTimeout = setTimeout(fadeOutPreloader, 800);
+                window.addEventListener('click', () => { clearTimeout(loaderTimeout); fadeOutPreloader(); }, { once: true });
+                window.addEventListener('keydown', () => { clearTimeout(loaderTimeout); fadeOutPreloader(); }, { once: true });
+            }
+        }
+
+        // ===== PARALLAX EFFECT =====
         gsap.utils.toArray('.parallax-layer').forEach(layer => {
+            if (prefersReducedMotion) return;
             const speed = parseFloat(layer.dataset.speed || 0.5);
             gsap.to(layer, {
                 y: () => -(layer.offsetHeight * speed), ease: 'none',
@@ -1314,57 +1465,109 @@
             });
         });
 
-        gsap.utils.toArray('.neon-card').forEach(card => {
+        gsap.utils.toArray('.neon-card, .project-card').forEach(card => {
             gsap.fromTo(card, { scale: 0.92, opacity: 0 }, {
                 scale: 1, opacity: 1, duration: 0.7,
                 scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none reverse' }
             });
         });
 
-        // ===== THREE.JS =====
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('three-canvas'), alpha: true, antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-        const geo = new THREE.BufferGeometry();
-        const count = 5000;
-        const pos = new Float32Array(count * 3);
-        for (let i = 0; i < count * 3; i++) pos[i] = (Math.random() - 0.5) * 100;
-        geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-        const mat = new THREE.PointsMaterial({ size: 0.05, color: 0x22d3ee, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending });
-        const mesh = new THREE.Points(geo, mat);
-        scene.add(mesh);
-        camera.position.z = 5;
-        let mx = 0, my = 0;
-        document.addEventListener('mousemove', e => { mx = (e.clientX / window.innerWidth) * 2 - 1; my = -(e.clientY / window.innerHeight) * 2 + 1; });
-        (function animThree() {
-            requestAnimationFrame(animThree);
-            mesh.rotation.y += 0.0005 + mx * 0.00005;
-            mesh.rotation.x += 0.0003 + my * 0.00005;
-            renderer.render(scene, camera);
-        })();
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
+        // ===== THREE.JS PARTICLE FIELD =====
+        if (!prefersReducedMotion) {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('three-canvas'), alpha: true, antialias: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
-        });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-        // ===== CUSTOM CURSOR =====
+            const geo = new THREE.BufferGeometry();
+            const count = 5000;
+            const pos = new Float32Array(count * 3);
+            for (let i = 0; i < count * 3; i++) pos[i] = (Math.random() - 0.5) * 100;
+            geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+            const mat = new THREE.PointsMaterial({ size: 0.05, color: 0x22d3ee, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending });
+            const mesh = new THREE.Points(geo, mat);
+            scene.add(mesh);
+            camera.position.z = 5;
+            let mx = 0, my = 0;
+            document.addEventListener('mousemove', e => { mx = (e.clientX / window.innerWidth) * 2 - 1; my = -(e.clientY / window.innerHeight) * 2 + 1; });
+            
+            let frameId;
+            function animThree() {
+                frameId = requestAnimationFrame(animThree);
+                mesh.rotation.y += 0.0005 + mx * 0.00005;
+                mesh.rotation.x += 0.0003 + my * 0.00005;
+                renderer.render(scene, camera);
+            }
+            animThree();
+            
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        } else {
+            const canvas = document.getElementById('three-canvas');
+            if (canvas) canvas.style.display = 'none';
+        }
+
+        // ===== CUSTOM CURSOR & TILT ENHANCEMENT =====
         const cur = document.querySelector('.custom-cursor');
         const dot = document.querySelector('.custom-cursor-dot');
-        document.addEventListener('mousemove', e => {
-            gsap.to(cur, { x: e.clientX, y: e.clientY, duration: 0.3, ease: 'power2.out' });
-            gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0.1 });
-        });
-        document.querySelectorAll('a, button').forEach(el => {
-            el.addEventListener('mouseenter', () => gsap.to(cur, { scale: 2, duration: 0.3 }));
-            el.addEventListener('mouseleave', () => gsap.to(cur, { scale: 1, duration: 0.3 }));
-        });
+        const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+
+        if (prefersReducedMotion || hasCoarsePointer) {
+            if (cur) cur.style.display = 'none';
+            if (dot) dot.style.display = 'none';
+        } else {
+            document.addEventListener('mousemove', e => {
+                gsap.to(cur, { x: e.clientX, y: e.clientY, duration: 0.3, ease: 'power2.out' });
+                gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0.1 });
+            });
+            document.querySelectorAll('a, button, .cert-card, .project-card, .project-card__image').forEach(el => {
+                el.addEventListener('mouseenter', () => gsap.to(cur, { scale: 1.5, borderColor: '#8b5cf6', duration: 0.3 }));
+                el.addEventListener('mouseleave', () => gsap.to(cur, { scale: 1, borderColor: '#22d3ee', duration: 0.3 }));
+            });
+        }
+
+        // Mouse-reactive spotlight custom variables
+        if (!hasCoarsePointer) {
+            document.querySelectorAll('.neon-card, .project-card, .cert-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+            
+            // 3D card tilt effect
+            if (!prefersReducedMotion) {
+                document.querySelectorAll('.project-card, .cert-card').forEach(card => {
+                    card.addEventListener('mousemove', e => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const xc = rect.width / 2;
+                        const yc = rect.height / 2;
+                        const angleX = (yc - y) / 18;
+                        const angleY = (x - xc) / 28;
+                        gsap.to(card, {
+                            rotateX: angleX, rotateY: angleY,
+                            transformPerspective: 800, ease: 'power1.out', duration: 0.3
+                        });
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        gsap.to(card, { rotateX: 0, rotateY: 0, ease: 'power2.out', duration: 0.5 });
+                    });
+                });
+            }
+        }
 
         // ===== MAGNETIC BUTTONS =====
         document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            if (prefersReducedMotion || hasCoarsePointer) return;
             btn.addEventListener('mousemove', e => {
                 const r = btn.getBoundingClientRect();
                 gsap.to(btn, { x: (e.clientX - r.left - r.width/2) * 0.3, y: (e.clientY - r.top - r.height/2) * 0.3, duration: 0.3 });
@@ -1380,7 +1583,7 @@
 
         // ===== COUNTERS =====
         ['projectCount','aiProjectCount','experienceCount','skillCount'].forEach((id, i) => {
-            const targets = [30, 16, 12, 30];
+            const targets = [14, 3, 12, 30];
             const el = document.getElementById(id);
             if (el) {
                 gsap.to({ val: 0 }, {
@@ -1391,11 +1594,36 @@
             }
         });
 
-        // ===== SKILL RINGS =====
+        // ===== SKILL RINGS COUNTERS =====
         document.querySelectorAll('.progress-ring').forEach(ring => {
             const pct = parseInt(ring.getAttribute('data-percentage'));
             const offset = 314 - (pct / 100) * 314;
-            gsap.to(ring, { strokeDashoffset: offset, duration: 2, ease: 'power2.out', scrollTrigger: { trigger: ring, start: 'top 80%', once: true } });
+            const parent = ring.closest('.skill-ring');
+            const pctLabel = parent ? parent.querySelector('.skill-percentage') : null;
+            
+            gsap.to(ring, { 
+                strokeDashoffset: offset, duration: 2, ease: 'power2.out', 
+                scrollTrigger: { trigger: ring, start: 'top 80%', once: true } 
+            });
+            
+            if (pctLabel) {
+                gsap.to({ val: 0 }, {
+                    val: pct, duration: 2, ease: 'power2.out',
+                    scrollTrigger: { trigger: ring, start: 'top 80%', once: true },
+                    onUpdate: function() {
+                        pctLabel.textContent = Math.floor(this.targets()[0].val) + '%';
+                    }
+                });
+            }
+        });
+
+        // ===== TIMELINE PROGRESS SCROLL DRAW =====
+        gsap.to('#timeline-progress', {
+            height: '100%', ease: 'none',
+            scrollTrigger: {
+                trigger: '#experience .relative',
+                start: 'top 30%', end: 'bottom 80%', scrub: true
+            }
         });
 
         // ===== PROJECT FILTER =====
@@ -1415,7 +1643,7 @@
             });
         });
 
-        // ===== MOBILE MENU =====
+        // ===== MOBILE MENU TOGGLE =====
         const toggle = document.getElementById('menu-toggle');
         const mob = document.getElementById('mobile-menu');
         const icon = toggle ? toggle.querySelector('i') : null;
@@ -1433,9 +1661,31 @@
             });
         }
 
+        const mobileCloseBtn = document.getElementById('mobile-close-btn');
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileCloseBtn && mobileMenu) {
+            mobileCloseBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                if (icon) icon.className = 'bx bx-menu text-xl';
+            });
+        }
+        document.addEventListener('click', (e) => {
+            if (mobileMenu && mobileMenu.classList.contains('open')) {
+                if (!mobileMenu.contains(e.target) && menuToggle && !menuToggle.contains(e.target)) {
+                    mobileMenu.classList.remove('open');
+                    if (icon) icon.className = 'bx bx-menu text-xl';
+                }
+            }
+        });
+
         // ===== LIVE CLOCK =====
         function tick() {
-            document.getElementById('liveClock').textContent = new Date().toLocaleTimeString('en-US', { hour12: false });
+            const clockEl = document.getElementById('liveClock');
+            if (clockEl) {
+                clockEl.textContent = new Date().toLocaleTimeString('en-US', { hour12: false });
+            }
         }
         setInterval(tick, 1000); tick();
 
@@ -1443,17 +1693,109 @@
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => {
                 e.preventDefault();
-                const t = document.querySelector(a.getAttribute('href'));
-                if (t) lenis.scrollTo(t, { offset: -80, duration: 1.5 });
+                const href = a.getAttribute('href');
+                const t = document.querySelector(href);
+                if (t) {
+                    lenis.scrollTo(t, { offset: -80, duration: 1.5 });
+                    // Handle data-filter-trigger auto-filtering
+                    const filterTrigger = a.getAttribute('data-filter-trigger');
+                    if (filterTrigger) {
+                        const filterBtn = document.querySelector(`.project-filter[data-filter="${filterTrigger}"]`);
+                        if (filterBtn) filterBtn.click();
+                    } else if (href === '#projects') {
+                        const filterBtn = document.querySelector('.project-filter[data-filter="all"]');
+                        if (filterBtn) filterBtn.click();
+                    }
+                }
             });
         });
 
         // ===== FORM =====
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const d = Object.fromEntries(new FormData(this));
-            window.open(`https://wa.me/919318302850?text=Name: ${d.name}%0AEmail: ${d.email}%0ASubject: ${d.subject}%0AMessage: ${d.message}`, '_blank');
-            this.reset();
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const d = Object.fromEntries(new FormData(this));
+                const text = `Name: ${d.name}
+Email: ${d.email}
+Subject: ${d.subject}
+Message: ${d.message}`;
+                window.open(`https://wa.me/919318302850?text=${encodeURIComponent(text)}`, '_blank');
+                this.reset();
+            });
+        }
+
+        // ===== SCROLL TO TOP SCROLL LISTENER =====
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        if (scrollToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > window.innerHeight) {
+                    scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    scrollToTopBtn.classList.add('opacity-100');
+                } else {
+                    scrollToTopBtn.classList.remove('opacity-100');
+                    scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+            scrollToTopBtn.addEventListener('click', () => {
+                lenis.scrollTo('#home', { duration: 1.5 });
+            });
+        }
+
+        // ===== UNIFIED LIGHTBOX HANDLERS =====
+        const mediaLightbox = document.getElementById('media-lightbox');
+        const mediaImg = document.getElementById('media-lightbox-img');
+        const mediaAction = document.getElementById('media-lightbox-action');
+        const mediaSecondary = document.getElementById('media-lightbox-secondary');
+        const closeLightboxBtn = document.getElementById('close-media-lightbox');
+
+        function openLightbox(imgSrc, altText, actionLink, actionText, secondaryLink, secondaryText) {
+            if (!mediaLightbox || !mediaImg) return;
+            mediaImg.src = imgSrc;
+            mediaImg.alt = altText || 'Preview';
+            
+            if (actionLink) {
+                mediaAction.href = actionLink;
+                mediaAction.innerHTML = actionText || 'View Live';
+                mediaAction.style.display = 'inline-flex';
+            } else {
+                mediaAction.style.display = 'none';
+            }
+            
+            if (secondaryLink) {
+                mediaSecondary.href = secondaryLink;
+                mediaSecondary.innerHTML = secondaryText || 'Code';
+                mediaSecondary.style.display = 'inline-flex';
+            } else {
+                mediaSecondary.style.display = 'none';
+            }
+            
+            mediaLightbox.classList.remove('hidden');
+            mediaLightbox.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            lenis.stop();
+            mediaLightbox.focus();
+        }
+
+        function closeLightbox() {
+            if (mediaLightbox) {
+                mediaLightbox.classList.remove('flex');
+                mediaLightbox.classList.add('hidden');
+                document.body.style.overflow = '';
+                lenis.start();
+            }
+        }
+
+        if (closeLightboxBtn) {
+            closeLightboxBtn.addEventListener('click', closeLightbox);
+        }
+        if (mediaLightbox) {
+            mediaLightbox.addEventListener('click', (e) => {
+                if (e.target === mediaLightbox) closeLightbox();
+            });
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
         });
 
         // ===== HEADER SHADOW =====
@@ -1461,182 +1803,12 @@
             start: 'top -100', end: 99999,
             onToggle: (self) => {
                 const header = document.getElementById('header');
-                if (self.isActive) {
-                    header.classList.add('shadow-lg', 'shadow-cyan-500/10');
-                } else {
-                    header.classList.remove('shadow-lg', 'shadow-cyan-500/10');
-                }
-            }
-        });
-
-        // ===== BACKGROUND MUSIC =====
-        const audio = document.getElementById('bg-music');
-        const musicBtn = document.getElementById('music-btn');
-        const musicIcon = musicBtn.querySelector('i');
-        
-        musicBtn.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play().then(() => {
-                    musicIcon.className = 'bx bx-volume-full';
-                    musicBtn.classList.add('animate-pulse');
-                }).catch(err => {
-                    console.log("Audio play blocked by browser:", err);
-                });
-            } else {
-                audio.pause();
-                musicIcon.className = 'bx bx-music';
-                musicBtn.classList.remove('animate-pulse');
-            }
-        });
-
-        // ===== INTERACTIVE ORBIT TOOLTIPS =====
-        document.querySelectorAll('[data-tech]').forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const tooltip = item.querySelector('.tech-tooltip');
-                const wasActive = tooltip.classList.contains('show-tooltip');
-                
-                // Hide all tooltips first
-                document.querySelectorAll('.tech-tooltip').forEach(t => {
-                    t.classList.remove('show-tooltip');
-                });
-                
-                // Toggle current tooltip
-                if (!wasActive) {
-                    tooltip.classList.add('show-tooltip');
-                }
-            });
-        });
-        // Close tooltips when clicking outside
-        document.addEventListener('click', () => {
-            document.querySelectorAll('.tech-tooltip').forEach(t => {
-                t.classList.remove('show-tooltip');
-            });
-        });
-
-            </script>
-    <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" loop></audio>
-
-    <script>
-    // ===== PDF.js Certificate Preview Renderer =====
-    (function() {
-        // Set PDF.js worker
-        if (typeof pdfjsLib !== 'undefined') {
-            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-        }
-
-        const certCanvases = [
-            { id: 'cert-canvas-1', pdf: 'certificate images/Internship letter - MDSadique Amin.pdf' },
-            { id: 'cert-canvas-2', pdf: 'certificate images/Md Sadique Amin offer latter.pdf' },
-            { id: 'cert-canvas-3', pdf: 'certificate images/Md Sadique Amin.pdf' },
-            { id: 'cert-canvas-4', pdf: 'certificate images/internship certificate.pdf' },
-            { id: 'cert-canvas-5', pdf: 'certificate images/SADIQUE AMIN.pdf Certificate  new intanship.pdf' },
-        ];
-
-        function renderPDF(canvasId, pdfPath) {
-            const canvas = document.getElementById(canvasId);
-            if (!canvas || typeof pdfjsLib === 'undefined') return;
-
-            pdfjsLib.getDocument(pdfPath).promise.then(function(pdf) {
-                return pdf.getPage(1);
-            }).then(function(page) {
-                const container = canvas.parentElement;
-                const containerWidth = container.offsetWidth || 280;
-
-                // Get original page dimensions at scale=1
-                const viewport1 = page.getViewport({ scale: 1 });
-
-                // Calculate scale so the full page width fits the container
-                const scale = containerWidth / viewport1.width;
-                const viewport = page.getViewport({ scale: scale });
-
-                canvas.width  = viewport.width;
-                canvas.height = viewport.height;
-
-                // Apply CSS to constrain height to card area and show top of cert
-                canvas.style.width  = containerWidth + 'px';
-                canvas.style.height = 'auto';
-
-                const ctx = canvas.getContext('2d');
-                page.render({ canvasContext: ctx, viewport: viewport }).promise.then(function() {
-                    console.log(canvasId + ' rendered successfully');
-                });
-            }).catch(function(err) {
-                console.warn('PDF.js error for ' + pdfPath + ':', err);
-                // Fallback: show a placeholder
-                const container = canvas.parentElement;
-                container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#22d3ee;font-size:0.8rem;padding:12px;text-align:center;"><i class="bx bx-file" style="font-size:2rem;margin-bottom:6px;display:block;"></i>Certificate Preview</div>';
-            });
-        }
-
-        // Use IntersectionObserver to lazy-render only when visible
-        function initCertRenderers() {
-            if (typeof pdfjsLib === 'undefined') {
-                console.warn('PDF.js not loaded');
-                return;
-            }
-            if ('IntersectionObserver' in window) {
-                const observer = new IntersectionObserver(function(entries) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            const canvas = entry.target;
-                            const pdfPath = canvas.getAttribute('data-pdf');
-                            if (pdfPath) {
-                                renderPDF(canvas.id, pdfPath);
-                                observer.unobserve(canvas);
-                            }
-                        }
-                    });
-                }, { rootMargin: '100px' });
-
-                certCanvases.forEach(function(cert) {
-                    const canvas = document.getElementById(cert.id);
-                    if (canvas) {
-                        canvas.setAttribute('data-pdf', cert.pdf);
-                        observer.observe(canvas);
+                if (header) {
+                    if (self.isActive) {
+                        header.classList.add('shadow-lg', 'shadow-cyan-500/10');
+                    } else {
+                        header.classList.remove('shadow-lg', 'shadow-cyan-500/10');
                     }
-                });
-            } else {
-                // Fallback: render all immediately
-                certCanvases.forEach(function(cert) {
-                    renderPDF(cert.id, cert.pdf);
-                });
-            }
-        }
-
-        // Wait for PDF.js to be ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initCertRenderers);
-        } else {
-            initCertRenderers();
-        }
-    })();
-    
-        // ===== MOBILE MENU TOGGLE =====
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileCloseBtn = document.getElementById('mobile-close-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        if (menuToggle && mobileMenu) {
-            menuToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                mobileMenu.classList.add('open');
-            });
-        }
-        if (mobileCloseBtn && mobileMenu) {
-            mobileCloseBtn.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-            });
-        }
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (mobileMenu) mobileMenu.classList.remove('open');
-            });
-        });
-        document.addEventListener('click', (e) => {
-            if (mobileMenu && mobileMenu.classList.contains('open')) {
-                if (!mobileMenu.contains(e.target) && menuToggle && !menuToggle.contains(e.target)) {
-                    mobileMenu.classList.remove('open');
                 }
             }
         });
