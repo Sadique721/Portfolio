@@ -579,11 +579,81 @@
         .project-card__placeholder span { font-size: 0.72rem; opacity: 0.5; font-family: monospace; }
 
         /* =====================================================
-           MOBILE GLOBAL FIXES
+           MOBILE GLOBAL FIXES — COMPLETE SPACING OVERHAUL
            ===================================================== */
+
+        /* ── Hero section: clear fixed header on ALL screen sizes ── */
+        #home {
+            padding-top: 80px !important;
+        }
+        @media (min-width: 768px) {
+            #home { padding-top: 96px !important; }
+        }
+
+        /* ── On mobile: hide orbit icons that overlap text ── */
+        @media (max-width: 767px) {
+            /* Hide the spinning orbit rings & floating tech icons */
+            .home-img .absolute:not(.relative) {
+                display: none !important;
+            }
+            /* Keep only the actual profile photo frame visible */
+            .home-img { margin-top: 2rem !important; margin-bottom: 1rem !important; }
+
+            /* Role badges: wrap nicely, don't overflow */
+            .home-content .flex.flex-wrap.gap-3 {
+                gap: 0.5rem !important;
+            }
+            .home-content .flex.flex-wrap.gap-3 > div {
+                padding: 6px 12px !important;
+                font-size: 0.7rem !important;
+            }
+
+            /* Hero name size on mobile */
+            #home h1 { font-size: clamp(2.2rem, 9vw, 3rem) !important; margin-bottom: 0.75rem !important; }
+            /* Typed text height */
+            #home .h-16 { height: 3.5rem !important; }
+            #home .text-2xl { font-size: clamp(1.1rem, 5vw, 1.5rem) !important; }
+
+            /* Hero paragraph */
+            #home p.text-lg { font-size: 0.9rem !important; margin-bottom: 1.5rem !important; }
+
+            /* CTA buttons: full width on mobile */
+            #home .flex.flex-col.sm\\:flex-row { gap: 0.75rem !important; }
+            #home a.magnetic-btn { text-align: center !important; justify-content: center !important; padding: 12px 20px !important; }
+
+            /* Stats grid */
+            #home .grid.grid-cols-2 { gap: 0.5rem !important; margin-bottom: 1.5rem !important; }
+            #home .grid.grid-cols-2 > div { padding: 0.75rem !important; }
+        }
+
+        /* ── Section spacing — each section gets proper top/bottom padding ── */
+        @media (max-width: 767px) {
+            /* About section */
+            #about { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+            /* Skills section */
+            #skills { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+            /* Experience section */
+            #experience { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+            /* Projects section */
+            #projects { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+            /* AI Projects section */
+            #ai-projects { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+            /* Certifications */
+            #certifications { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+            /* Contact section */
+            #contact { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+
+            /* Section titles — proper size and spacing */
+            .section-title {
+                font-size: clamp(1.6rem, 7vw, 2.2rem) !important;
+                margin-bottom: 2rem !important;
+            }
+        }
+
+        /* ── General mobile layout ── */
         @media (max-width: 639px) {
             section { padding-left: 1rem !important; padding-right: 1rem !important; }
-            .container { padding: 0 !important; }
+            .container { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
             .neon-card { padding: 1rem !important; }
             .bento-card { padding: 1rem !important; }
             /* Skills bento — single column on xs */
@@ -591,10 +661,19 @@
             /* Cert cards stack */
             .cert-wrap-left, .cert-wrap-right { width: 100% !important; padding: 0 !important; margin-top: 1rem; }
             .cert-card { max-width: 100% !important; }
+
+            /* Project card mobile */
+            .project-card { flex-direction: column !important; }
+            .project-card__image-wrap { width: 100% !important; height: 200px !important; }
+            .project-card__body { width: 100% !important; padding: 1rem !important; }
         }
         @media (max-width: 479px) {
             body { font-size: 15px; }
             h1,h2 { line-height: 1.2; }
+
+            /* Even smaller screens: tighten more */
+            #home { padding-top: 72px !important; }
+            .project-card__image-wrap { height: 160px !important; }
         }
 
         /* ===== PROJECT FILTER BUTTONS ===== */
@@ -697,7 +776,7 @@
 
     <main>
         <!-- HERO -->
-        <section id="home" class="min-h-screen flex items-center px-4 sm:px-8 md:px-16 lg:px-24 pt-24 md:pt-0 relative overflow-hidden">
+        <section id="home" class="min-h-screen flex items-center px-4 sm:px-8 md:px-16 lg:px-24 relative overflow-hidden">
             <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
                 <div class="home-content md:w-3/5 text-center md:text-left reveal">
                     <div class="flex flex-wrap gap-3 mb-6 justify-center md:justify-start">
