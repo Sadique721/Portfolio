@@ -209,32 +209,393 @@
         @media (min-width: 768px) { .cert-wrap-left { padding-right: 3rem; } .cert-wrap-right { padding-left: 3rem; } }
         @media (max-width: 767px) { .cert-card { max-width: 100% !important; } .cert-iframe-wrap { height: 180px; } .cert-wrap-left, .cert-wrap-right { padding: 0 !important; margin-top: 1rem; width: 100% !important; } }
 
-        /* ===== PROJECT CARDS — single-column, image-top layout ===== */
-        .project-card { display: flex; flex-direction: column; background: rgba(15,23,42,0.9); border: 1px solid rgba(30,41,59,0.85); border-radius: 1rem; overflow: hidden; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
-        .project-card:hover { transform: translateY(-4px); border-color: rgba(34,211,238,0.55); box-shadow: 0 20px 40px -15px rgba(34,211,238,0.25); }
-        .project-card__image-wrap { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #060d1a; border-bottom: 1px solid rgba(30,41,59,0.85); flex-shrink: 0; }
-        .project-card__image { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform 0.5s ease; }
-        .project-card:hover .project-card__image { transform: scale(1.04); }
-        /* Spotlight horizontal layout — image fills full height of card row */
-        @media (min-width: 1024px) {
-            .project-card.flex-row > .project-card__image-wrap,
-            .project-card > .project-card__image-wrap[class*='lg:w-'] {
+
+
+
+        /* =====================================================
+           PROJECT CARDS — CINEMATIC 2025 EDITION
+           Mobile-first, full-bleed images, premium hover FX
+           ===================================================== */
+
+        /* ── Grid container ── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1280px) {
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* ── Card base ── */
+        .project-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: rgba(10, 18, 38, 0.85);
+            border: 1px solid rgba(34, 211, 238, 0.12);
+            border-radius: 1.25rem;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+            transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+                        box-shadow 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+                        border-color 0.4s ease;
+            will-change: transform;
+        }
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(34,211,238,0.04) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .project-card:hover::before { opacity: 1; }
+        .project-card:hover {
+            transform: translateY(-6px) scale(1.012);
+            border-color: rgba(34, 211, 238, 0.45);
+            box-shadow: 0 24px 60px -10px rgba(34, 211, 238, 0.22),
+                        0 0 0 1px rgba(34,211,238,0.15);
+        }
+
+        /* ── Featured / Spotlight card (col-span-2 on md+) ── */
+        .project-card--featured {
+            flex-direction: column;
+        }
+        @media (min-width: 768px) {
+            .project-card--featured {
+                grid-column: span 2;
+                flex-direction: row;
+            }
+            .project-card--featured .project-card__image-wrap {
+                width: 58%;
                 aspect-ratio: unset;
-                min-height: 340px;
-                height: auto;
-                align-self: stretch;
+                min-height: 360px;
+                flex-shrink: 0;
                 border-bottom: none;
-                border-right: 1px solid rgba(30,41,59,0.85);
+                border-right: 1px solid rgba(34,211,238,0.12);
+            }
+            .project-card--featured .project-card__body {
+                flex: 1;
             }
         }
-        .project-card__placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg,#0a192f 0%,#0d2044 40%,#0f1a3a 100%); color: #22d3ee; gap: 0.5rem; padding: 1.5rem; text-align: center; }
+
+        /* ── Image container ── */
+        .project-card__image-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #050d1e;
+            flex-shrink: 0;
+        }
+
+        /* ── Cinematic image overlay on hover ── */
+        .project-card__image-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                transparent 40%,
+                rgba(5,13,30,0.7) 100%
+            );
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            opacity: 0.6;
+        }
+        .project-card:hover .project-card__image-wrap::after { opacity: 0.3; }
+
+        /* ── Image ── */
+        .project-card__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .project-card:hover .project-card__image { transform: scale(1.06); }
+
+        /* ── Live badge on image ── */
+        .project-card__badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 10px;
+            border-radius: 99px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .project-card__badge--live {
+            background: rgba(16,185,129,0.2);
+            border: 1px solid rgba(16,185,129,0.5);
+            color: #10b981;
+        }
+        .project-card__badge--live::before {
+            content: '';
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 6px #10b981;
+            animation: pulse-dot 1.8s infinite;
+        }
+        .project-card__badge--wip {
+            background: rgba(234,179,8,0.15);
+            border: 1px solid rgba(234,179,8,0.4);
+            color: #eab308;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        /* ── Body ── */
+        .project-card__body {
+            position: relative;
+            z-index: 1;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 0.75rem;
+        }
+        @media (max-width: 479px) { .project-card__body { padding: 1.1rem; } }
+
+        /* ── Title ── */
+        .project-card__title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #e2e8f0;
+            line-height: 1.35;
+            transition: color 0.3s;
+        }
+        @media (min-width: 640px) { .project-card__title { font-size: 1.3rem; } }
+        .project-card:hover .project-card__title { color: #22d3ee; }
+
+        /* ── Category tag ── */
+        .project-card__category {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 10px;
+            border-radius: 99px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── Description ── */
+        .project-card__desc {
+            font-size: 0.85rem;
+            line-height: 1.65;
+            color: #94a3b8;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        @media (min-width: 768px) { .project-card__desc { font-size: 0.9rem; } }
+
+        /* ── Tech pills ── */
+        .project-card__pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: auto;
+            padding-top: 0.5rem;
+        }
+        .project-card__pill {
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: rgba(15,23,42,0.9);
+            border: 1px solid rgba(51,65,85,0.7);
+            color: #67e8f9;
+            transition: all 0.25s ease;
+        }
+        .project-card__pill:hover {
+            border-color: rgba(34,211,238,0.5);
+            background: rgba(34,211,238,0.1);
+        }
+
+        /* ── Action buttons ── */
+        .project-card__actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(30,41,59,0.7);
+            margin-top: 0.5rem;
+        }
+        .project-card__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        @media (max-width: 360px) {
+            .project-card__btn { padding: 6px 10px; font-size: 0.72rem; }
+        }
+        .project-card__btn--primary {
+            background: rgba(34,211,238,0.15);
+            border: 1px solid rgba(34,211,238,0.4);
+            color: #22d3ee;
+        }
+        .project-card__btn--primary:hover {
+            background: rgba(34,211,238,0.28);
+            border-color: #22d3ee;
+            box-shadow: 0 0 16px rgba(34,211,238,0.3);
+            transform: translateY(-1px);
+        }
+        .project-card__btn--secondary {
+            background: rgba(30,41,59,0.6);
+            border: 1px solid rgba(51,65,85,0.7);
+            color: #94a3b8;
+        }
+        .project-card__btn--secondary:hover {
+            background: rgba(51,65,85,0.8);
+            color: #e2e8f0;
+            transform: translateY(-1px);
+        }
+
+        /* ── Section title underline ── */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #22d3ee, #8b5cf6);
+            border-radius: 2px;
+            margin: 0.6rem auto 0;
+        }
+
+        /* ── Filter buttons — mobile ── */
+        .filter-scroll-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding-bottom: 4px;
+        }
+        .filter-scroll-wrap::-webkit-scrollbar { display: none; }
+        .filter-btn-group {
+            display: inline-flex;
+            gap: 8px;
+            min-width: max-content;
+        }
+        .project-filter {
+            padding: 7px 18px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        @media (max-width: 479px) {
+            .project-filter { padding: 6px 14px; font-size: 0.75rem; }
+        }
+
+        /* ── AI Projects section same grid ── */
+        .ai-projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 640px) {
+            .ai-projects-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .ai-projects-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* ── Mobile nav / header improvements ── */
+        @media (max-width: 767px) {
+            #header nav a { font-size: 0.85rem; }
+            .hero-name { font-size: clamp(2rem, 8vw, 3.5rem) !important; }
+            .hero-subtitle { font-size: clamp(1rem, 4vw, 1.5rem) !important; }
+            .section-title { font-size: clamp(1.6rem, 6vw, 2.5rem) !important; }
+        }
+
+        /* ── Scroll-triggered reveal ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.23,1,0.32,1), transform 0.7s cubic-bezier(0.23,1,0.32,1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal[data-delay="0.1"] { transition-delay: 0.1s; }
+        .reveal[data-delay="0.2"] { transition-delay: 0.2s; }
+        .reveal[data-delay="0.3"] { transition-delay: 0.3s; }
+        .reveal[data-delay="0.4"] { transition-delay: 0.4s; }
+        .reveal[data-delay="0.5"] { transition-delay: 0.5s; }
+        .reveal[data-delay="0.6"] { transition-delay: 0.6s; }
+
+        /* ── Magnetic glow on card hover ── */
+        .project-card .magnetic-glow {
+            position: absolute;
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(34,211,238,0.15) 0%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%,-50%);
+            transition: opacity 0.3s;
+            opacity: 0;
+            z-index: 0;
+        }
+        .project-card:hover .magnetic-glow { opacity: 1; }
+
+        /* ── Project placeholder (fallback when no image) ── */
+        .project-card__placeholder {
+            width: 100%; height: 100%;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #050d1e 0%, #0d2044 50%, #0a1a3a 100%);
+            color: #22d3ee; gap: 0.75rem; padding: 1.5rem; text-align: center;
+        }
         .project-card__placeholder i { font-size: 2.5rem; opacity: 0.7; }
-        .project-card__placeholder span { font-size: 0.75rem; opacity: 0.6; font-family: monospace; word-break: break-all; }
-        .project-card__body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
-        .project-card__body > .space-y-3 { flex: 1; }
-        .project-card__body > .space-y-4 { flex: 1; }
-        .project-card__footer { margin-top: auto; padding-top: 0.75rem; border-top: 1px solid rgba(30,41,59,0.8); }
-        @media (max-width: 767px) { .project-card__body { padding: 1rem; } }
+        .project-card__placeholder span { font-size: 0.72rem; opacity: 0.5; font-family: monospace; }
+
+        /* =====================================================
+           MOBILE GLOBAL FIXES
+           ===================================================== */
+        @media (max-width: 639px) {
+            section { padding-left: 1rem !important; padding-right: 1rem !important; }
+            .container { padding: 0 !important; }
+            .neon-card { padding: 1rem !important; }
+            .bento-card { padding: 1rem !important; }
+            /* Skills bento — single column on xs */
+            .bento-grid { grid-template-columns: 1fr !important; }
+            /* Cert cards stack */
+            .cert-wrap-left, .cert-wrap-right { width: 100% !important; padding: 0 !important; margin-top: 1rem; }
+            .cert-card { max-width: 100% !important; }
+        }
+        @media (max-width: 479px) {
+            body { font-size: 15px; }
+            h1,h2 { line-height: 1.2; }
+        }
 
         /* ===== PROJECT FILTER BUTTONS ===== */
         @media (max-width: 639px) {
@@ -934,7 +1295,7 @@
                     <!-- Recipe Finder Pro -->
                     <div class="project-card project-item web col-span-1 md:col-span-2 flex flex-col lg:flex-row reveal" data-delay="0.1">
                         <div class="project-card__image-wrap lg:w-3/5">
-                            <img src="assets/images/recipe_finder_pro.webp" alt="Recipe Finder Pro" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/recipe_finder_pro.webp', 'Recipe Finder Pro', 'https://recipe-finder-pro.vercel.app', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/recipe-finder-pro-', '<i class=\'bx bxl-github\'></i> View Repository')">
+                            <img src="assets/images/recipe_finder_pro.jpg" alt="Recipe Finder Pro" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/recipe_finder_pro.jpg', 'Recipe Finder Pro', 'https://recipe-finder-pro.vercel.app', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/recipe-finder-pro-', '<i class=\'bx bxl-github\'></i> View Repository')">
                         </div>
                         <div class="project-card__body lg:w-2/5 flex flex-col justify-between p-6 sm:p-8">
                             <div class="space-y-4">
@@ -962,7 +1323,7 @@
                     <!-- Interactive Digital Clock -->
                     <div class="project-card project-item web col-span-1 md:col-span-2 flex flex-col lg:flex-row reveal" data-delay="0.2">
                         <div class="project-card__image-wrap lg:w-3/5">
-                            <img src="assets/images/digital_clock.webp" alt="Interactive Digital Clock" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/digital_clock.webp', 'Interactive Digital Clock', 'https://interactive-digital-clock.vercel.app', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/Interactive-Digital-Clock', '<i class=\'bx bxl-github\'></i> View Repository')">
+                            <img src="assets/images/digital_clock.jpg" alt="Interactive Digital Clock" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/digital_clock.jpg', 'Interactive Digital Clock', 'https://interactive-digital-clock.vercel.app', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/Interactive-Digital-Clock', '<i class=\'bx bxl-github\'></i> View Repository')">
                         </div>
                         <div class="project-card__body lg:w-2/5 flex flex-col justify-between p-6 sm:p-8">
                             <div class="space-y-4">
@@ -990,7 +1351,7 @@
                     <!-- MSA Cricket Informer -->
                     <div class="project-card project-item web col-span-1 md:col-span-2 flex flex-col lg:flex-row reveal" data-delay="0.3">
                         <div class="project-card__image-wrap lg:w-3/5">
-                            <img src="assets/images/cricket_informer.webp" alt="MSA Cricket Informer" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/cricket_informer.webp', 'MSA Cricket Informer', 'https://whimsical-duckanoo-1363ca.netlify.app/', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/MSA-Sport-Informer', '<i class=\'bx bxl-github\'></i> View Repository')">
+                            <img src="assets/images/cricket_informer.jpg" alt="MSA Cricket Informer" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/cricket_informer.jpg', 'MSA Cricket Informer', 'https://whimsical-duckanoo-1363ca.netlify.app/', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/MSA-Sport-Informer', '<i class=\'bx bxl-github\'></i> View Repository')">
                         </div>
                         <div class="project-card__body lg:w-2/5 flex flex-col justify-between p-6 sm:p-8">
                             <div class="space-y-4">
@@ -1018,7 +1379,7 @@
                     <!-- Shabnam Enterprises -->
                     <div class="project-card project-item web col-span-1 md:col-span-2 flex flex-col lg:flex-row reveal" data-delay="0.1">
                         <div class="project-card__image-wrap lg:w-3/5">
-                            <img src="assets/images/shabnam_enterprises.webp" alt="Shabnam Enterprises" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/shabnam_enterprises.webp', 'Shabnam Enterprises', 'https://shabnam-enterprises-seven.vercel.app/', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/Shabnam-Enterprises', '<i class=\'bx bxl-github\'></i> View Repository')">
+                            <img src="assets/images/shabnam_enterprises.jpg" alt="Shabnam Enterprises" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/shabnam_enterprises.jpg', 'Shabnam Enterprises', 'https://shabnam-enterprises-seven.vercel.app/', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/Shabnam-Enterprises', '<i class=\'bx bxl-github\'></i> View Repository')">
                         </div>
                         <div class="project-card__body lg:w-2/5 flex flex-col justify-between p-6 sm:p-8">
                             <div class="space-y-4">
@@ -1046,7 +1407,7 @@
                     <!-- CodeSnippet Hub & Sandbox -->
                     <div class="project-card project-item web col-span-1 md:col-span-2 flex flex-col lg:flex-row reveal" data-delay="0.2">
                         <div class="project-card__image-wrap lg:w-3/5">
-                            <img src="assets/images/codesnippet_hub.webp" alt="CodeSnippet Hub & Sandbox" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/codesnippet_hub.webp', 'CodeSnippet Hub & Sandbox', 'https://code-snippet-hub.vercel.app', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721', '<i class=\'bx bxl-github\'></i> Private Repository')">
+                            <img src="assets/images/codesnippet_hub.jpg" alt="CodeSnippet Hub & Sandbox" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/codesnippet_hub.jpg', 'CodeSnippet Hub & Sandbox', 'https://code-snippet-hub.vercel.app', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721', '<i class=\'bx bxl-github\'></i> Private Repository')">
                         </div>
                         <div class="project-card__body lg:w-2/5 flex flex-col justify-between p-6 sm:p-8">
                             <div class="space-y-4">
@@ -1074,7 +1435,7 @@
                     <!-- Futuristic 3D Portfolio -->
                     <div class="project-card project-item web col-span-1 md:col-span-2 flex flex-col lg:flex-row reveal" data-delay="0.3">
                         <div class="project-card__image-wrap lg:w-3/5">
-                            <img src="assets/images/portfolio_site.webp" alt="Futuristic 3D Portfolio" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/portfolio_site.webp', 'Futuristic 3D Portfolio', 'https://myportfoliositesadique.netlify.app/', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/Portfolio', '<i class=\'bx bxl-github\'></i> View Repository')">
+                            <img src="assets/images/portfolio_site.jpg" alt="Futuristic 3D Portfolio" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/portfolio_site.jpg', 'Futuristic 3D Portfolio', 'https://myportfoliositesadique.netlify.app/', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/Portfolio', '<i class=\'bx bxl-github\'></i> View Repository')">
                         </div>
                         <div class="project-card__body lg:w-2/5 flex flex-col justify-between p-6 sm:p-8">
                             <div class="space-y-4">
@@ -1102,7 +1463,7 @@
                     <!-- Amin Web Sandbox -->
                     <div class="project-card project-item web col-span-1 md:col-span-2 flex flex-col lg:flex-row reveal" data-delay="0.1">
                         <div class="project-card__image-wrap lg:w-3/5">
-                            <img src="assets/images/amin_sandbox.webp" alt="Amin Web Sandbox" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/amin_sandbox.webp', 'Amin Web Sandbox', 'https://temp-sanab.vercel.app/', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/amin', '<i class=\'bx bxl-github\'></i> View Repository')">
+                            <img src="assets/images/portfolio_site.jpg" alt="Amin Web Sandbox" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/portfolio_site.jpg', 'Amin Web Sandbox', 'https://temp-sanab.vercel.app/', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/amin', '<i class=\'bx bxl-github\'></i> View Repository')">
                         </div>
                         <div class="project-card__body lg:w-2/5 flex flex-col justify-between p-6 sm:p-8">
                             <div class="space-y-4">
@@ -1130,7 +1491,7 @@
                     <!-- Ethical Hacking Portal -->
                     <div class="project-card project-item web col-span-1 reveal" data-delay="0.2">
                         <div class="project-card__image-wrap">
-                            <img src="assets/images/ethical_hacking_portal.webp" alt="Ethical Hacking Portal" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/ethical_hacking_portal.webp', 'Ethical Hacking Portal', 'https://ethical-hacking-portal.onrender.com', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/ethical-hacking-portal', '<i class=\'bx bxl-github\'></i> View Repository')">
+                            <img src="assets/images/ethical_hacking_portal.jpg" alt="Ethical Hacking Portal" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/ethical_hacking_portal.jpg', 'Ethical Hacking Portal', 'https://ethical-hacking-portal.onrender.com', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/ethical-hacking-portal', '<i class=\'bx bxl-github\'></i> View Repository')">
                         </div>
                         <div class="project-card__body">
                             <div class="space-y-3">
@@ -1158,7 +1519,7 @@
                     <!-- Entitykart E-commerce -->
                     <div class="project-card project-item web col-span-1 reveal" data-delay="0.3">
                         <div class="project-card__image-wrap">
-                            <img src="assets/images/entitykart.webp" alt="Entitykart E-commerce" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/entitykart.webp', 'Entitykart E-commerce', 'https://entitykart.onrender.com', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/Entitykart', '<i class=\'bx bxl-github\'></i> View Repository')">
+                            <img src="assets/images/entitykart.jpg" alt="Entitykart E-commerce" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/entitykart.jpg', 'Entitykart E-commerce', 'https://entitykart.onrender.com', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/Entitykart', '<i class=\'bx bxl-github\'></i> View Repository')">
                         </div>
                         <div class="project-card__body">
                             <div class="space-y-3">
@@ -1186,7 +1547,7 @@
                     <!-- Entitykart Microservices -->
                     <div class="project-card project-item web col-span-1 reveal" data-delay="0.1">
                         <div class="project-card__image-wrap">
-                            <img src="assets/images/entitykart_microservices.webp" alt="Entitykart Microservices" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/entitykart_microservices.webp', 'Entitykart Microservices', 'https://entitykart-enterprise-ecommerce.onrender.com', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/entitykart-enterprise-ecommerce-microservices', '<i class=\'bx bxl-github\'></i> View Repository')">
+                            <img src="assets/images/entitykart_microservices.jpg" alt="Entitykart Microservices" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/entitykart_microservices.jpg', 'Entitykart Microservices', 'https://entitykart-enterprise-ecommerce.onrender.com', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/entitykart-enterprise-ecommerce-microservices', '<i class=\'bx bxl-github\'></i> View Repository')">
                         </div>
                         <div class="project-card__body">
                             <div class="space-y-3">
@@ -1214,7 +1575,7 @@
                     <!-- AgroTech Platform -->
                     <div class="project-card project-item ds col-span-1 reveal" data-delay="0.2">
                         <div class="project-card__image-wrap">
-                            <img src="assets/images/agrotech.webp" alt="AgroTech Platform" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/agrotech.webp', 'AgroTech Platform', 'https://agrotech-wqj3.onrender.com', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/Agrotech', '<i class=\'bx bxl-github\'></i> View Repository')">
+                            <img src="assets/images/agrotech.jpg" alt="AgroTech Platform" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/agrotech.jpg', 'AgroTech Platform', 'https://agrotech-wqj3.onrender.com', '<i class=\'bx bx-navigation\'></i> Visit Live Demo', 'https://github.com/Sadique721/Agrotech', '<i class=\'bx bxl-github\'></i> View Repository')">
                         </div>
                         <div class="project-card__body">
                             <div class="space-y-3">
@@ -1242,7 +1603,7 @@
                     <!-- Data Visualization Studio -->
                     <div class="project-card project-item ds col-span-1 reveal" data-delay="0.3">
                         <div class="project-card__image-wrap">
-                            <img src="assets/images/data_visualization.webp" alt="Data Visualization Studio" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/data_visualization.webp', 'Data Visualization Studio', '', '', 'https://github.com/Sadique721', '<i class=\'bx bxl-github\'></i> View Profile')">
+                            <img src="assets/images/data_visualization.jpg" alt="Data Visualization Studio" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/data_visualization.jpg', 'Data Visualization Studio', '', '', 'https://github.com/Sadique721', '<i class=\'bx bxl-github\'></i> View Profile')">
                         </div>
                         <div class="project-card__body">
                             <div class="space-y-3">
@@ -1270,7 +1631,7 @@
                     <!-- AI Resume Analyzer & ATS -->
                     <div class="project-card project-item ai col-span-1 reveal" data-delay="0.1">
                         <div class="project-card__image-wrap">
-                            <img src="assets/images/ai_resume_analyzer.webp" alt="AI Resume Analyzer & ATS" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/ai_resume_analyzer.webp', 'AI Resume Analyzer & ATS', '', '', 'https://github.com/Sadique721', '<i class=\'bx bxl-github\'></i> View Profile')">
+                            <img src="assets/images/ai_resume_analyzer.jpg" alt="AI Resume Analyzer & ATS" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/ai_resume_analyzer.jpg', 'AI Resume Analyzer & ATS', '', '', 'https://github.com/Sadique721', '<i class=\'bx bxl-github\'></i> View Profile')">
                         </div>
                         <div class="project-card__body">
                             <div class="space-y-3">
@@ -1298,7 +1659,7 @@
                     <!-- Smart Healthcare Predictor -->
                     <div class="project-card project-item ai col-span-1 reveal" data-delay="0.2">
                         <div class="project-card__image-wrap">
-                            <img src="assets/images/smart_healthcare.webp" alt="Smart Healthcare Predictor" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/smart_healthcare.webp', 'Smart Healthcare Predictor', '', '', 'https://github.com/Sadique721', '<i class=\'bx bxl-github\'></i> View Profile')">
+                            <img src="assets/images/smart_healthcare.jpg" alt="Smart Healthcare Predictor" loading="lazy" class="project-card__image cursor-pointer" onclick="openLightbox('assets/images/smart_healthcare.jpg', 'Smart Healthcare Predictor', '', '', 'https://github.com/Sadique721', '<i class=\'bx bxl-github\'></i> View Profile')">
                         </div>
                         <div class="project-card__body">
                             <div class="space-y-3">
@@ -1818,6 +2179,33 @@ Message: ${d.message}`;
                 }
             }
         });
+
+        // ===== MAGNETIC GLOW ON PROJECT CARDS =====
+        document.querySelectorAll('.project-card').forEach(card => {
+            const glow = document.createElement('div');
+            glow.className = 'magnetic-glow';
+            card.appendChild(glow);
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                glow.style.left = x + 'px';
+                glow.style.top  = y + 'px';
+            });
+        });
+
+        // ===== IMPROVED REVEAL OBSERVER =====
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+
         }); // end DOMContentLoaded
 </script>
 </body>
