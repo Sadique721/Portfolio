@@ -23,11 +23,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -260,6 +260,32 @@
             <span class="text-xs text-slate-500 mt-2">Tap anywhere to skip</span>
         </div>
     </div>
+    <!-- PRELOADER DISMISS — standalone, no CDN dependency -->
+    <script>
+        (function() {
+            var pl = document.getElementById('preloader');
+            if (!pl) return;
+            function hidePL() {
+                pl.style.transition = 'opacity 0.4s ease';
+                pl.style.opacity = '0';
+                pl.style.pointerEvents = 'none';
+                setTimeout(function() { if (pl) pl.style.display = 'none'; }, 420);
+            }
+            // Auto-dismiss after 1.2s regardless of CDN load status
+            var t = setTimeout(hidePL, 1200);
+            // Also dismiss immediately on any user interaction
+            function onInteract() {
+                clearTimeout(t);
+                hidePL();
+                document.removeEventListener('click', onInteract);
+                document.removeEventListener('keydown', onInteract);
+                document.removeEventListener('touchstart', onInteract);
+            }
+            document.addEventListener('click', onInteract);
+            document.addEventListener('keydown', onInteract);
+            document.addEventListener('touchstart', onInteract, { passive: true });
+        })();
+    </script>
     <div class="scroll-progress"></div>
     <canvas id="three-canvas"></canvas>
     <div class="custom-cursor"></div>
@@ -1398,8 +1424,8 @@
         </div>
     </footer>
 
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
         // ===== LENIS =====
         const lenis = new Lenis({
             duration: 1.2,
@@ -1434,26 +1460,6 @@
 
         // ===== REDUCED MOTION DETECTION =====
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        // ===== PRELOADER AUTOMATION =====
-        const preloader = document.getElementById('preloader');
-        function fadeOutPreloader() {
-            if (preloader) {
-                preloader.style.opacity = '0';
-                setTimeout(() => {
-                    preloader.style.display = 'none';
-                }, 500);
-            }
-        }
-        if (preloader) {
-            if (prefersReducedMotion) {
-                preloader.style.display = 'none';
-            } else {
-                const loaderTimeout = setTimeout(fadeOutPreloader, 800);
-                window.addEventListener('click', () => { clearTimeout(loaderTimeout); fadeOutPreloader(); }, { once: true });
-                window.addEventListener('keydown', () => { clearTimeout(loaderTimeout); fadeOutPreloader(); }, { once: true });
-            }
-        }
 
         // ===== PARALLAX EFFECT =====
         gsap.utils.toArray('.parallax-layer').forEach(layer => {
@@ -1812,6 +1818,7 @@ Message: ${d.message}`;
                 }
             }
         });
+        }); // end DOMContentLoaded
 </script>
 </body>
 </html>
