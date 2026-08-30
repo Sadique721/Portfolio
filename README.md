@@ -1,3 +1,39 @@
+<!-- ========== NEW: ANIMATED WAVE HEADER ========== -->
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:22d3ee,100:8b5cf6&height=200&section=header&text=Portfolio&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Md%20Sadique%20Amin%20-%20Developer%20Portfolio%20Website&descAlignY=60&descAlign=50" width="100%">
+</p>
+
+<!-- ========== NEW: TYPING ANIMATION INTRO ========== -->
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=500&color=22D3EE&center=true&vCenter=true&width=700&lines=Personal Portfolio Website;Modern UI%2FUX Design;HTML %2f CSS %2f JS;Interactive Web Showcase" alt="Typing SVG">
+</p>
+
+<!-- ========== NEW: AUTHOR & ARCHITECT SECTION ========== -->
+## 👨‍💻 Author & Architect
+
+<table>
+<tr>
+<td align="center" width="160">
+  <a href="https://github.com/Sadique721">
+    <img src="https://avatars.githubusercontent.com/Sadique721" width="110" style="border-radius:50%"><br>
+    <b>Md Sadique Amin</b><br>
+    <sub>Backend Java Developer</sub>
+  </a>
+</td>
+<td>
+
+**Md Sadique Amin** — Backend Java Developer.
+
+- 🔗 GitHub: [@Sadique721](https://github.com/Sadique721)
+- 📧 Email: mdsadiqueamin721786@gmail.com
+- 🏗️ Built: Enterprise BSS-OSS Telecom Suite, Backend Java Developer, IR Interconnect & Roaming
+
+</td>
+</tr>
+</table>
+
+---
+
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C853,100:1E90FF&height=200&section=header&text=Md%20Sadique%20Amin&fontSize=40&fontColor=ffffff"/>
 </p>
@@ -120,3 +156,9 @@ Since this is a lightweight frontend project, you can host or run it locally in 
 💼 Full Stack Developer | 🤖 AI Engineer | 📊 Data Scientist  
 
 ⭐ *If you find this portfolio inspiring, please star the repository!*
+
+
+<!-- ========== NEW: FOOTER WAVE ANIMATION ========== -->
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:22d3ee,100:8b5cf6&height=120&section=footer&width=100%">
+</p>
