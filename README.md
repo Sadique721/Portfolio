@@ -32,6 +32,19 @@
 </tr>
 </table>
 
+<!-- ========== NEW: SYSTEM DIAGRAM SECTION ========== -->
+## 📊 System Architecture & Workflow
+
+```mermaid
+graph LR
+    A[Visitor] --> B(Portfolio Web UI)
+    B --> C{Sections}
+    C --> D[About & Skills]
+    C --> E[Featured Projects]
+    C --> F[Contact Forms]
+    F --> G[Email/Social Links]
+```
+
 ---
 
 <p align="center">
